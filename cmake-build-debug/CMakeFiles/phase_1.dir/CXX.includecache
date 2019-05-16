@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/amir/Ap/Assignment 7/phase 1/Core.cpp
+Core.h
+/home/amir/Ap/Assignment 7/phase 1/Core.h
+
+/home/amir/Ap/Assignment 7/phase 1/Core.h
+Header.h
+/home/amir/Ap/Assignment 7/phase 1/Header.h
+User.h
+/home/amir/Ap/Assignment 7/phase 1/User.h
+Input_Handler.h
+/home/amir/Ap/Assignment 7/phase 1/Input_Handler.h
+
+/home/amir/Ap/Assignment 7/phase 1/Header.h
+iostream
+-
+vector
+-
+string
+-
+map
+-
+
+/home/amir/Ap/Assignment 7/phase 1/Input_Handler.h
+Header.h
+/home/amir/Ap/Assignment 7/phase 1/Header.h
+Core.h
+/home/amir/Ap/Assignment 7/phase 1/Core.h
+
+/home/amir/Ap/Assignment 7/phase 1/User.h
+Header.h
+/home/amir/Ap/Assignment 7/phase 1/Header.h
+
