@@ -1,2 +1,7 @@
-  POST   film  ?  name Noah    year   2014   Country   England   Company  Yosuf
-  PUT   film  ?  name salam    year   2016   Country   Italy   Company  Amir
+  POST   signup  ?  email matin.amirmahdi@gmail.com    username   amirmat98   password   M22536951   age  24 publisher   true
+
+  POST   signup  ?  email matin.amirmahdi@yahoo.com    username   sosoia   password   123456789   age  21
+
+  POST   signup  ?  email abc@yahoo.com    username   abcd   password   10   age  18
+  POST   login  ?  username sosoia       password   123456789   
+

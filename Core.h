@@ -3,6 +3,8 @@
 
 #include "Header.h"
 #include "User.h"
+#include "Publisher.h"
+#include "Customer.h"
 #include "Input_Handler.h"
 
 class Input_Handler;
@@ -15,6 +17,7 @@ public:
     Input_Handler* my_input_handler;
     std::vector<std::string> get_my_input_file();
     void main();
+    void handel();
     order_type right_now_order_type;
     void set_right_now_order_type(std::string);
     void set_right_now_order(std::string);
@@ -23,12 +26,19 @@ public:
     std::map< std::string , std::string > right_now_parameter;
 
 
+    void sign_up(std::map< std::string , std::string >);
+    void login(std::map< std::string , std::string >);
+
+
 
 
 private:
     std::vector<User*> my_users;
     std::vector<std::string> my_input_file;
+    User* add_user(std::string, std::string, std::string , int , bool is_publisher = false);
     user_type current_user ;
+    User* right_now_user;
+
 
 
 

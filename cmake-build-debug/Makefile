@@ -150,6 +150,60 @@ Core.cpp.s:
 	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Core.cpp.s
 .PHONY : Core.cpp.s
 
+Customer.o: Customer.cpp.o
+
+.PHONY : Customer.o
+
+# target to build an object file
+Customer.cpp.o:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Customer.cpp.o
+.PHONY : Customer.cpp.o
+
+Customer.i: Customer.cpp.i
+
+.PHONY : Customer.i
+
+# target to preprocess a source file
+Customer.cpp.i:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Customer.cpp.i
+.PHONY : Customer.cpp.i
+
+Customer.s: Customer.cpp.s
+
+.PHONY : Customer.s
+
+# target to generate assembly for a file
+Customer.cpp.s:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Customer.cpp.s
+.PHONY : Customer.cpp.s
+
+Film.o: Film.cpp.o
+
+.PHONY : Film.o
+
+# target to build an object file
+Film.cpp.o:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Film.cpp.o
+.PHONY : Film.cpp.o
+
+Film.i: Film.cpp.i
+
+.PHONY : Film.i
+
+# target to preprocess a source file
+Film.cpp.i:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Film.cpp.i
+.PHONY : Film.cpp.i
+
+Film.s: Film.cpp.s
+
+.PHONY : Film.s
+
+# target to generate assembly for a file
+Film.cpp.s:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Film.cpp.s
+.PHONY : Film.cpp.s
+
 Input_Handler.o: Input_Handler.cpp.o
 
 .PHONY : Input_Handler.o
@@ -270,6 +324,12 @@ help:
 	@echo "... Core.o"
 	@echo "... Core.i"
 	@echo "... Core.s"
+	@echo "... Customer.o"
+	@echo "... Customer.i"
+	@echo "... Customer.s"
+	@echo "... Film.o"
+	@echo "... Film.i"
+	@echo "... Film.s"
 	@echo "... Input_Handler.o"
 	@echo "... Input_Handler.i"
 	@echo "... Input_Handler.s"

@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/phase_1.dir/Input_Handler.cpp.o"
   "CMakeFiles/phase_1.dir/User.cpp.o"
   "CMakeFiles/phase_1.dir/Publisher.cpp.o"
+  "CMakeFiles/phase_1.dir/Customer.cpp.o"
+  "CMakeFiles/phase_1.dir/Film.cpp.o"
   "phase_1.pdb"
   "phase_1"
 )

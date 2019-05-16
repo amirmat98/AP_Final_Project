@@ -2,11 +2,12 @@
 #define PHASE_1_PUBLISHER_H
 
 #include "Header.h"
-#include "User.h"
+#include "Customer.h"
 
-class Publisher : public User
+class Publisher : public Customer
 {
-
+public:
+    Publisher(std::string , std::string , std::string , int);
 };
 
 

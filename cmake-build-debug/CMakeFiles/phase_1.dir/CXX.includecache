@@ -15,8 +15,18 @@ Header.h
 /home/amir/Ap/Assignment 7/phase 1/Header.h
 User.h
 /home/amir/Ap/Assignment 7/phase 1/User.h
+Publisher.h
+/home/amir/Ap/Assignment 7/phase 1/Publisher.h
+Customer.h
+/home/amir/Ap/Assignment 7/phase 1/Customer.h
 Input_Handler.h
 /home/amir/Ap/Assignment 7/phase 1/Input_Handler.h
+
+/home/amir/Ap/Assignment 7/phase 1/Customer.h
+Header.h
+/home/amir/Ap/Assignment 7/phase 1/Header.h
+User.h
+/home/amir/Ap/Assignment 7/phase 1/User.h
 
 /home/amir/Ap/Assignment 7/phase 1/Header.h
 iostream
@@ -28,13 +38,31 @@ string
 map
 -
 
+/home/amir/Ap/Assignment 7/phase 1/Input_Handler.cpp
+Input_Handler.h
+/home/amir/Ap/Assignment 7/phase 1/Input_Handler.h
+
 /home/amir/Ap/Assignment 7/phase 1/Input_Handler.h
 Header.h
 /home/amir/Ap/Assignment 7/phase 1/Header.h
 Core.h
 /home/amir/Ap/Assignment 7/phase 1/Core.h
 
+/home/amir/Ap/Assignment 7/phase 1/Publisher.h
+Header.h
+/home/amir/Ap/Assignment 7/phase 1/Header.h
+Customer.h
+/home/amir/Ap/Assignment 7/phase 1/Customer.h
+
 /home/amir/Ap/Assignment 7/phase 1/User.h
 Header.h
 /home/amir/Ap/Assignment 7/phase 1/Header.h
+
+/home/amir/Ap/Assignment 7/phase 1/main.cpp
+Header.h
+/home/amir/Ap/Assignment 7/phase 1/Header.h
+Core.h
+/home/amir/Ap/Assignment 7/phase 1/Core.h
+fstream
+-
 
