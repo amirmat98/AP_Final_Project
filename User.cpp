@@ -51,3 +51,79 @@ string User::get_password()
 {
     return password;
 }
+
+string User::get_email()
+{
+    return email;
+}
+
+int User::get_ID()
+{
+    return ID;
+}
+
+void User::add_in_my_films(Film* x)
+{
+    my_films.push_back(x);
+}
+
+void User::set_in_my_films(Film &x)
+{
+    for(int i = 0 ; i<my_films.size() ; i++)
+    {
+        if(my_films[i]->get_ID() == x.get_ID())
+        {
+            my_films[i] = &x;
+        }
+    }
+}
+
+void User::delete_in_my_films(int x)
+{
+    int i = 0;
+    for(i = 0 ; i<my_films.size() ; i++)
+    {
+        if(my_films[i]->get_ID() == x)
+            break;
+    }
+    my_films.erase(my_films.begin() + i);
+}
+
+vector<Film*> User::get_film()
+{
+    return my_films;
+}
+
+Film* User::pointer_of_my_film(int _ID)
+{
+    for (int i = 0 ; i<my_films.size() ; i++)
+    {
+        if(my_films[i]->get_ID() == _ID)
+            return my_films[i];
+    }
+}
+
+vector<User*> User::get_followers()
+{
+    return my_followers;
+}
+
+void User::print_followers()
+{
+    for(int i = 0 ; i<my_followers.size() ; i++)
+    {
+        cout<<"#";
+        cout<<".";
+        cout<<" ";
+        cout<<my_followers[i]->get_ID();
+        cout<<" ";
+        cout<<"|";
+        cout<<" ";
+        cout<<my_followers[i]->get_username();
+        cout<<" ";
+        cout<<"|";
+        cout<<" ";
+        cout<<my_followers[i]->get_email();
+        cout<<endl;
+    }
+}

@@ -4,8 +4,8 @@
 #include "Header.h"
 #include "User.h"
 #include "Publisher.h"
-#include "Customer.h"
 #include "Input_Handler.h"
+#include "Film.h"
 
 class Input_Handler;
 
@@ -28,12 +28,16 @@ public:
 
     void sign_up(std::map< std::string , std::string >);
     void login(std::map< std::string , std::string >);
-
+    void add_film(std::map< std::string , std::string >);
+    void modify_film(std::map< std::string , std::string >);
+    void delete_film(std::map< std::string , std::string >);
+    void get_followers();
 
 
 
 private:
     std::vector<User*> my_users;
+    std::vector<Film*> my_films;
     std::vector<std::string> my_input_file;
     User* add_user(std::string, std::string, std::string , int , bool is_publisher = false);
     user_type current_user ;

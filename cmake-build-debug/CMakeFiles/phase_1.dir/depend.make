@@ -3,37 +3,39 @@
 
 CMakeFiles/phase_1.dir/Core.cpp.o: ../Core.cpp
 CMakeFiles/phase_1.dir/Core.cpp.o: ../Core.h
-CMakeFiles/phase_1.dir/Core.cpp.o: ../Customer.h
+CMakeFiles/phase_1.dir/Core.cpp.o: ../Film.h
 CMakeFiles/phase_1.dir/Core.cpp.o: ../Header.h
 CMakeFiles/phase_1.dir/Core.cpp.o: ../Input_Handler.h
 CMakeFiles/phase_1.dir/Core.cpp.o: ../Publisher.h
 CMakeFiles/phase_1.dir/Core.cpp.o: ../User.h
 
 CMakeFiles/phase_1.dir/Customer.cpp.o: ../Customer.cpp
-CMakeFiles/phase_1.dir/Customer.cpp.o: ../Customer.h
-CMakeFiles/phase_1.dir/Customer.cpp.o: ../Header.h
-CMakeFiles/phase_1.dir/Customer.cpp.o: ../User.h
+
+CMakeFiles/phase_1.dir/Film.cpp.o: ../Film.cpp
+CMakeFiles/phase_1.dir/Film.cpp.o: ../Film.h
+CMakeFiles/phase_1.dir/Film.cpp.o: ../Header.h
 
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Core.h
-CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Customer.h
+CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Film.h
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Header.h
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Input_Handler.cpp
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Input_Handler.h
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Publisher.h
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../User.h
 
-CMakeFiles/phase_1.dir/Publisher.cpp.o: ../Customer.h
+CMakeFiles/phase_1.dir/Publisher.cpp.o: ../Film.h
 CMakeFiles/phase_1.dir/Publisher.cpp.o: ../Header.h
 CMakeFiles/phase_1.dir/Publisher.cpp.o: ../Publisher.cpp
 CMakeFiles/phase_1.dir/Publisher.cpp.o: ../Publisher.h
 CMakeFiles/phase_1.dir/Publisher.cpp.o: ../User.h
 
+CMakeFiles/phase_1.dir/User.cpp.o: ../Film.h
 CMakeFiles/phase_1.dir/User.cpp.o: ../Header.h
 CMakeFiles/phase_1.dir/User.cpp.o: ../User.cpp
 CMakeFiles/phase_1.dir/User.cpp.o: ../User.h
 
 CMakeFiles/phase_1.dir/main.cpp.o: ../Core.h
-CMakeFiles/phase_1.dir/main.cpp.o: ../Customer.h
+CMakeFiles/phase_1.dir/main.cpp.o: ../Film.h
 CMakeFiles/phase_1.dir/main.cpp.o: ../Header.h
 CMakeFiles/phase_1.dir/main.cpp.o: ../Input_Handler.h
 CMakeFiles/phase_1.dir/main.cpp.o: ../Publisher.h

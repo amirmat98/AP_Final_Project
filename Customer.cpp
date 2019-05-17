@@ -1,4 +1,4 @@
-#include "Customer.h"
+/*#include "Customer.h"
 
 using namespace std;
 
@@ -7,3 +7,4 @@ Customer::Customer(std::string _email, std::string _username, std::string _passw
 {
     cout<<"Customer"<<endl;
 }
+ */

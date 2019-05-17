@@ -31,6 +31,31 @@ void Core::handel()
         {
             login(right_now_parameter);
         }
+        if(right_now_order == "films")
+        {
+            add_film(right_now_parameter);
+        }
+    }
+    else if(right_now_order_type == PUT)
+    {
+        if(right_now_order == "films")
+        {
+            modify_film(right_now_parameter);
+        }
+    }
+    else if (right_now_order_type == DELETE)
+    {
+        if(right_now_order == "films")
+        {
+            delete_film(right_now_parameter);
+        }
+    }
+    else if (right_now_order_type == GET)
+    {
+        if(right_now_order == "followers")
+        {
+            get_followers();
+        }
     }
 }
 
@@ -123,16 +148,98 @@ void Core::login(std::map<std::string, std::string> _parameter)
     ///else : handle wrong password
 }
 
+void Core::add_film(std::map<std::string, std::string> _parameter)
+{
+    map<string,string>::iterator it;
+
+    it = _parameter.find("name");
+    string _name = it->second;
+
+    it = _parameter.find("year");
+    int _year = stoi(it->second);
+
+    it = _parameter.find("length");
+    int _length = stoi(it->second);
+
+    it = _parameter.find("price");
+    int _price = stoi(it->second);
+
+    it = _parameter.find("summery");
+    string _summery = it->second;
+
+    it = _parameter.find("director");
+    string _director = it->second;
+
+    Film* temp = new Film(_name , _year , _length , _price , _summery , _director);
+    temp->set_ID(my_films.size() + 1);
+    right_now_user->add_in_my_films(temp);
+    //Film* temper = right_now_user->pointer_of_my_film(temp.get_ID());
+    my_films.push_back(right_now_user->pointer_of_my_film(temp->get_ID()));
+
+
+}
+
+void Core::modify_film(std::map<std::string, std::string> _parameter)
+{
+    map<string,string>::iterator it;
+    it = _parameter.find("film_id");
+    Film* temp = right_now_user->pointer_of_my_film(stoi(it->second));
+
+    it = _parameter.find("name");
+    if(it != _parameter.end())
+        temp->set_name(it->second);
+
+    it = _parameter.find("year");
+    if(it != _parameter.end())
+        temp->set_year(stoi(it->second));
+
+    it = _parameter.find("length");
+    if(it != _parameter.end())
+        temp->set_length(stoi(it->second));
+
+    it = _parameter.find("summery");
+    if(it != _parameter.end())
+        temp->set_summery(it->second);
+
+    it = _parameter.find("director");
+    if(it != _parameter.end())
+        temp->set_director(it->second);
+
+    //right_now_user->set_in_my_films(temp);
+    //it = _parameter.find("film_id");
+    //my_films[stoi(it->second) - 1] = right_now_user->pointer_of_my_film(stoi(it->second));
+
+
+}
+
+void Core::delete_film(std::map<std::string, std::string> _parameter)
+{
+    map<string,string>::iterator it;
+    it = _parameter.find("film_id");
+
+    right_now_user->delete_in_my_films(stoi(it->second));
+    my_films.erase(my_films.begin() + stoi(it->second) - 1);
+
+}
+
 User* Core::add_user(std::string _email, std::string _username, std::string _password, int _age , bool is_publisher)
 {
     if (is_publisher)
     {
-        User* temp = (User * ) new Publisher(_email, _username, _password , _age);
-        temp->set_type(PUBLISHER);
+        User* temp = new Publisher(_email , _username , _password , _age);
+        temp ->set_type(PUBLISHER);
+        /*User* temp = (User * ) new Publisher(_email, _username, _password , _age);
+        temp->set_type(PUBLISHER);*/
     }
     else
     {
-        User* temp = (User * ) new Customer(_email, _username, _password , _age);
+        User* temp = new User(_email , _username , _password , _age);
         temp->set_type(CUSTOMER);
     }
 }
+
+void Core::get_followers()
+{
+    right_now_user->print_followers();
+}
+
