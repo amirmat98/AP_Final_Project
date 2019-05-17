@@ -56,6 +56,9 @@ void Core::handel()
         {
             get_followers();
         }
+        if(right_now_order == "published")
+        {
+        }
     }
 }
 
@@ -240,6 +243,47 @@ User* Core::add_user(std::string _email, std::string _username, std::string _pas
 
 void Core::get_followers()
 {
-    right_now_user->print_followers();
+    vector<User*> temp = right_now_user->sort_followers();
+    for(int i = 0 ; i<right_now_user->get_followers().size() ; i++)
+    {
+        cout<<i+1;
+        cout<<".";
+        cout<<" ";
+        temp[i]->print();
+        cout<<endl;
+    }
+}
+
+void Core::get_published_film(std::string _name, int _min_rate, int _min_year, int _price, int _max_year,
+                              std::string _director)
+{
+    vector<Film*> temp;
+    for(int i = 0 ; i<right_now_user->get_film().size() ; i++)
+    {
+        if(_name != "NULL" && right_now_user->get_film()[i]->get_name() != _name)
+            continue;
+        if(right_now_user->get_film()[i]->get_year() < _min_year)
+            continue;
+        if(right_now_user->get_film()[i]->get_rate() < _min_rate)
+            continue;
+        if(_price != -1 && right_now_user->get_film()[i]->get_price() != _price)
+            continue;
+        if(right_now_user->get_film()[i]->get_year() > _max_year)
+            continue;
+        if(_director != "NULL" && right_now_user->get_film()[i]->get_director() != _director)
+            continue;
+
+        temp.push_back(right_now_user->get_film()[i]);
+
+    }
+
+    for(int i = 0 ; i<temp.size() ; i++)
+    {
+        cout<<i+1;
+        cout<<".";
+        cout<<" ";
+        temp[i]->print_film();
+        cout<<endl;
+    }
 }
 

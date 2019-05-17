@@ -28,6 +28,21 @@ void Film::set_year(int x)
     year = x;
 }
 
+int Film::get_year()
+{
+    return year;
+}
+
+int Film::get_price()
+{
+    return price;
+}
+
+string Film::get_director()
+{
+    return director;
+}
+
 void Film::set_length(int x)
 {
     length = x;
@@ -56,4 +71,26 @@ int Film::get_ID()
 string Film::get_name()
 {
     return name;
+}
+
+float Film::get_rate()
+{
+    return rate;
+}
+
+void Film::print_film()
+{
+    cout<<ID;
+    cout<<" "<<"|"<<" ";
+    cout<<name;
+    cout<<" "<<"|"<<" ";
+    cout<<length;
+    cout<<" "<<"|"<<" ";
+    cout<<price;
+    cout<<" "<<"|"<<" ";
+    cout<<rate;
+    cout<<" "<<"|"<<" ";
+    cout<<year;
+    cout<<" "<<"|"<<" ";
+    cout<<director;
 }

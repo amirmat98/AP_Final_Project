@@ -37,8 +37,9 @@ public:
     virtual std::vector<Film*> get_film();
 
 
-    void print_followers();
+    void print();
     std::vector<User*> get_followers();
+    std::vector<User*> sort_followers();
 
 };
 

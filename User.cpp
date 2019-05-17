@@ -108,22 +108,31 @@ vector<User*> User::get_followers()
     return my_followers;
 }
 
-void User::print_followers()
+void User::print()
 {
+        cout<<ID;
+        cout<<" ";
+        cout<<"|";
+        cout<<" ";
+        cout<<username;
+        cout<<" ";
+        cout<<"|";
+        cout<<" ";
+        cout<<email;
+}
+
+vector<User*> User::sort_followers()
+{
+    vector<User*> temp;
     for(int i = 0 ; i<my_followers.size() ; i++)
     {
-        cout<<"#";
-        cout<<".";
-        cout<<" ";
-        cout<<my_followers[i]->get_ID();
-        cout<<" ";
-        cout<<"|";
-        cout<<" ";
-        cout<<my_followers[i]->get_username();
-        cout<<" ";
-        cout<<"|";
-        cout<<" ";
-        cout<<my_followers[i]->get_email();
-        cout<<endl;
+        User* temper = my_followers[i];
+        for(int j=0 ; j<my_followers.size(); j++)
+        {
+            if(temper->get_ID()>my_followers[j]->get_ID())
+                temper = my_followers[j];
+        }
+        temp.push_back(temper);
     }
+    return temp;
 }

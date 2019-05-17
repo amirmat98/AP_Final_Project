@@ -9,6 +9,7 @@ private:
     int year;
     int length;
     int price;
+    float rate;
     std::string summery;
     std::string director;
     int ID;
@@ -17,13 +18,18 @@ public:
     Film(std::string _name , int _year , int _length , int _price , std::string _summery , std::string _director);
     void set_ID(int x);
     int get_ID();
+    float get_rate();
     void set_name(std::string);
     std::string get_name();
     void set_year(int);
+    int get_year();
+    int get_price();
+    std::string get_director();
     void set_length(int);
     void set_price(int);
     void set_summery(std::string);
     void set_director(std::string);
+    void print_film();
 };
 
 
