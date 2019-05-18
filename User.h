@@ -41,6 +41,9 @@ public:
     std::vector<User*> get_followers();
     std::vector<User*> sort_followers();
 
+    virtual void print_my_film(std::string _name = "" , int _min_rate = -1  , int _min_year = 0
+            , int _price = -1 ,  int _max_year = 100000 , std::string _director = "" );
+
 };
 
 

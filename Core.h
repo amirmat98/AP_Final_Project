@@ -32,7 +32,7 @@ public:
     void modify_film(std::map< std::string , std::string >);
     void delete_film(std::map< std::string , std::string >);
     void get_followers();
-    void get_published_film(std::string _name = "NULL" , int _min_rate = -1  , int _min_year = 0 , int _price = -1 , int _max_year = 100000000 , std::string _director = "NULL");
+    void get_published_film(std::map< std::string , std::string >);
 
 
 
