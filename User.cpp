@@ -103,9 +103,9 @@ Film* User::pointer_of_my_film(int _ID)
     }
 }
 
-vector<User*> User::get_followers()
+vector<User*> User::get_following()
 {
-    return my_followers;
+    return my_following;
 }
 
 void User::print()
@@ -121,16 +121,16 @@ void User::print()
         cout<<email;
 }
 
-vector<User*> User::sort_followers()
+vector<User*> User::sort_following()
 {
     vector<User*> temp;
-    for(int i = 0 ; i<my_followers.size() ; i++)
+    for(int i = 0 ; i<my_following.size() ; i++)
     {
-        User* temper = my_followers[i];
-        for(int j=0 ; j<my_followers.size(); j++)
+        User* temper = my_following[i];
+        for(int j=0 ; j<my_following.size(); j++)
         {
-            if(temper->get_ID()>my_followers[j]->get_ID())
-                temper = my_followers[j];
+            if(temper->get_ID()>my_following[j]->get_ID())
+                temper = my_following[j];
         }
         temp.push_back(temper);
     }
@@ -166,5 +166,9 @@ void User::print_my_film(std::string _name, int _min_rate, int _min_year, int _p
         temp[i]->print_film();
         cout<<endl;
     }
+}
 
+void User::add_following(User * add)
+{
+    my_following.push_back(add);
 }

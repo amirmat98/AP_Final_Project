@@ -34,6 +34,27 @@ void Publisher::delete_in_my_films(int x)
     my_films.erase(my_films.begin() + i);
 }
 
+vector<User*> Publisher::get_followers()
+{
+    return my_followers;
+}
+
+vector<User*> Publisher::sort_followers()
+{
+    vector<User*> temp;
+    for(int i = 0 ; i<my_followers.size() ; i++)
+    {
+        User* temper = my_followers[i];
+        for(int j=0 ; j<my_followers.size(); j++)
+        {
+            if(temper->get_ID()>my_followers[j]->get_ID())
+                temper = my_followers[j];
+        }
+        temp.push_back(temper);
+    }
+    return temp;
+}
+
 vector<Film*> Publisher::get_film()
 {
     return my_films;

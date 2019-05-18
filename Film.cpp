@@ -2,13 +2,13 @@
 
 using namespace std;
 
-Film::Film(std::string _name, int _year, int _length, int _price, std::string _summery, std::string _director)
+Film::Film(std::string _name, int _year, int _length, int _price, std::string _summary, std::string _director)
 {
     name = _name;
     year = _year;
     length = _length;
     price = _price;
-    summery = _summery;
+    summary = _summary;
     director = _director;
 
 }
@@ -53,9 +53,9 @@ void Film::set_price(int x)
     price = x;
 }
 
-void Film::set_summery(std::string x)
+void Film::set_summary(std::string x)
 {
-    summery = x;
+    summary = x;
 }
 
 void Film::set_director(std::string x)

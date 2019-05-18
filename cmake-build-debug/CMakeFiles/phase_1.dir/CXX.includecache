@@ -6,22 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/amir/Ap/Assignment 7/phase 1/Core.cpp
-Core.h
-/home/amir/Ap/Assignment 7/phase 1/Core.h
-
-/home/amir/Ap/Assignment 7/phase 1/Core.h
-Header.h
-/home/amir/Ap/Assignment 7/phase 1/Header.h
-User.h
-/home/amir/Ap/Assignment 7/phase 1/User.h
-Publisher.h
-/home/amir/Ap/Assignment 7/phase 1/Publisher.h
-Input_Handler.h
-/home/amir/Ap/Assignment 7/phase 1/Input_Handler.h
-Film.h
-/home/amir/Ap/Assignment 7/phase 1/Film.h
-
 /home/amir/Ap/Assignment 7/phase 1/Film.h
 Header.h
 /home/amir/Ap/Assignment 7/phase 1/Header.h
@@ -36,19 +20,9 @@ string
 map
 -
 
-/home/amir/Ap/Assignment 7/phase 1/Input_Handler.h
-Header.h
-/home/amir/Ap/Assignment 7/phase 1/Header.h
-Core.h
-/home/amir/Ap/Assignment 7/phase 1/Core.h
-
-/home/amir/Ap/Assignment 7/phase 1/Publisher.h
-Header.h
-/home/amir/Ap/Assignment 7/phase 1/Header.h
+/home/amir/Ap/Assignment 7/phase 1/User.cpp
 User.h
 /home/amir/Ap/Assignment 7/phase 1/User.h
-Film.h
-/home/amir/Ap/Assignment 7/phase 1/Film.h
 
 /home/amir/Ap/Assignment 7/phase 1/User.h
 Header.h

@@ -35,6 +35,10 @@ void Core::handel()
         {
             add_film(right_now_parameter);
         }
+        if(right_now_order == "followers")
+        {
+            add_following(right_now_parameter);
+        }
     }
     else if(right_now_order_type == PUT)
     {
@@ -58,6 +62,7 @@ void Core::handel()
         }
         if(right_now_order == "published")
         {
+            get_published_film(right_now_parameter);
         }
     }
 }
@@ -167,13 +172,13 @@ void Core::add_film(std::map<std::string, std::string> _parameter)
     it = _parameter.find("price");
     int _price = stoi(it->second);
 
-    it = _parameter.find("summery");
-    string _summery = it->second;
+    it = _parameter.find("summary");
+    string _summary = it->second;
 
     it = _parameter.find("director");
     string _director = it->second;
 
-    Film* temp = new Film(_name , _year , _length , _price , _summery , _director);
+    Film* temp = new Film(_name , _year , _length , _price , _summary , _director);
     temp->set_ID(my_films.size() + 1);
     right_now_user->add_in_my_films(temp);
     //Film* temper = right_now_user->pointer_of_my_film(temp.get_ID());
@@ -200,9 +205,9 @@ void Core::modify_film(std::map<std::string, std::string> _parameter)
     if(it != _parameter.end())
         temp->set_length(stoi(it->second));
 
-    it = _parameter.find("summery");
+    it = _parameter.find("summary");
     if(it != _parameter.end())
-        temp->set_summery(it->second);
+        temp->set_summary(it->second);
 
     it = _parameter.find("director");
     if(it != _parameter.end())
@@ -243,8 +248,9 @@ User* Core::add_user(std::string _email, std::string _username, std::string _pas
 
 void Core::get_followers()
 {
-    vector<User*> temp = right_now_user->sort_followers();
-    for(int i = 0 ; i<right_now_user->get_followers().size() ; i++)
+    Publisher* temp_user = dynamic_cast <Publisher*> (right_now_user);
+    vector<User*> temp = temp_user->sort_followers();
+    for(int i = 0 ; i<temp_user->get_followers().size() ; i++)
     {
         cout<<i+1;
         cout<<".";
@@ -291,5 +297,18 @@ void Core::get_published_film(std::map<std::string, std::string> _parameter)
     right_now_user->print_my_film(_name , _min_rate , _min_year , _price , _max_year , _director);
 
 
+}
+
+void Core::add_following(std::map<std::string, std::string> _parameter)
+{
+    map<string,string>::iterator it;
+    it = _parameter.find("user_id");
+    User* temp;
+    for(int i = 0 ; i<my_users.size() ; i++)
+    {
+        if(my_users[i]->get_ID() == stoi(it->second))
+            temp = my_users[i];
+    }
+    right_now_user->add_following(temp);
 }
 

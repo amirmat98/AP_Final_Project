@@ -33,6 +33,7 @@ public:
     void delete_film(std::map< std::string , std::string >);
     void get_followers();
     void get_published_film(std::map< std::string , std::string >);
+    void add_following(std::map<std::string,std::string>);
 
 
 

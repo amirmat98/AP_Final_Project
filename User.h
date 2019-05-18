@@ -15,7 +15,7 @@ protected:
     int age;
     user_type my_type;
     std::vector<Film*> my_films;
-    std::vector<User*> my_followers;
+    std::vector<User*> my_following;
 
 public:
     User(std::string, std::string, std::string , int);
@@ -38,8 +38,9 @@ public:
 
 
     void print();
-    std::vector<User*> get_followers();
-    std::vector<User*> sort_followers();
+    std::vector<User*> get_following();
+    std::vector<User*> sort_following();
+    void add_following(User*);
 
     virtual void print_my_film(std::string _name = "" , int _min_rate = -1  , int _min_year = 0
             , int _price = -1 ,  int _max_year = 100000 , std::string _director = "" );
