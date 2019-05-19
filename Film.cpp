@@ -94,3 +94,9 @@ void Film::print_film()
     cout<<" "<<"|"<<" ";
     cout<<director;
 }
+
+void Film::add_to_my_comment(Comment _temp_comment)
+{
+    _temp_comment.set_ID(my_comments.size() + 1 );
+    my_comments.push_back(_temp_comment);
+}

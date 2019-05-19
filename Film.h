@@ -2,6 +2,7 @@
 #define PHASE_1_FILM_H
 
 #include "Header.h"
+#include "Comment.h"
 class Film
 {
 private:
@@ -13,6 +14,7 @@ private:
     std::string summary;
     std::string director;
     int ID;
+    std::vector<Comment> my_comments;
 
 public:
     Film(std::string _name , int _year , int _length , int _price , std::string _summary , std::string _director);
@@ -30,6 +32,7 @@ public:
     void set_summary(std::string);
     void set_director(std::string);
     void print_film();
+    void add_to_my_comment(Comment _temp_comment);
 };
 
 
