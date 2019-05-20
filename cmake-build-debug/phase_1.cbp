@@ -102,6 +102,12 @@
 		<Unit filename="/home/amir/Ap/Assignment 7/phase 1/Customer.h">
 			<Option target="phase_1"/>
 		</Unit>
+		<Unit filename="/home/amir/Ap/Assignment 7/phase 1/Error_Handler.cpp">
+			<Option target="phase_1"/>
+		</Unit>
+		<Unit filename="/home/amir/Ap/Assignment 7/phase 1/Error_Handler.h">
+			<Option target="phase_1"/>
+		</Unit>
 		<Unit filename="/home/amir/Ap/Assignment 7/phase 1/Film.cpp">
 			<Option target="phase_1"/>
 		</Unit>

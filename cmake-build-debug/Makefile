@@ -204,6 +204,33 @@ Customer.cpp.s:
 	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Customer.cpp.s
 .PHONY : Customer.cpp.s
 
+Error_Handler.o: Error_Handler.cpp.o
+
+.PHONY : Error_Handler.o
+
+# target to build an object file
+Error_Handler.cpp.o:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Error_Handler.cpp.o
+.PHONY : Error_Handler.cpp.o
+
+Error_Handler.i: Error_Handler.cpp.i
+
+.PHONY : Error_Handler.i
+
+# target to preprocess a source file
+Error_Handler.cpp.i:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Error_Handler.cpp.i
+.PHONY : Error_Handler.cpp.i
+
+Error_Handler.s: Error_Handler.cpp.s
+
+.PHONY : Error_Handler.s
+
+# target to generate assembly for a file
+Error_Handler.cpp.s:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Error_Handler.cpp.s
+.PHONY : Error_Handler.cpp.s
+
 Film.o: Film.cpp.o
 
 .PHONY : Film.o
@@ -411,6 +438,9 @@ help:
 	@echo "... Customer.o"
 	@echo "... Customer.i"
 	@echo "... Customer.s"
+	@echo "... Error_Handler.o"
+	@echo "... Error_Handler.i"
+	@echo "... Error_Handler.s"
 	@echo "... Film.o"
 	@echo "... Film.i"
 	@echo "... Film.s"
