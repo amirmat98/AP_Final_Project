@@ -381,3 +381,21 @@ void Core::search_in_film(std::string _name, int _min_rate, int _min_year, int _
     }
 }
 
+void Core::add_score(std::map<std::string, std::string> _parameter)
+{
+    map<string,string>::iterator it;
+
+    int _film_id;
+    it = _parameter.find("film_id");
+    _film_id = stoi(it->second);
+
+    float _score;
+    it = _parameter.find("score");
+    _score = stof(it->second);
+
+    right_now_user->add_score_to_a_film(_film_id,_score);
+
+
+
+}
+

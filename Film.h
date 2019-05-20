@@ -3,6 +3,9 @@
 
 #include "Header.h"
 #include "Comment.h"
+
+class Comment;
+
 class Film
 {
 private:
@@ -15,6 +18,8 @@ private:
     std::string director;
     int ID;
     std::vector<Comment> my_comments;
+    float my_score;
+    void calculate_score();
 
 public:
     Film(std::string _name , int _year , int _length , int _price , std::string _summary , std::string _director);
@@ -35,6 +40,7 @@ public:
     void add_to_my_comment(Comment _temp_comment);
     std::vector<Comment> get_my_comments();
     void delete_a_comment(int _comment_id);
+    std::vector<float> scores;
 };
 
 

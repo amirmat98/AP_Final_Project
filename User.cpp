@@ -95,6 +95,12 @@ vector<Film*> User::get_film()
     return my_films;
 }
 
+void User::print_my_film(std::string _name, int _min_rate, int _min_year, int _price, int _max_year,
+                         std::string _director)
+{
+
+}
+
 Film* User::pointer_of_my_film(int _ID)
 {
     for (int i = 0 ; i<my_films.size() ; i++)
@@ -162,4 +168,15 @@ void User::add_comment(int _film_id, std::string _content)
 void User::add_money(float _amount)
 {
     money += _amount;
+}
+
+void User::add_score_to_a_film(int _film_id, float _score)
+{
+    Film* temp;
+    for(int i = 0 ; i<my_films.size() ; i++)
+    {
+        if(my_films[i]->get_ID() == _film_id)
+            temp = my_films[i];
+    }
+    temp->scores.push_back(_score);
 }

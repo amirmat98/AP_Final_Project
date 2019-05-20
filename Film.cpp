@@ -108,7 +108,7 @@ std::vector<Comment> Film::get_my_comments()
 
 void Film::delete_a_comment(int _comment_id)
 {
-    vector<Comment>::iterator = it;
+    vector<Comment>::iterator it;
     for(int i=0 ; i<my_comments.size() ; i++)
     {
         if(my_comments[i].get_ID() == _comment_id)
@@ -117,4 +117,16 @@ void Film::delete_a_comment(int _comment_id)
 
     my_comments.erase(it);
 
+}
+
+void Film::calculate_score()
+{
+    float temp = 0;
+    for(int i = 0 ; i<scores.size() ; i++)
+    {
+        temp+=scores[i];
+    }
+    temp = temp/scores.size();
+
+    my_score = temp;
 }

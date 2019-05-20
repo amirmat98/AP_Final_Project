@@ -38,7 +38,7 @@ public:
             , int _price = -1 ,  int _max_year = 100000 , std::string _director = "" );
 
     void get_search_films(std::map<std::string, std::string> _parameter);
-
+    void add_score(std::map<std::string,std::string> _parameter);
 
 private:
     std::vector<User*> my_users;
