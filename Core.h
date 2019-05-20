@@ -34,7 +34,10 @@ public:
     void get_followers();
     void get_published_film(std::map< std::string , std::string >);
     void add_following(std::map<std::string,std::string>);
+    void search_in_film(std::string _name = "" , int _min_rate = -1  , int _min_year = 0
+            , int _price = -1 ,  int _max_year = 100000 , std::string _director = "" );
 
+    void get_search_films(std::map<std::string, std::string> _parameter);
 
 
 private:

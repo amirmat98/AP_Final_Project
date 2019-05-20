@@ -100,3 +100,21 @@ void Film::add_to_my_comment(Comment _temp_comment)
     _temp_comment.set_ID(my_comments.size() + 1 );
     my_comments.push_back(_temp_comment);
 }
+
+std::vector<Comment> Film::get_my_comments()
+{
+    return my_comments;
+}
+
+void Film::delete_a_comment(int _comment_id)
+{
+    vector<Comment>::iterator = it;
+    for(int i=0 ; i<my_comments.size() ; i++)
+    {
+        if(my_comments[i].get_ID() == _comment_id)
+            it = my_comments.begin() + i;
+    }
+
+    my_comments.erase(it);
+
+}

@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/amir/Ap/Assignment 7/phase 1/Comment.cpp" "/home/amir/Ap/Assignment 7/phase 1/cmake-build-debug/CMakeFiles/phase_1.dir/Comment.cpp.o"
   "/home/amir/Ap/Assignment 7/phase 1/Core.cpp" "/home/amir/Ap/Assignment 7/phase 1/cmake-build-debug/CMakeFiles/phase_1.dir/Core.cpp.o"
   "/home/amir/Ap/Assignment 7/phase 1/Customer.cpp" "/home/amir/Ap/Assignment 7/phase 1/cmake-build-debug/CMakeFiles/phase_1.dir/Customer.cpp.o"
   "/home/amir/Ap/Assignment 7/phase 1/Film.cpp" "/home/amir/Ap/Assignment 7/phase 1/cmake-build-debug/CMakeFiles/phase_1.dir/Film.cpp.o"

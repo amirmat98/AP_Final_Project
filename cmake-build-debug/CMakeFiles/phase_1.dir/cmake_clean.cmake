@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/phase_1.dir/Publisher.cpp.o"
   "CMakeFiles/phase_1.dir/Customer.cpp.o"
   "CMakeFiles/phase_1.dir/Film.cpp.o"
+  "CMakeFiles/phase_1.dir/Comment.cpp.o"
   "phase_1.pdb"
   "phase_1"
 )

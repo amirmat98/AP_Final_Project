@@ -123,6 +123,33 @@ phase_1/fast:
 	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/build
 .PHONY : phase_1/fast
 
+Comment.o: Comment.cpp.o
+
+.PHONY : Comment.o
+
+# target to build an object file
+Comment.cpp.o:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Comment.cpp.o
+.PHONY : Comment.cpp.o
+
+Comment.i: Comment.cpp.i
+
+.PHONY : Comment.i
+
+# target to preprocess a source file
+Comment.cpp.i:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Comment.cpp.i
+.PHONY : Comment.cpp.i
+
+Comment.s: Comment.cpp.s
+
+.PHONY : Comment.s
+
+# target to generate assembly for a file
+Comment.cpp.s:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Comment.cpp.s
+.PHONY : Comment.cpp.s
+
 Core.o: Core.cpp.o
 
 .PHONY : Core.o
@@ -321,6 +348,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... phase_1"
 	@echo "... edit_cache"
+	@echo "... Comment.o"
+	@echo "... Comment.i"
+	@echo "... Comment.s"
 	@echo "... Core.o"
 	@echo "... Core.i"
 	@echo "... Core.s"

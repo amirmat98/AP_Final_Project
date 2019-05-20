@@ -312,3 +312,72 @@ void Core::add_following(std::map<std::string, std::string> _parameter)
     right_now_user->add_following(temp);
 }
 
+void Core::get_search_films(std::map<std::string, std::string> _parameter)
+{
+    map<string,string>::iterator it;
+
+    it = _parameter.find("name");
+    string _name = "";
+    if(it != _parameter.end())
+        _name = it->second;
+
+    it = _parameter.find("min_rate");
+    int _min_rate = 0 ;
+    if(it != _parameter.end())
+        _min_rate = stoi(it->second);
+
+    it = _parameter.find("min_year");
+    int _min_year = 0;
+    if(it != _parameter.end())
+        _min_year = stoi(it->second);
+
+    it = _parameter.find("price");
+    int _price = -1;
+    if(it != _parameter.end())
+        _price = stoi(it->second);
+
+    it = _parameter.find("max_year");
+    int _max_year = 100000;
+    if(it != _parameter.end())
+        _max_year = stoi(it->second);
+
+    it = _parameter.find("director");
+    string _director = "";
+    if(it != _parameter.end())
+        _director = it->second;
+
+    search_in_film(_name,_min_rate,_min_year,_price,_max_year,_director);
+}
+
+void Core::search_in_film(std::string _name, int _min_rate, int _min_year, int _price, int _max_year,
+                       std::string _director)
+{
+    vector<Film*> temp;
+    for(int i = 0 ; i<my_films.size() ; i++)
+    {
+        if( _name!="" && my_films[i]->get_name() != _name)
+            continue;
+        if (my_films[i]->get_rate() < _min_rate)
+            continue;
+        if(my_films[i]->get_year() < _max_year)
+            continue;
+        if(_price!=-1 && my_films[i]->get_price() != _price)
+            continue;
+        if(my_films[i]->get_year() > _max_year)
+            continue;
+        if(_director!="" && my_films[i]->get_director() != _director)
+            continue;
+
+        temp.push_back(my_films[i]);
+    }
+
+    for(int i = 0 ; i<temp.size() ; i++)
+    {
+        cout<<i+1;
+        cout<<".";
+        cout<<" ";
+        temp[i]->print_film();
+        cout<<endl;
+    }
+}
+

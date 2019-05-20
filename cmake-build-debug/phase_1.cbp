@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/amir/Ap/Assignment 7/phase 1/Comment.cpp">
+			<Option target="phase_1"/>
+		</Unit>
+		<Unit filename="/home/amir/Ap/Assignment 7/phase 1/Comment.h">
+			<Option target="phase_1"/>
+		</Unit>
 		<Unit filename="/home/amir/Ap/Assignment 7/phase 1/Core.cpp">
 			<Option target="phase_1"/>
 		</Unit>

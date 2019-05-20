@@ -3,6 +3,7 @@
 
 #include "Header.h"
 #include "Film.h"
+#include "Comment.h"
 
 class User
 {
@@ -16,6 +17,8 @@ protected:
     user_type my_type;
     std::vector<Film*> my_films;
     std::vector<User*> my_following;
+    float money;
+
 
 public:
     User(std::string, std::string, std::string , int);
@@ -41,8 +44,14 @@ public:
     std::vector<User*> get_following();
     std::vector<User*> sort_following();
     void add_following(User*);
+    void add_comment(int _film_id , std::string _content);
 
-    virtual void print_my_film(std::string _name = "" , int _min_rate = -1  , int _min_year = 0
+    /*virtual void print_my_film(std::string _name = "" , int _min_rate = -1  , int _min_year = 0
+            , int _price = -1 ,  int _max_year = 100000 , std::string _director = "" ) = 0;*/
+
+    void add_money(float _amount);
+
+    void search_film(std::string _name = "" , int _min_rate = -1  , int _min_year = 0
             , int _price = -1 ,  int _max_year = 100000 , std::string _director = "" );
 
 };

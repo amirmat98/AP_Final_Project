@@ -33,6 +33,8 @@ public:
     void set_director(std::string);
     void print_film();
     void add_to_my_comment(Comment _temp_comment);
+    std::vector<Comment> get_my_comments();
+    void delete_a_comment(int _comment_id);
 };
 
 

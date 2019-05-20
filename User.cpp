@@ -8,6 +8,7 @@ User::User(std::string _email, std::string _username, std::string _password , in
     username = _username;
     password = _password;
     age = _age;
+    money = 0;
 }
 
 /*User* User::add_user(std::string _email, std::string _username, std::string _password, int _age , bool is_publisher)
@@ -137,38 +138,28 @@ vector<User*> User::sort_following()
     return temp;
 }
 
-void User::print_my_film(std::string _name, int _min_rate, int _min_year, int _price ,  int _max_year, std::string _director)
-{
-    vector<Film*> temp;
-    for(int i = 0 ; i<my_films.size() ; i++)
-    {
-        if(my_films[i]->get_name() == _name)
-            continue;
-        if (my_films[i]->get_rate() < _min_rate)
-            continue;
-        if(my_films[i]->get_year() < _min_year)
-            continue;
-        if(_price!=-1 && my_films[i]->get_price() != _price)
-            continue;
-        if(my_films[i]->get_year() > _max_year)
-            continue;
-        if(my_films[i]->get_director() != _director)
-            continue;
-
-        temp.push_back(my_films[i]);
-    }
-
-    for(int i = 0 ; i<temp.size() ; i++)
-    {
-        cout<<i+1;
-        cout<<".";
-        cout<<" ";
-        temp[i]->print_film();
-        cout<<endl;
-    }
-}
 
 void User::add_following(User * add)
 {
     my_following.push_back(add);
+}
+
+void User::add_comment(int _film_id, std::string _content)
+{
+    Comment temp(_content);
+
+    Film* temper;
+    for(int i = 0 ; i<my_films.size() ; i++)
+    {
+        if(my_films[i]->get_ID() == _film_id)
+            temper = my_films[i];
+    }
+
+    temp.set_ID(temper->get_my_comments().size() + 1);
+    temper->add_to_my_comment(temp);
+}
+
+void User::add_money(float _amount)
+{
+    money += _amount;
 }

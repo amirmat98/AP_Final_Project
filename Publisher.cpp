@@ -9,7 +9,7 @@ Publisher::Publisher(std::string _email, std::string _username, std::string _pas
 
 void Publisher::add_in_my_films(Film* x)
 {
-    my_films.push_back(x);
+    my_published_films.push_back(x);
 }
 
 void Publisher::set_in_my_films(Film &x)
@@ -72,22 +72,22 @@ Film* Publisher::pointer_of_my_film(int _ID)
 void Publisher::print_my_film(std::string _name, int _min_rate, int _min_year , int _price , int _max_year, std::string _director)
 {
     vector<Film*> temp;
-    for(int i = 0 ; i<my_films.size() ; i++)
+    for(int i = 0 ; i<my_published_films.size() ; i++)
     {
-        if(my_films[i]->get_name() == _name)
+        if( _name!="" && my_published_films[i]->get_name() != _name)
             continue;
-        if (my_films[i]->get_rate() < _min_rate)
+        if (my_published_films[i]->get_rate() < _min_rate)
             continue;
-        if(my_films[i]->get_year() < _max_year)
+        if(my_published_films[i]->get_year() < _max_year)
             continue;
-        if(_price!=-1 && my_films[i]->get_price() != _price)
+        if(_price!=-1 && my_published_films[i]->get_price() != _price)
             continue;
-        if(my_films[i]->get_year() > _max_year)
+        if(my_published_films[i]->get_year() > _max_year)
             continue;
-        if(my_films[i]->get_director() != _director)
+        if(_director!="" && my_published_films[i]->get_director() != _director)
             continue;
 
-        temp.push_back(my_films[i]);
+        temp.push_back(my_published_films[i]);
     }
 
     for(int i = 0 ; i<temp.size() ; i++)
@@ -98,4 +98,35 @@ void Publisher::print_my_film(std::string _name, int _min_rate, int _min_year , 
         temp[i]->print_film();
         cout<<endl;
     }
+}
+
+void Publisher::reply_to_comment(int _film_id, int _comment_id, std::string _content)
+{
+    Film* temper;
+    for(int i = 0 ; i<my_published_films.size() ; i++)
+    {
+        if(my_published_films[i]->get_ID() == _film_id)
+            temper = my_published_films[i];
+    }
+
+    Comment* temp;
+    for(int i = 0 ; i<temper->get_my_comments().size() ; i++)
+    {
+        if(temper->get_my_comments()[i].get_ID() == _comment_id)
+            temp = &temper->get_my_comments()[i];
+    }
+
+    temp->add_reply(_content);
+}
+
+void Publisher::delete_comment(int _film_id, int _comment_id)
+{
+    Film* temp;
+    for(int i = 0 ; i<my_published_films.size() ; i++)
+    {
+        if(my_published_films[i]->get_ID() == _film_id)
+            temp = my_published_films[i];
+    }
+
+    temp->delete_a_comment(_comment_id);
 }
