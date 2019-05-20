@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/phase_1.dir/Message.cpp.o"
   "CMakeFiles/phase_1.dir/Money_Handler.cpp.o"
   "CMakeFiles/phase_1.dir/Error_Handler.cpp.o"
+  "CMakeFiles/phase_1.dir/Parameter_Handler.cpp.o"
   "phase_1.pdb"
   "phase_1"
 )

@@ -7,8 +7,16 @@
 #include "Input_Handler.h"
 #include "Film.h"
 #include "Money_Handler.h"
+#include "Parameter_Handler.h"
+
+static void print_successfuly_message()
+{
+    std::cout<<"OK"<<std::endl;
+}
 
 class Input_Handler;
+class Parameter_Handler;
+class Money_Handler;
 
 class Core
 {
@@ -16,6 +24,7 @@ class Core
 public:
     Core();
     Input_Handler* my_input_handler;
+    Parameter_Handler* param;
     std::vector<std::string> get_my_input_file();
     void main();
     void handel();
@@ -41,9 +50,12 @@ public:
     void get_search_films(std::map<std::string, std::string> _parameter);
     void add_score(std::map<std::string,std::string> _parameter);
     void add_money_to_account(float _amount);
+    std::vector<User*> get_my_users();
 
 
 private:
+    int number_of_users = 0;
+    int number_of_films = 0;
     std::vector<User*> my_users;
     std::vector<Film*> my_films;
     std::vector<std::string> my_input_file;
@@ -56,6 +68,7 @@ private:
 
 
 };
+
 
 
 #endif //PHASE_1_CORE_H

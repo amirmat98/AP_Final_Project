@@ -339,6 +339,33 @@ Money_Handler.cpp.s:
 	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Money_Handler.cpp.s
 .PHONY : Money_Handler.cpp.s
 
+Parameter_Handler.o: Parameter_Handler.cpp.o
+
+.PHONY : Parameter_Handler.o
+
+# target to build an object file
+Parameter_Handler.cpp.o:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Parameter_Handler.cpp.o
+.PHONY : Parameter_Handler.cpp.o
+
+Parameter_Handler.i: Parameter_Handler.cpp.i
+
+.PHONY : Parameter_Handler.i
+
+# target to preprocess a source file
+Parameter_Handler.cpp.i:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Parameter_Handler.cpp.i
+.PHONY : Parameter_Handler.cpp.i
+
+Parameter_Handler.s: Parameter_Handler.cpp.s
+
+.PHONY : Parameter_Handler.s
+
+# target to generate assembly for a file
+Parameter_Handler.cpp.s:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Parameter_Handler.cpp.s
+.PHONY : Parameter_Handler.cpp.s
+
 Publisher.o: Publisher.cpp.o
 
 .PHONY : Publisher.o
@@ -453,6 +480,9 @@ help:
 	@echo "... Money_Handler.o"
 	@echo "... Money_Handler.i"
 	@echo "... Money_Handler.s"
+	@echo "... Parameter_Handler.o"
+	@echo "... Parameter_Handler.i"
+	@echo "... Parameter_Handler.s"
 	@echo "... Publisher.o"
 	@echo "... Publisher.i"
 	@echo "... Publisher.s"

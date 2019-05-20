@@ -1,2 +1,6 @@
-  POST   signup  ?  email matin.amirmahdi@gmail.com    username   amirmat98   password   M22536951   age  24 publisher   true
-POST films ? name film1 year 1999 length 120 price 10000 summary summary|of|film1 director director_of_film1
+POST   signup  ?  email matin.amirmahdi@gmail.com    username   amirmat98   password   M22536951   age  24 publisher   true
+  POST   signup  ?  email matin.amirmahdi@yahoo.com    username   sosoia   password   123456789   age  21
+  POST   signup  ?  email abc@yahoo.com    username   abcd   password   10   age  18
+POST signup ? email matin.amirmahdi@yahoo.com    username   sosoia   password   123456789   age  21
+POST   login  ?  username sosoia       password   12345678
+POST   login  ?  username sosoia       password   123456789

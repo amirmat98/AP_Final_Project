@@ -17,7 +17,6 @@ void initialize()
     map_order_type["DELETE"] = DELETE;
 }*/
 
-
 enum user_type {PUBLISHER , CUSTOMER , GUEST};
 
 

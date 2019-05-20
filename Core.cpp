@@ -14,6 +14,7 @@ void Core::main()
     {
         my_input_handler = new Input_Handler(this);
         my_input_handler->run();
+        param = new Parameter_Handler();
         handel();
         cout<<"finish"<<endl;
     }
@@ -95,65 +96,46 @@ void Core::set_right_now_parameter(std::map<std::string, std::string> temp)
 }
 void Core::sign_up(std::map<std::string, std::string> _parameter)
 {
-    map<string,string>::iterator it;
-
-    it = _parameter.find("email");
-    string _email = it->second;
-
-    it = _parameter.find("username");
-    string _username = it->second;
-
-    it = _parameter.find("password");
-    string _password = it->second;
-
-    it = _parameter.find("age");
-    int _age = stoi(it->second);
-
-    it = _parameter.find("publisher");
-    bool _is_publisher = false;
-    if(it != _parameter.end())
+    try
     {
-        if(it->second == "true")
-            _is_publisher = true;
+        string _email, _username, _password;
+        int _age;
+        bool _is_publisher = false;
+        param->handler_sign_up(_parameter, _email, _username, _password, _age, _is_publisher);
+        param->check_validate_username(this,_username);
+        User *temp;
+        temp = add_user(_email, _username, _password, _age, _is_publisher);
+        number_of_users++;
+        temp->set_ID(number_of_users);
+        my_users.push_back(temp);
+        current_user = temp->get_my_type();
+        right_now_user = temp;
+        print_successfuly_message();
     }
-
-    User* temp;
-    temp = add_user(_email,_username,_password,_age,_is_publisher);
-    temp->set_ID(my_users.size()+1);
-    my_users.push_back(temp);
-    current_user = temp->get_my_type();
-    right_now_user = temp;
+    catch (exception& ex)
+    {
+        cerr<<ex.what();
+    }
 
 }
 
 void Core::login(std::map<std::string, std::string> _parameter)
 {
-    map<string,string>::iterator it;
-
-    it = _parameter.find("username");
-    string _username = it->second;
-
-    it = _parameter.find("password");
-    string _password = it->second;
-
-    User* temp;
-
-    for(int i = 0 ; i<my_users.size() ; i++)
+    try
     {
-        if(my_users[i]->get_username() == _username)
-        {
-            temp = my_users[i];
-            break;
-        }
-    }
-
-    if(temp->get_password() == _password)
-    {
+        string _username, _password;
+        param->handler_loging(_parameter, _username, _password);
+        User *temp;
+        param->check_validate_user(this, _username, _password, temp);
         current_user = temp->get_my_type();
         right_now_user = temp;
+        print_successfuly_message();
+    }
+    catch (exception& ex)
+    {
+        cerr<<ex.what();
     }
 
-    ///else : handle wrong password
 }
 
 void Core::add_film(std::map<std::string, std::string> _parameter)
@@ -408,3 +390,7 @@ void Core::add_money_to_account(float _amount)
     account_money += _amount;
 }
 
+std::vector<User*> Core::get_my_users()
+{
+    return my_users;
+}

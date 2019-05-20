@@ -4,6 +4,8 @@
 #include "Header.h"
 #include "User.h"
 
+class User;
+
 class Message
 {
 private:

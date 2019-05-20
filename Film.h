@@ -6,6 +6,7 @@
 #include "User.h"
 
 class Comment;
+class User;
 
 class Film
 {
@@ -18,6 +19,7 @@ private:
     std::string summary;
     std::string director;
     int ID;
+    int number_of_comments = 0;
     std::vector<Comment> my_comments;
     float my_score;
     void calculate_score();

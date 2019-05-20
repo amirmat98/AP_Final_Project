@@ -6,6 +6,9 @@
 #include "Comment.h"
 #include "Message.h"
 
+class Film;
+class Message;
+
 class User
 {
 
