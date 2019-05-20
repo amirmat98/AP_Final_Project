@@ -114,7 +114,7 @@ void Core::sign_up(std::map<std::string, std::string> _parameter)
     }
     catch (exception& ex)
     {
-        cerr<<ex.what();
+        cerr<<ex.what()<<endl;
     }
 
 }
@@ -133,7 +133,7 @@ void Core::login(std::map<std::string, std::string> _parameter)
     }
     catch (exception& ex)
     {
-        cerr<<ex.what();
+        cerr<<ex.what()<<endl;
     }
 
 }
