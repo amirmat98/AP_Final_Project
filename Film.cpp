@@ -130,3 +130,18 @@ void Film::calculate_score()
 
     my_score = temp;
 }
+
+void Film::set_publisher(User* _publisher)
+{
+    my_publisher = _publisher;
+}
+
+float Film::get_score()
+{
+    return my_score;
+}
+
+User* Film::get_publisher()
+{
+    return my_publisher;
+}

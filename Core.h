@@ -6,6 +6,7 @@
 #include "Publisher.h"
 #include "Input_Handler.h"
 #include "Film.h"
+#include "Money_Handler.h"
 
 class Input_Handler;
 
@@ -24,7 +25,7 @@ public:
     void set_right_now_parameter(std::map<std::string,std::string>);
     std::string right_now_order;
     std::map< std::string , std::string > right_now_parameter;
-
+    User* right_now_user;
 
     void sign_up(std::map< std::string , std::string >);
     void login(std::map< std::string , std::string >);
@@ -39,6 +40,8 @@ public:
 
     void get_search_films(std::map<std::string, std::string> _parameter);
     void add_score(std::map<std::string,std::string> _parameter);
+    void add_money_to_account(float _amount);
+
 
 private:
     std::vector<User*> my_users;
@@ -46,7 +49,8 @@ private:
     std::vector<std::string> my_input_file;
     User* add_user(std::string, std::string, std::string , int , bool is_publisher = false);
     user_type current_user ;
-    User* right_now_user;
+    //User* right_now_user;
+    float account_money;
 
 
 

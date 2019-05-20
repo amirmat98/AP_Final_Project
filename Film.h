@@ -3,6 +3,7 @@
 
 #include "Header.h"
 #include "Comment.h"
+#include "User.h"
 
 class Comment;
 
@@ -20,6 +21,7 @@ private:
     std::vector<Comment> my_comments;
     float my_score;
     void calculate_score();
+    User* my_publisher;
 
 public:
     Film(std::string _name , int _year , int _length , int _price , std::string _summary , std::string _director);
@@ -34,6 +36,7 @@ public:
     std::string get_director();
     void set_length(int);
     void set_price(int);
+    void set_publisher(User*);
     void set_summary(std::string);
     void set_director(std::string);
     void print_film();
@@ -41,6 +44,8 @@ public:
     std::vector<Comment> get_my_comments();
     void delete_a_comment(int _comment_id);
     std::vector<float> scores;
+    float get_score();
+    User* get_publisher();
 };
 
 

@@ -20,6 +20,9 @@ public:
             ,  int _price = -1 , int _max_year = 100000 , std::string _director = "" );
     void reply_to_comment(int _film_id , int _comment_id , std::string _content);
     void delete_comment(int _film_id , int _comment_id);
+    virtual void set_money(int _amount);
+    void display_money();
+    float reserved_money;
 
 
 

@@ -130,3 +130,13 @@ void Publisher::delete_comment(int _film_id, int _comment_id)
 
     temp->delete_a_comment(_comment_id);
 }
+
+void Publisher::set_money(int _amount)
+{
+    reserved_money += _amount;
+}
+
+void Publisher::display_money()
+{
+    money += reserved_money;
+}

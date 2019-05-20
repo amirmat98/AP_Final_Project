@@ -245,3 +245,8 @@ void User::print_read_message(int _limit)
         indexer++;
     }
 }
+
+void User::set_money(int _amount)
+{
+    money -= _amount;
+}

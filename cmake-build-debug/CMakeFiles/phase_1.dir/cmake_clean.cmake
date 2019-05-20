@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/phase_1.dir/Film.cpp.o"
   "CMakeFiles/phase_1.dir/Comment.cpp.o"
   "CMakeFiles/phase_1.dir/Message.cpp.o"
+  "CMakeFiles/phase_1.dir/Money_Handler.cpp.o"
   "phase_1.pdb"
   "phase_1"
 )

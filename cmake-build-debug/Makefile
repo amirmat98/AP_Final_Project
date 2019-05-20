@@ -285,6 +285,33 @@ Message.cpp.s:
 	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Message.cpp.s
 .PHONY : Message.cpp.s
 
+Money_Handler.o: Money_Handler.cpp.o
+
+.PHONY : Money_Handler.o
+
+# target to build an object file
+Money_Handler.cpp.o:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Money_Handler.cpp.o
+.PHONY : Money_Handler.cpp.o
+
+Money_Handler.i: Money_Handler.cpp.i
+
+.PHONY : Money_Handler.i
+
+# target to preprocess a source file
+Money_Handler.cpp.i:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Money_Handler.cpp.i
+.PHONY : Money_Handler.cpp.i
+
+Money_Handler.s: Money_Handler.cpp.s
+
+.PHONY : Money_Handler.s
+
+# target to generate assembly for a file
+Money_Handler.cpp.s:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Money_Handler.cpp.s
+.PHONY : Money_Handler.cpp.s
+
 Publisher.o: Publisher.cpp.o
 
 .PHONY : Publisher.o
@@ -393,6 +420,9 @@ help:
 	@echo "... Message.o"
 	@echo "... Message.i"
 	@echo "... Message.s"
+	@echo "... Money_Handler.o"
+	@echo "... Money_Handler.i"
+	@echo "... Money_Handler.s"
 	@echo "... Publisher.o"
 	@echo "... Publisher.i"
 	@echo "... Publisher.s"

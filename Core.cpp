@@ -183,6 +183,7 @@ void Core::add_film(std::map<std::string, std::string> _parameter)
 
     Film* temp = new Film(_name , _year , _length , _price , _summary , _director);
     temp->set_ID(my_films.size() + 1);
+    temp->set_publisher(right_now_user);
     right_now_user->add_in_my_films(temp);
     //Film* temper = right_now_user->pointer_of_my_film(temp.get_ID());
     my_films.push_back(right_now_user->pointer_of_my_film(temp->get_ID()));
@@ -400,5 +401,10 @@ void Core::add_score(std::map<std::string, std::string> _parameter)
 
 
 
+}
+
+void Core::add_money_to_account(float _amount)
+{
+    account_money += _amount;
 }
 
