@@ -206,3 +206,42 @@ void User::add_score_to_a_film(int _film_id, float _score)
     }
     temp->scores.push_back(_score);
 }
+
+void User::add_message(Message _temp)
+{
+    inbox.push_back(_temp);
+}
+
+void User::print_unread_message()
+{
+    cout<<"#"<<"."<<" "<<"Notification Message"<<endl;
+    for(int i = 0 ; i<inbox.size() ;i++)
+    {
+        if(!inbox[inbox.size() -1 -i].get_state())
+            continue;
+        cout<<i;
+        cout<<".";
+        cout<<" ";
+        inbox[inbox.size() -1 -i].print();
+        cout<<endl;
+    }
+}
+
+void User::print_read_message(int _limit)
+{
+    int indexer = 0;
+    cout<<"#"<<"."<<" "<<"Notification Message"<<endl;
+    for(int i = 0 ; i<inbox.size() ;i++)
+    {
+        if(indexer>_limit)
+            break;
+        if(inbox[inbox.size() -1 -i].get_state())
+            continue;
+        cout<<i;
+        cout<<".";
+        cout<<" ";
+        inbox[inbox.size() -1 -i].print();
+        cout<<endl;
+        indexer++;
+    }
+}

@@ -158,6 +158,9 @@ void Core::login(std::map<std::string, std::string> _parameter)
 
 void Core::add_film(std::map<std::string, std::string> _parameter)
 {
+
+
+
     map<string,string>::iterator it;
 
     it = _parameter.find("name");

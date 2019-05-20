@@ -4,6 +4,7 @@
 #include "Header.h"
 #include "Film.h"
 #include "Comment.h"
+#include "Message.h"
 
 class User
 {
@@ -18,6 +19,7 @@ protected:
     std::vector<Film*> my_films;
     std::vector<User*> my_following;
     float money;
+    std::vector<Message> inbox;
 
 
 public:
@@ -55,6 +57,10 @@ public:
 
     void search_film(std::string _name = "" , int _min_rate = -1  , int _min_year = 0
             , int _price = -1 ,  int _max_year = 100000 , std::string _director = "" );
+
+    void add_message(Message _temp);
+    void print_unread_message();
+    void print_read_message(int _limit);
 
 };
 

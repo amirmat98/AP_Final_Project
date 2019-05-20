@@ -114,6 +114,12 @@
 		<Unit filename="/home/amir/Ap/Assignment 7/phase 1/Input_Handler.h">
 			<Option target="phase_1"/>
 		</Unit>
+		<Unit filename="/home/amir/Ap/Assignment 7/phase 1/Message.cpp">
+			<Option target="phase_1"/>
+		</Unit>
+		<Unit filename="/home/amir/Ap/Assignment 7/phase 1/Message.h">
+			<Option target="phase_1"/>
+		</Unit>
 		<Unit filename="/home/amir/Ap/Assignment 7/phase 1/Publisher.cpp">
 			<Option target="phase_1"/>
 		</Unit>
