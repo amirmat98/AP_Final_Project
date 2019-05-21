@@ -52,6 +52,7 @@ public:
     void add_money_to_account(float _amount);
     std::vector<User*> get_my_users();
     std::vector<Film*> get_my_films();
+    void receive_money_from_core();
 
 
 

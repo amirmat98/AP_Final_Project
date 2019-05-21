@@ -117,6 +117,8 @@ void User::print_my_film(std::string _name, int _min_rate, int _min_year, int _p
         temp.push_back(my_films[i]);
     }
 
+
+    cout<<
     for(int i = 0 ; i<temp.size() ; i++)
     {
         cout<<i+1;

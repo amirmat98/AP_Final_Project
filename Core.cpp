@@ -48,6 +48,18 @@ void Core::handel()
         {
             add_following(right_now_parameter);
         }
+
+        if(right_now_order == "money")
+        {
+            try
+            {
+                receive_money_from_core();
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
+        }
     }
     else if(right_now_order_type == PUT)
     {
@@ -75,11 +87,25 @@ void Core::handel()
     {
         if(right_now_order == "followers")
         {
-            get_followers();
+            try
+            {
+                get_followers();
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
         }
         if(right_now_order == "published")
         {
-            get_published_film(right_now_parameter);
+            try
+            {
+                get_published_film(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
         }
     }
 }
@@ -224,6 +250,9 @@ User* Core::add_user(std::string _email, std::string _username, std::string _pas
 
 void Core::get_followers()
 {
+    if(right_now_user->get_my_type() != PUBLISHER)
+        throw Permission();
+
     Publisher* temp_user = dynamic_cast <Publisher*> (right_now_user);
     vector<User*> temp = temp_user->sort_followers();
 
@@ -402,4 +431,14 @@ Film* Core::pointer_of_my_film(int _ID)
 std::vector<Film*> Core::get_my_films()
 {
     return my_films;
+}
+
+void Core::receive_money_from_core()
+{
+    if(right_now_user->get_my_type() != PUBLISHER)
+        throw Permission();
+
+    Publisher* temp = dynamic_cast<Publisher*> (right_now_user);
+    temp->display_money();
+    print_successfuly_message();
 }
