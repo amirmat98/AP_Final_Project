@@ -16,7 +16,7 @@ void Core::main()
         my_input_handler->run();
         param = new Parameter_Handler();
         handel();
-        cout<<"finish"<<endl;
+        cout<<"-----"<<endl;
     }
 }
 
@@ -34,7 +34,15 @@ void Core::handel()
         }
         if(right_now_order == "films")
         {
-            add_film(right_now_parameter);
+            try
+            {
+                add_film(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
+
         }
         if(right_now_order == "followers")
         {
@@ -45,7 +53,15 @@ void Core::handel()
     {
         if(right_now_order == "films")
         {
-            modify_film(right_now_parameter);
+            try
+            {
+                modify_film(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
+
         }
     }
     else if (right_now_order_type == DELETE)
@@ -141,78 +157,52 @@ void Core::login(std::map<std::string, std::string> _parameter)
 void Core::add_film(std::map<std::string, std::string> _parameter)
 {
 
+    if(right_now_user->get_my_type() != PUBLISHER)
+        throw Permission();
 
-
-    map<string,string>::iterator it;
-
-    it = _parameter.find("name");
-    string _name = it->second;
-
-    it = _parameter.find("year");
-    int _year = stoi(it->second);
-
-    it = _parameter.find("length");
-    int _length = stoi(it->second);
-
-    it = _parameter.find("price");
-    int _price = stoi(it->second);
-
-    it = _parameter.find("summary");
-    string _summary = it->second;
-
-    it = _parameter.find("director");
-    string _director = it->second;
-
+    string _name , _summary , _director ;
+    int _year , _length , _price ;
+    param->handler_add_film(_parameter , _name , _year , _length , _price , _summary , _director);
     Film* temp = new Film(_name , _year , _length , _price , _summary , _director);
-    temp->set_ID(my_films.size() + 1);
+    number_of_films++;
+    temp->set_ID(number_of_films);
     temp->set_publisher(right_now_user);
     right_now_user->add_in_my_films(temp);
-    //Film* temper = right_now_user->pointer_of_my_film(temp.get_ID());
     my_films.push_back(right_now_user->pointer_of_my_film(temp->get_ID()));
-
+    print_successfuly_message();
 
 }
 
 void Core::modify_film(std::map<std::string, std::string> _parameter)
 {
+
     map<string,string>::iterator it;
     it = _parameter.find("film_id");
-    Film* temp = right_now_user->pointer_of_my_film(stoi(it->second));
+    //Film* temp = right_now_user->pointer_of_my_film(stoi(it->second));
+    Film* temp = pointer_of_my_film(stoi(it->second));
+    if(temp->get_publisher() != right_now_user)
+        throw Permission();
 
-    it = _parameter.find("name");
-    if(it != _parameter.end())
-        temp->set_name(it->second);
+    param->handler_modify_film(_parameter,temp);
 
-    it = _parameter.find("year");
-    if(it != _parameter.end())
-        temp->set_year(stoi(it->second));
-
-    it = _parameter.find("length");
-    if(it != _parameter.end())
-        temp->set_length(stoi(it->second));
-
-    it = _parameter.find("summary");
-    if(it != _parameter.end())
-        temp->set_summary(it->second);
-
-    it = _parameter.find("director");
-    if(it != _parameter.end())
-        temp->set_director(it->second);
-
-    //right_now_user->set_in_my_films(temp);
-    //it = _parameter.find("film_id");
-    //my_films[stoi(it->second) - 1] = right_now_user->pointer_of_my_film(stoi(it->second));
-
-
+    print_successfuly_message();
 }
 
 void Core::delete_film(std::map<std::string, std::string> _parameter)
 {
-    map<string,string>::iterator it;
-    it = _parameter.find("film_id");
-
-    right_now_user->delete_in_my_films(stoi(it->second));
-    my_films.erase(my_films.begin() + stoi(it->second) - 1);
+    try
+    {
+        int _film_id;
+        param->handler_delete_film(_parameter, _film_id);
+        param->check_validate_film_for_delete(this, _film_id);
+        right_now_user->delete_in_my_films(_film_id);
+        my_films.erase(my_films.begin() + _film_id - 1);
+        print_successfuly_message();
+    }
+    catch (exception& ex)
+    {
+        cerr<<ex.what()<<endl;
+    }
 
 }
 
@@ -393,4 +383,19 @@ void Core::add_money_to_account(float _amount)
 std::vector<User*> Core::get_my_users()
 {
     return my_users;
+}
+
+Film* Core::pointer_of_my_film(int _ID)
+{
+    for (int i = 0 ; i<my_films.size() ; i++)
+    {
+        if(my_films[i]->get_ID() == _ID)
+            return my_films[i];
+    }
+
+}
+
+std::vector<Film*> Core::get_my_films()
+{
+    return my_films;
 }

@@ -26,12 +26,12 @@ void Publisher::set_in_my_films(Film &x)
 void Publisher::delete_in_my_films(int x)
 {
     int i = 0;
-    for(i = 0 ; i<my_films.size() ; i++)
+    for(i = 0 ; i<my_published_films.size() ; i++)
     {
-        if(my_films[i]->get_ID() == x)
+        if(my_published_films[i]->get_ID() == x)
             break;
     }
-    my_films.erase(my_films.begin() + i);
+    my_published_films.erase(my_published_films.begin() + i);
 }
 
 vector<User*> Publisher::get_followers()
@@ -62,10 +62,10 @@ vector<Film*> Publisher::get_film()
 
 Film* Publisher::pointer_of_my_film(int _ID)
 {
-    for (int i = 0 ; i<my_films.size() ; i++)
+    for (int i = 0 ; i<my_published_films.size() ; i++)
     {
-        if(my_films[i]->get_ID() == _ID)
-            return my_films[i];
+        if(my_published_films[i]->get_ID() == _ID)
+            return my_published_films[i];
     }
 }
 

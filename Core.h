@@ -51,6 +51,8 @@ public:
     void add_score(std::map<std::string,std::string> _parameter);
     void add_money_to_account(float _amount);
     std::vector<User*> get_my_users();
+    std::vector<Film*> get_my_films();
+
 
 
 private:
@@ -58,6 +60,7 @@ private:
     int number_of_films = 0;
     std::vector<User*> my_users;
     std::vector<Film*> my_films;
+    Film* pointer_of_my_film(int _ID);
     std::vector<std::string> my_input_file;
     User* add_user(std::string, std::string, std::string , int , bool is_publisher = false);
     user_type current_user ;

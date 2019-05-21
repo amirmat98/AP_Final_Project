@@ -4,3 +4,21 @@ POST   signup  ?  email matin.amirmahdi@gmail.com    username   amirmat98   pass
 POST signup ? email matin.amirmahdi@yahoo.com    username   sosoia   password   123456789   age  21
 POST   login  ?  username sosoia       password   12345678
 POST   login  ?  username sosoia       password   123456789
+POST films ? name film1 year 1999 length 120 price 10000 summary summary|of|film1 director director_of_film1
+POST   films  ?  name nohe    year   2014   length   92   price  250  summery  isaboutnohe director amin
+POST   login  ?  username amirmat98       password   M22536951
+POST films ? name film1 year 1999 length 120 price 10000 summary summary|of|film1 director director_of_film1
+POST   films  ?  name nohe    year   2014   length   92   price  250  summary  isaboutnohe director amin
+POST   films  ?  name iran    year   2012   length   128   price  500  summary  iranian director amir
+POST   films  ?  name salam    year   1998   length   105   price  350  summary  dastan director parham
+PUT   films ? film_id 3  name Japan length 220
+POST   login  ?  username sosoia       password   123456789
+PUT films ? film_id 4 name hello
+POST   login  ?  username amirmat98       password   M22536951
+PUT films ? film_id 1 director ME
+DELETE films ? film_id 1
+DELETE films ? film_id 5
+DELETE films ? film_id 1
+POST   login  ?  username sosoia       password   123456789
+DELETE films ? film_id 2
+POST   login  ?  username amirmat98       password   M22536951
