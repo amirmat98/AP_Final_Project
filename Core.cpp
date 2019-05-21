@@ -226,6 +226,10 @@ void Core::get_followers()
 {
     Publisher* temp_user = dynamic_cast <Publisher*> (right_now_user);
     vector<User*> temp = temp_user->sort_followers();
+
+    cout<<"List of Followers"<<endl;
+    cout<<"#"<<"."<<" "<<"User Id"<<" | "<<"User Username"<<" | "<<"User Email"<<endl;
+
     for(int i = 0 ; i<temp_user->get_followers().size() ; i++)
     {
         cout<<i+1;
