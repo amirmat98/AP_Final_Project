@@ -259,3 +259,40 @@ void Parameter_Handler::handler_delete_comment(Core *ccore, std::map<std::string
     if(!is_in_my_published_film)
         throw Permission();
 }
+
+void Parameter_Handler::handler_search_film(Core *ccore, std::map<std::string, std::string> _parameter,
+                                            std::string &_name, float &_min_rate, int &_min_year, int &_price,
+                                            int &_max_year, std::string &_director)
+{
+    map<string,string>::iterator it;
+
+    it = _parameter.find("name");
+    _name = "";
+    if(it != _parameter.end())
+        _name = it->second;
+
+    it = _parameter.find("min_rate");
+    _min_rate = 0 ;
+    if(it != _parameter.end())
+        _min_rate = stoi(it->second);
+
+    it = _parameter.find("min_year");
+    _min_year = 0;
+    if(it != _parameter.end())
+        _min_year = stoi(it->second);
+
+    it = _parameter.find("price");
+    _price = -1;
+    if(it != _parameter.end())
+        _price = stoi(it->second);
+
+    it = _parameter.find("max_year");
+    _max_year = 1000000000;
+    if(it != _parameter.end())
+        _max_year = stoi(it->second);
+
+    it = _parameter.find("director");
+    _director = "";
+    if(it != _parameter.end())
+        _director = it->second;
+}

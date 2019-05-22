@@ -95,6 +95,52 @@ void Film::print_film()
     cout<<director;
 }
 
+void Film::print_recom_film()
+{
+    cout<<ID;
+    cout<<" "<<"|"<<" ";
+    cout<<name;
+    cout<<" "<<"|"<<" ";
+    cout<<length;
+    cout<<" "<<"|"<<" ";
+    cout<<director;
+}
+
+void Film::print_detailed_film()
+{
+    cout<<"Details of Film "<<name<<endl;
+    cout<<"Id = "<<ID<<endl;
+    cout<<"Director = "<<director<<endl;
+    cout<<"Length = "<<length<<endl;
+    cout<<"Year = "<<year<<endl;
+    cout<<"Summary = "<<summary<<endl;
+    cout<<"Rate = "<<rate<<endl;
+    cout<<"Price = "<<price<<endl;
+}
+
+void Film::print_all_comment()
+{
+    cout<<"Comments"<<endl;
+    for(int i = 0 ; i<my_comments.size() ; i++)
+    {
+        cout<<my_comments[i].get_ID();
+        cout<<". ";
+        cout<<my_comments[i].get_comment();
+        cout<<endl;
+
+        for(int j = 0 ; j<my_comments[i].get_replies().size() ; j++)
+        {
+            cout<<my_comments[i].get_ID();
+            cout<<".";
+            cout<<j+1;
+            cout<<". ";
+            cout<<my_comments[i].get_replies()[j];
+            cout<<" ";
+        }
+        cout<<endl;
+    }
+}
+
 void Film::add_to_my_comment(Comment _temp_comment)
 {
     _temp_comment.set_ID(my_comments.size() + 1 );

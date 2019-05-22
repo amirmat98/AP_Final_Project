@@ -143,6 +143,17 @@ void Core::handel()
                 cerr<<ex.what()<<endl;
             }
         }
+        if(right_now_order == "films")
+        {
+            try
+            {
+                get_search_films(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
+        }
     }
 }
 
@@ -386,39 +397,74 @@ void Core::add_following(std::map<std::string, std::string> _parameter)
 
 void Core::get_search_films(std::map<std::string, std::string> _parameter)
 {
-    map<string,string>::iterator it;
+    if(right_now_user->get_my_type() == GUEST)
+        throw Permission();
 
-    it = _parameter.find("name");
-    string _name = "";
+    map<string,string>::iterator it = _parameter.find("film_id");
+
+    if(it == _parameter.end())
+    {
+        string _name, _director;
+        float _min_rate;
+        int _min_year, _price, _max_year;
+        param->handler_search_film(this, _parameter, _name, _min_rate, _min_year, _price, _max_year, _director);
+        search_in_film(_name, _min_rate, _min_year, _price, _max_year, _director);
+    }
     if(it != _parameter.end())
-        _name = it->second;
+    {
+        bool is_in_film = false;
+        for(int i = 0 ; i<my_films.size() ; i++)
+        {
+            if(my_films[i]->get_ID() == stoi(it->second))
+                is_in_film = true;
+        }
+        if(!is_in_film)
+            throw Find();
+        
+        my_films[stoi(it->second)]->print_detailed_film();
+        cout<<endl;
+        my_films[stoi(it->second)]->print_all_comment();
+        cout<<endl;
+        print_recommendation_films();
+        cout<<endl;
+    }
+}
 
-    it = _parameter.find("min_rate");
-    int _min_rate = 0 ;
-    if(it != _parameter.end())
-        _min_rate = stoi(it->second);
+void Core::print_recommendation_films()
+{
+    cout<<"Recommendation Film"<<endl;
 
-    it = _parameter.find("min_year");
-    int _min_year = 0;
-    if(it != _parameter.end())
-        _min_year = stoi(it->second);
+    vector<Film*> temp_films = sort_rated_film();
 
-    it = _parameter.find("price");
-    int _price = -1;
-    if(it != _parameter.end())
-        _price = stoi(it->second);
+    cout<<"#. Film Id | Film Name | Film Length | Film Director";
 
-    it = _parameter.find("max_year");
-    int _max_year = 100000;
-    if(it != _parameter.end())
-        _max_year = stoi(it->second);
+    for(int i = 0 ; i<temp_films.size() ; i++)
+    {
+        cout<<i+1;
+        cout<<".";
+        cout<<" ";
+        temp_films[i]->print_recom_film();
+        cout<<endl;
+    }
 
-    it = _parameter.find("director");
-    string _director = "";
-    if(it != _parameter.end())
-        _director = it->second;
+}
 
-    search_in_film(_name,_min_rate,_min_year,_price,_max_year,_director);
+vector<Film*> Core::sort_rated_film()
+{
+    vector<Film*> temp;
+    for(int i = 0 ; i<my_films.size() ; i++)
+    {
+        Film* temper = my_films[i];
+        for(int j = i ; j < my_films.size() ; j++)
+        {
+            if(my_films[j]->get_rate() > temper->get_rate())
+            {
+                temper = my_films[j];
+            }
+        }
+        temp.push_back(temper);
+    }
+    return temp;
 }
 
 void Core::search_in_film(std::string _name, int _min_rate, int _min_year, int _price, int _max_year,
@@ -431,7 +477,7 @@ void Core::search_in_film(std::string _name, int _min_rate, int _min_year, int _
             continue;
         if (my_films[i]->get_rate() < _min_rate)
             continue;
-        if(my_films[i]->get_year() < _max_year)
+        if(my_films[i]->get_year() < _min_year)
             continue;
         if(_price!=-1 && my_films[i]->get_price() != _price)
             continue;
@@ -442,6 +488,8 @@ void Core::search_in_film(std::string _name, int _min_rate, int _min_year, int _
 
         temp.push_back(my_films[i]);
     }
+
+    cout<<"#. Film Id | Film Name | Film Length | Film price | Rate | Production Year | Film Director"<<endl;
 
     for(int i = 0 ; i<temp.size() ; i++)
     {

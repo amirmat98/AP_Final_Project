@@ -42,6 +42,9 @@ public:
     void set_summary(std::string);
     void set_director(std::string);
     void print_film();
+    void print_detailed_film();
+    void print_all_comment();
+    void print_recom_film();
     void add_to_my_comment(Comment _temp_comment);
     std::vector<Comment> get_my_comments();
     void delete_a_comment(int _comment_id);

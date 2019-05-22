@@ -69,6 +69,8 @@ private:
     user_type current_user ;
     //User* right_now_user;
     float account_money;
+    void print_recommendation_films();
+    std::vector<Film*> sort_rated_film();
 
 
 
