@@ -178,7 +178,7 @@ vector<User*> User::sort_following()
 void User::add_following(User * add)
 {
     my_following.push_back(add);
-    add->send_following_message(this);
+    this->send_following_message(add);
 }
 
 void User::add_comment(int _film_id, std::string _content)

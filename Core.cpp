@@ -46,7 +46,16 @@ void Core::handel()
         }
         if(right_now_order == "followers")
         {
-            add_following(right_now_parameter);
+            try
+            {
+                add_following(right_now_parameter);
+            }
+
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
+
         }
 
         if(right_now_order == "money")
