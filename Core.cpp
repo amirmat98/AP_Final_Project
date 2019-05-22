@@ -62,7 +62,12 @@ void Core::handel()
         {
             try
             {
-                receive_money_from_core();
+
+                // اگر پخش کننده باشم ولی نخواهم پولم را از شبکه بگیرم چی ؟
+                if(right_now_user->get_my_type() == PUBLISHER)
+                    receive_money_from_core();
+                adding_money(right_now_parameter);
+
             }
             catch (exception& ex)
             {
@@ -498,5 +503,18 @@ void Core::receive_money_from_core()
 
     Publisher* temp = dynamic_cast<Publisher*> (right_now_user);
     temp->display_money();
+    //print_successfuly_message();
+}
+
+void Core::adding_money(std::map<std::string, std::string> _parameter)
+{
+    if(right_now_user->get_my_type() == GUEST)
+        throw Permission();
+    map<string,string>::iterator it;
+    float _amount = 0;
+    it = _parameter.find("amount");
+    if(it != _parameter.end())
+        _amount = stof(it->second);
+    right_now_user->add_money(_amount);
     print_successfuly_message();
 }

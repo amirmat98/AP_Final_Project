@@ -56,6 +56,7 @@ public:
     void receive_money_from_core();
     void add_reply_to_comment(std::map<std::string,std::string> _parameter);
     void deleting_comment(std::map<std::string,std::string> _parameter);
+    void adding_money(std::map<std::string,std::string> _parameter);
 
 private:
     int number_of_users = 0;
