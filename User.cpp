@@ -105,7 +105,7 @@ void User::print_my_film(std::string _name, int _min_rate, int _min_year, int _p
             continue;
         if (my_films[i]->get_rate() < _min_rate)
             continue;
-        if(my_films[i]->get_year() < _max_year)
+        if(my_films[i]->get_year() < _min_year)
             continue;
         if(_price!=-1 && my_films[i]->get_price() != _price)
             continue;
@@ -118,7 +118,9 @@ void User::print_my_film(std::string _name, int _min_rate, int _min_year, int _p
     }
 
 
-    cout<<
+
+    cout<<"#. Film Id | Film Name | Film Length | Film price | Rate | Production Year | Film Director"<<endl;
+
     for(int i = 0 ; i<temp.size() ; i++)
     {
         cout<<i+1;

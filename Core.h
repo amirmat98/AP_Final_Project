@@ -53,6 +53,7 @@ public:
     std::vector<User*> get_my_users();
     std::vector<Film*> get_my_films();
     void receive_money_from_core();
+    void add_reply_to_comment(std::map<std::string,std::string> _parameter);
 
 
 

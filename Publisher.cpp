@@ -55,6 +55,22 @@ vector<User*> Publisher::sort_followers()
     return temp;
 }
 
+vector<Film*> Publisher::sort_published_films()
+{
+    vector<Film*> temp;
+    for(int i = 0 ; i<my_published_films.size() ; i++)
+    {
+        Film* temper = my_published_films[i];
+        for(int j = i ; j<my_published_films.size() ; j++)
+        {
+            if(temper->get_ID() > my_published_films[j]->get_ID())
+                temper = my_published_films[j];
+        }
+        temp.push_back(temper);
+    }
+    return temp;
+}
+
 vector<Film*> Publisher::get_film()
 {
     return my_films;
@@ -71,24 +87,27 @@ Film* Publisher::pointer_of_my_film(int _ID)
 
 void Publisher::print_my_film(std::string _name, int _min_rate, int _min_year , int _price , int _max_year, std::string _director)
 {
+    vector<Film*> sorted_my_published_films = this->sort_published_films();
     vector<Film*> temp;
-    for(int i = 0 ; i<my_published_films.size() ; i++)
+    for(int i = 0 ; i<sorted_my_published_films.size() ; i++)
     {
-        if( _name!="" && my_published_films[i]->get_name() != _name)
+        if( _name!="" && sorted_my_published_films[i]->get_name() != _name)
             continue;
-        if (my_published_films[i]->get_rate() < _min_rate)
+        if (sorted_my_published_films[i]->get_rate() < _min_rate)
             continue;
-        if(my_published_films[i]->get_year() < _max_year)
+        if(sorted_my_published_films[i]->get_year() < _min_year)
             continue;
-        if(_price!=-1 && my_published_films[i]->get_price() != _price)
+        if(_price!=-1 && sorted_my_published_films[i]->get_price() != _price)
             continue;
-        if(my_published_films[i]->get_year() > _max_year)
+        if(sorted_my_published_films[i]->get_year() > _max_year)
             continue;
-        if(_director!="" && my_published_films[i]->get_director() != _director)
+        if(_director!="" && sorted_my_published_films[i]->get_director() != _director)
             continue;
 
-        temp.push_back(my_published_films[i]);
+        temp.push_back(sorted_my_published_films[i]);
     }
+
+    cout<<"#. Film Id | Film Name | Film Length | Film price | Rate | Production Year | Film Director"<<endl;
 
     for(int i = 0 ; i<temp.size() ; i++)
     {

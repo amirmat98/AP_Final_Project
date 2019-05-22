@@ -22,3 +22,9 @@ DELETE films ? film_id 1
 POST   login  ?  username sosoia       password   123456789
 DELETE films ? film_id 2
 POST   login  ?  username amirmat98       password   M22536951
+POST   login  ?  username sosoia       password   123456789
+GET   published ? max_year 2011
+POST   login  ?  username amirmat98       password   M22536951
+GET   published ? min_year 2011
+GET published ? name salam
+

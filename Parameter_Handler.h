@@ -36,6 +36,13 @@ public:
     void handler_delete_film(std::map<std::string, std::string> _parameter , int& _film_id);
     void check_validate_film_for_delete(Core* ccore , int _film_id);
 
+    ///print published films///
+    void handler_print_published_film(std::map<std::string, std::string> _parameter , std::string& _name ,
+            float& _min_rate , int& _min_year , int& _price , int& _max_year,
+            std::string& _director);
+
+    ///add reply to comment///
+
 };
 
 
