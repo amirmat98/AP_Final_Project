@@ -62,7 +62,14 @@ void Core::handel()
         }
         if(right_now_order == "replies")
         {
-
+            try
+            {
+                add_reply_to_comment(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
         }
     }
     else if(right_now_order_type == PUT)
@@ -85,6 +92,17 @@ void Core::handel()
         if(right_now_order == "films")
         {
             delete_film(right_now_parameter);
+        }
+        if(right_now_order == "comments")
+        {
+            try
+            {
+                deleting_comment(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
         }
     }
     else if (right_now_order_type == GET)
@@ -199,6 +217,8 @@ void Core::add_film(std::map<std::string, std::string> _parameter)
     temp->set_publisher(right_now_user);
     right_now_user->add_in_my_films(temp);
     my_films.push_back(right_now_user->pointer_of_my_film(temp->get_ID()));
+    Publisher* temp_publisher = dynamic_cast<Publisher*>(right_now_user);
+    temp_publisher->send_published_film_message_for_followers();
     print_successfuly_message();
 
 }
@@ -288,11 +308,53 @@ void Core::get_published_film(std::map<std::string, std::string> _parameter)
 
 void Core::add_reply_to_comment(std::map<std::string, std::string> _parameter)
 {
+    try
+    {
+        if(right_now_user->get_my_type() != PUBLISHER)
+            throw Permission();
+        int _film_id, _comment_id;
+        string _content;
+        param->handler_add_reply(this, _parameter, _film_id, _comment_id, _content);
+        Publisher* temp_user = dynamic_cast<Publisher*>(right_now_user);
+        temp_user->reply_to_comment(_film_id,_comment_id,_content);
+        string message_content;
+        param->handler_content_of_message_for_reply(message_content);
+        User * temp_receiver =  my_films[_film_id]->get_my_comments()[_comment_id].get_sender();
+        Message temp_message(right_now_user , temp_receiver , message_content);
+        my_films[_film_id]->get_my_comments()[_comment_id].get_sender()->add_message(temp_message);
+        print_successfuly_message();
+    }
+    catch (exception& ex)
+    {
+        cerr<<ex.what()<<endl;
+    }
 
+
+}
+
+void Core::deleting_comment(std::map<std::string, std::string> _parameter)
+{
+    try
+    {
+        if(right_now_user->get_my_type() != PUBLISHER)
+            throw Permission();
+        int _film_id, _comment_id;
+        param->handler_delete_comment(this, _parameter ,_film_id, _comment_id);
+        Publisher* temp_user = dynamic_cast<Publisher*> (right_now_user);
+        temp_user->delete_comment(_film_id,_comment_id);
+        print_successfuly_message();
+    }
+    catch (exception& ex)
+    {
+        cerr<<ex.what()<<endl;
+    }
 }
 
 void Core::add_following(std::map<std::string, std::string> _parameter)
 {
+    if(right_now_user->get_my_type() == GUEST)
+        throw Permission();
+
     map<string,string>::iterator it;
     it = _parameter.find("user_id");
     User* temp;
@@ -302,6 +364,10 @@ void Core::add_following(std::map<std::string, std::string> _parameter)
             temp = my_users[i];
     }
     right_now_user->add_following(temp);
+
+    Publisher* temp_publisher = dynamic_cast<Publisher*>(temp);
+    temp_publisher->add_followers(right_now_user);
+    print_successfuly_message();
 }
 
 void Core::get_search_films(std::map<std::string, std::string> _parameter)

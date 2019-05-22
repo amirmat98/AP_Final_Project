@@ -2,9 +2,15 @@
 
 using namespace std;
 
-Comment::Comment(std::string _comment)
+Comment::Comment(std::string _comment , User* _sender)
 {
     my_comment = _comment;
+    sender = _sender;
+}
+
+User* Comment::get_sender()
+{
+    return sender;
 }
 
 string Comment::get_comment()

@@ -189,3 +189,73 @@ void Parameter_Handler::handler_print_published_film(std::map<std::string, std::
         _director = it->second;
 
 }
+
+void Parameter_Handler::handler_add_reply(Core* ccore , std::map<std::string, std::string> _parameter, int &_film_id,
+                                          int &_comment_id, std::string _content)
+{
+
+    map<string,string>::iterator it;
+    it = _parameter.find("film_id");
+    _film_id = stoi(it->second);
+
+    it = _parameter.find("comment_id");
+    _comment_id = stoi(it->second);
+
+    it = _parameter.find("content");
+    _content = it->second;
+
+    bool is_in_my_film = false;
+    for(int i = 0 ; i<ccore->get_my_films().size(); i++)
+    {
+        if(ccore->get_my_films()[i]->get_ID() == _film_id)
+            is_in_my_film = true;
+    }
+    if(!is_in_my_film)
+        throw Find();
+
+
+    bool is_in_my_published_film = false;
+    for(int i = 0 ; i<ccore->right_now_user->get_film().size() ;  i++)
+    {
+        if(ccore->right_now_user->get_film()[i]->get_ID() == _film_id)
+            is_in_my_published_film = true;
+    }
+    if(!is_in_my_published_film)
+        throw Permission();
+
+}
+
+void Parameter_Handler::handler_content_of_message_for_reply(std::string &_content_message)
+{
+    _content_message = "reply to your comment";
+}
+
+void Parameter_Handler::handler_delete_comment(Core *ccore, std::map<std::string, std::string> _parameter,
+                                               int &_film_id, int &_comment_id)
+{
+    map<string,string>::iterator it;
+    it = _parameter.find("film_id");
+    _film_id = stoi(it->second);
+
+    it = _parameter.find("comment_id");
+    _comment_id = stoi(it->second);
+
+    bool is_in_my_film = false;
+    for(int i = 0 ; i<ccore->get_my_films().size(); i++)
+    {
+        if(ccore->get_my_films()[i]->get_ID() == _film_id)
+            is_in_my_film = true;
+    }
+    if(!is_in_my_film)
+        throw Find();
+
+
+    bool is_in_my_published_film = false;
+    for(int i = 0 ; i<ccore->right_now_user->get_film().size() ;  i++)
+    {
+        if(ccore->right_now_user->get_film()[i]->get_ID() == _film_id)
+            is_in_my_published_film = true;
+    }
+    if(!is_in_my_published_film)
+        throw Permission();
+}

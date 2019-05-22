@@ -8,6 +8,7 @@
 #include "Film.h"
 #include "Money_Handler.h"
 #include "Parameter_Handler.h"
+#include "Message.h"
 
 static void print_successfuly_message()
 {
@@ -54,8 +55,7 @@ public:
     std::vector<Film*> get_my_films();
     void receive_money_from_core();
     void add_reply_to_comment(std::map<std::string,std::string> _parameter);
-
-
+    void deleting_comment(std::map<std::string,std::string> _parameter);
 
 private:
     int number_of_users = 0;

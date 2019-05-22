@@ -15,9 +15,11 @@ private:
     bool unread;
 
 public:
-    Message(User* _sender , User* _receiver , std::string _content);
+    Message(User* , User*, std::string _content);
+    Message(User*,std::string _content);
     void print();
     bool get_state();
+    void set_receiver(User* _receiver);
 };
 
 

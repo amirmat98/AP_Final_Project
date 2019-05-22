@@ -11,6 +11,8 @@ class Parameter_Handler
 public:
     Parameter_Handler();
 
+    void handler_content_of_message_for_reply(std::string& _content_message);
+
     ///sign up///
     void handler_sign_up(std::map<std::string,std::string>& _parameter ,
             std::string& _email , std::string& _username , std::string& _password ,
@@ -42,6 +44,11 @@ public:
             std::string& _director);
 
     ///add reply to comment///
+    void handler_add_reply(Core* ccore , std::map<std::string, std::string> _parameter , int& _film_id , int& _comment_id ,
+            std::string _content);
+
+    ///delete comment///
+    void handler_delete_comment(Core* ccore , std::map<std::string, std::string> _parameter , int& _film_id , int& _comment_id);
 
 };
 

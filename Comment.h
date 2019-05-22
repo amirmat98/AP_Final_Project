@@ -3,18 +3,23 @@
 
 #include "Header.h"
 #include "Film.h"
+#include "User.h"
+
+class User;
 
 class Comment
 {
 
 private:
+    User* sender;
     std::string my_comment;
     std::vector <std::string> my_replies;
     int ID;
 
 public:
-    Comment(std::string _comment);
+    Comment(std::string _comment , User*);
     std::string get_comment();
+    User* get_sender();
     std::vector <std::string> get_replies();
     int get_ID();
     void add_reply(std::string _reply);

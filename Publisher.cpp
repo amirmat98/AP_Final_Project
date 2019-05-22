@@ -73,7 +73,7 @@ vector<Film*> Publisher::sort_published_films()
 
 vector<Film*> Publisher::get_film()
 {
-    return my_films;
+    return my_published_films;
 }
 
 Film* Publisher::pointer_of_my_film(int _ID)
@@ -128,6 +128,16 @@ void Publisher::reply_to_comment(int _film_id, int _comment_id, std::string _con
             temper = my_published_films[i];
     }
 
+    bool is_in_my_comment = false;
+    for(int i = 0 ; i<temper->get_my_comments().size() ; i++)
+    {
+        if(temper->get_my_comments()[i].get_ID() == _comment_id)
+            is_in_my_comment = true;
+    }
+
+    if(!is_in_my_comment)
+        throw Find();
+
     Comment* temp;
     for(int i = 0 ; i<temper->get_my_comments().size() ; i++)
     {
@@ -158,4 +168,20 @@ void Publisher::set_money(int _amount)
 void Publisher::display_money()
 {
     money += reserved_money;
+}
+
+void Publisher::send_published_film_message_for_followers()
+{
+    string temp_content = "register new film";
+    for(int i = 0 ; i<my_followers.size() ; i++)
+    {
+        Message temp_message(this,my_followers[i],temp_content);
+        my_followers[i]->add_message(temp_message);
+    }
+}
+
+void Publisher::add_followers(User* add)
+{
+    my_followers.push_back(add);
+
 }

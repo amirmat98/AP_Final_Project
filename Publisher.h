@@ -5,6 +5,8 @@
 #include "User.h"
 #include "Film.h"
 
+class Message;
+
 class Publisher : public User
 {
 public:
@@ -13,7 +15,9 @@ public:
     virtual void delete_in_my_films(int x);
     virtual void set_in_my_films(Film& x);
     virtual std::vector<Film*> get_film();
+    void add_followers(User* add);
     std::vector<User*> get_followers();
+
     std::vector<User*> sort_followers();
     std::vector<Film*> sort_published_films();
     virtual Film* pointer_of_my_film(int _ID);
@@ -24,6 +28,8 @@ public:
     virtual void set_money(int _amount);
     void display_money();
     float reserved_money;
+    void send_published_film_message_for_followers();
+
 
 
 

@@ -10,6 +10,13 @@ Message::Message(User *_sender, User *_receiver, std::string _content)
     unread = true;
 }
 
+Message::Message(User * _sender, std::string _content)
+{
+    sender = _sender;
+    content = _content;
+    unread = true;
+}
+
 void Message::print()
 {
     unread = false;
@@ -32,4 +39,9 @@ void Message::print()
 bool Message::get_state()
 {
     return unread;
+}
+
+void Message::set_receiver(User *_receiver)
+{
+    receiver = _receiver;
 }

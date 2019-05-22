@@ -178,11 +178,12 @@ vector<User*> User::sort_following()
 void User::add_following(User * add)
 {
     my_following.push_back(add);
+    add->send_following_message(this);
 }
 
 void User::add_comment(int _film_id, std::string _content)
 {
-    Comment temp(_content);
+    Comment temp (_content , this);
 
     Film* temper;
     for(int i = 0 ; i<my_films.size() ; i++)
@@ -253,4 +254,11 @@ void User::print_read_message(int _limit)
 void User::set_money(int _amount)
 {
     money -= _amount;
+}
+
+void User::send_following_message(User* _receiver)
+{
+    string temp_content = "follow you";
+    Message temp_message(this , _receiver , temp_content);
+    _receiver->add_message(temp_message);
 }
