@@ -190,6 +190,18 @@ void Core::handel()
                 cerr<<ex.what()<<endl;
             }
         }
+        if(right_now_order == "purchased")
+        {
+            try
+            {
+                purchased_film(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
+
+        }
     }
 }
 
@@ -364,6 +376,17 @@ void Core::get_published_film(std::map<std::string, std::string> _parameter)
     param->handler_print_published_film(_parameter , _name , _min_rate , _min_year , _price , _max_year , _director);
     right_now_user->print_my_film(_name , _min_rate , _min_year , _price , _max_year , _director);
     //print_successfuly_message();
+
+}
+
+void Core::purchased_film(std::map<std::string, std::string> _parameter)
+{
+    if(right_now_user->get_my_type() == GUEST)
+        throw Permission();
+    string _name , _director;
+    int _min_year , _max_year ;
+    param->handler_purchased_film(_parameter,_name,_min_year,_max_year,_director);
+    right_now_user->print_purchased_film(_name,_min_year,_max_year,_director);
 
 }
 

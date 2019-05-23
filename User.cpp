@@ -105,6 +105,38 @@ void User::add_buy_film(Film *temp)
     my_films.push_back(temp);
 }
 
+void User::print_purchased_film(std::string _name, int _min_year, int _max_year, std::string _director)
+{
+    vector<Film*> temp;
+    for(int i = 0 ; i<my_films.size() ; i++)
+    {
+        if( _name!="" && my_films[i]->get_name() != _name)
+            continue;
+        if(my_films[i]->get_year() < _min_year)
+            continue;
+        if(my_films[i]->get_year() > _max_year)
+            continue;
+        if(_director!="" && my_films[i]->get_director() != _director)
+            continue;
+
+        temp.push_back(my_films[i]);
+    }
+
+
+
+
+    cout<<"#. Film Id | Film Name | Film Length | Film price | Rate | Production Year | Film Director"<<endl;
+
+    for(int i = 0 ; i<temp.size() ; i++)
+    {
+        cout<<i+1;
+        cout<<".";
+        cout<<" ";
+        temp[i]->print_film();
+        cout<<endl;
+    }
+}
+
 void User::print_my_film(std::string _name, int _min_rate, int _min_year, int _price, int _max_year,
                          std::string _director)
 {

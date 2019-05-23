@@ -64,6 +64,10 @@ public:
     ///comment film///
     void handler_comment_film(Core* ccore , std::map<std::string,std::string> _parameter , int& _film_id , std::string& _content);
 
+    ///purchased film////
+    void handler_purchased_film(std::map<std::string, std::string> _parameter , std::string& _name ,
+                                int& _min_year , int& _max_year,
+                                std::string& _director);
 };
 
 

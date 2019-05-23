@@ -52,6 +52,8 @@ POST   login  ?  username Hesam       password   M22536951
 POST  money  ? amount  40000
 POST  buy ? film_id  2
 POST rate ? film_id 2 score 8.7
+POST comment ? film_id 3 content khkhube
+POST comment ? film_id 2 content khkhube
 
 
 
