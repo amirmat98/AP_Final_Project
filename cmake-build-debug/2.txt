@@ -54,8 +54,12 @@ POST  buy ? film_id  2
 POST rate ? film_id 2 score 8.7
 POST comment ? film_id 3 content khkhube
 POST comment ? film_id 2 content khkhube
-
-
+POST  buy ? film_id  3
+POST  buy ? film_id  4
+POST  buy ? film_id  5
+GET purchased
+GET purchased ? min_year 2013
+GET notifications read ? limit 5
 
 
 

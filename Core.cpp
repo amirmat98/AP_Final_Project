@@ -16,7 +16,7 @@ void Core::main()
         my_input_handler->run();
         param = new Parameter_Handler();
         handel();
-        cout<<"-----"<<endl;
+        //cout<<"-----"<<endl;
     }
 }
 
@@ -195,6 +195,18 @@ void Core::handel()
             try
             {
                 purchased_film(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
+
+        }
+        if(right_now_order == "notifications")
+        {
+            try
+            {
+                notifications(right_now_parameter);
             }
             catch (exception& ex)
             {
@@ -668,4 +680,19 @@ void Core::adding_money(std::map<std::string, std::string> _parameter)
         _amount = stof(it->second);
     right_now_user->add_money(_amount);
     print_successfuly_message();
+}
+
+void Core::notifications(std::map<std::string, std::string> _parameter)
+{
+    map<string,string>::iterator it;
+    it = _parameter.find("limit");
+
+    if(it == _parameter.end())
+    {
+        right_now_user->print_unread_message();
+    }
+    if(it != _parameter.end())
+    {
+        right_now_user->print_read_message(stoi(it->second));
+    }
 }
