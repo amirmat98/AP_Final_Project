@@ -109,6 +109,18 @@ void Core::handel()
             }
 
         }
+        if(right_now_order == "comment")
+        {
+            try
+            {
+                comment_film(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
+
+        }
     }
     else if(right_now_order_type == PUT)
     {
@@ -574,6 +586,17 @@ void Core::add_score(std::map<std::string, std::string> _parameter)
     print_successfuly_message();
 
 
+}
+
+void Core::comment_film(std::map<std::string, std::string> _parameter)
+{
+    if(right_now_user->get_my_type() == GUEST)
+        throw Permission();
+    int _film_id;
+    string _content;
+    param->handler_comment_film(this , _parameter , _film_id , _content);
+    right_now_user->add_comment(_film_id,_content);
+    print_successfuly_message();
 }
 
 void Core::add_money_to_account(float _amount)

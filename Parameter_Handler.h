@@ -61,6 +61,9 @@ public:
     ///rating film///
     void handler_rating_film(Core* ccore , std::map<std::string,std::string> _parameter , int& _film_id , float& _score);
 
+    ///comment film///
+    void handler_comment_film(Core* ccore , std::map<std::string,std::string> _parameter , int& _film_id , std::string& _content);
+
 };
 
 

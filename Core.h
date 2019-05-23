@@ -50,7 +50,7 @@ public:
 
     void get_search_films(std::map<std::string, std::string> _parameter);
     void buying_film(std::map<std::string,std::string> _parameter);
-
+    void comment_film(std::map<std::string,std::string> _parameter);
     void add_score(std::map<std::string,std::string> _parameter);
     void add_money_to_account(float _amount);
     std::vector<User*> get_my_users();

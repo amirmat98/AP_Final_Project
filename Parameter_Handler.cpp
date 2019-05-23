@@ -348,3 +348,37 @@ void Parameter_Handler::handler_rating_film(Core *ccore, std::map<std::string, s
     if(_score<0 || _score>10)
         throw Request();
 }
+
+void Parameter_Handler::handler_comment_film(Core *ccore, std::map<std::string, std::string> _parameter, int &_film_id,
+                                             std::string &_content)
+{
+    map<string,string>::iterator it;
+    it = _parameter.find("film_id");
+    if(it == _parameter.end())
+        throw Request();
+    _film_id = stoi(it->second);
+
+    it = _parameter.find("content");
+    if(it == _parameter.end())
+        throw Request();
+    _content = it->second;
+
+
+    bool is_be_in_my_film = false;
+    for(int i = 0 ; i<ccore->get_my_films().size() ; i++)
+    {
+        if(ccore->get_my_films()[i]->get_ID() == _film_id)
+            is_be_in_my_film = true;
+    }
+    if(!is_be_in_my_film)
+        throw Find();
+
+    bool is_been_buy = false;
+    for(int i = 0 ; i<ccore->right_now_user->get_buy_film().size() ; i++ )
+    {
+        if(ccore->right_now_user->get_buy_film()[i]->get_ID() == _film_id)
+            is_been_buy = true;
+    }
+    if(!is_been_buy)
+        throw Permission();
+}

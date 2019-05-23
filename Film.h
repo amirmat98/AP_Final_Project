@@ -19,7 +19,7 @@ private:
     std::string summary;
     std::string director;
     int ID;
-    int number_of_comments = 0;
+    //int number_of_comments = 0;
     std::vector<Comment> my_comments;
     float my_score;
     User* my_publisher;
@@ -51,6 +51,7 @@ public:
     void calculate_score();
     float get_score();
     User* get_publisher();
+    int number_of_comments;
 };
 
 

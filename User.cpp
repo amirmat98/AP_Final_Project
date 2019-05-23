@@ -201,9 +201,12 @@ void User::add_comment(int _film_id, std::string _content)
         if(my_films[i]->get_ID() == _film_id)
             temper = my_films[i];
     }
-
-    temp.set_ID(temper->get_my_comments().size() + 1);
+    temper->number_of_comments++;
+    temp.set_ID(temper->number_of_comments);
     temper->add_to_my_comment(temp);
+    string temp_content = "comment on your film " + temper->get_name() + " with id " + to_string(temper->get_ID());
+    Message temp_message (this,temper->get_publisher(),temp_content);
+    temper->get_publisher()->add_message(temp_message);
 }
 
 void User::add_money(float _amount)
