@@ -73,7 +73,7 @@ private:
     user_type current_user ;
     //User* right_now_user;
     float account_money;
-    void print_recommendation_films();
+    void print_recommendation_films(Film* non_in_there);
     bool check_be_in_buy_film(int _film_id);
     std::vector<Film*> sort_rated_film();
 

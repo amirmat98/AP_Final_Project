@@ -61,6 +61,8 @@ map
 -
 Error_Handler.h
 /home/amir/Ap/Assignment 7/phase 1/Error_Handler.h
+iomanip
+-
 
 /home/amir/Ap/Assignment 7/phase 1/Input_Handler.cpp
 Input_Handler.h
@@ -78,6 +80,10 @@ Header.h
 User.h
 /home/amir/Ap/Assignment 7/phase 1/User.h
 
+/home/amir/Ap/Assignment 7/phase 1/Money_Handler.cpp
+Money_Handler.h
+/home/amir/Ap/Assignment 7/phase 1/Money_Handler.h
+
 /home/amir/Ap/Assignment 7/phase 1/Money_Handler.h
 Header.h
 /home/amir/Ap/Assignment 7/phase 1/Header.h
@@ -85,6 +91,10 @@ Core.h
 /home/amir/Ap/Assignment 7/phase 1/Core.h
 Film.h
 /home/amir/Ap/Assignment 7/phase 1/Film.h
+
+/home/amir/Ap/Assignment 7/phase 1/Parameter_Handler.cpp
+Parameter_Handler.h
+/home/amir/Ap/Assignment 7/phase 1/Parameter_Handler.h
 
 /home/amir/Ap/Assignment 7/phase 1/Parameter_Handler.h
 Header.h
@@ -109,4 +119,12 @@ Comment.h
 /home/amir/Ap/Assignment 7/phase 1/Comment.h
 Message.h
 /home/amir/Ap/Assignment 7/phase 1/Message.h
+
+/home/amir/Ap/Assignment 7/phase 1/main.cpp
+Header.h
+/home/amir/Ap/Assignment 7/phase 1/Header.h
+Core.h
+/home/amir/Ap/Assignment 7/phase 1/Core.h
+fstream
+-
 

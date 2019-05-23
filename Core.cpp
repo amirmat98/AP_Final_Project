@@ -18,6 +18,7 @@ void Core::main()
         handel();
         //cout<<"-----"<<endl;
     }
+    cout<<endl;
 }
 
 void Core::handel()
@@ -505,7 +506,7 @@ void Core::get_search_films(std::map<std::string, std::string> _parameter)
         cout<<endl;
         temp_film->print_all_comment();
         cout<<endl;
-        print_recommendation_films();
+        print_recommendation_films(temp_film);
     }
 }
 
@@ -519,23 +520,25 @@ bool Core::check_be_in_buy_film(int _film_id)
     return false;
 }
 
-void Core::print_recommendation_films()
+void Core::print_recommendation_films(Film* non_in_there)
 {
     cout<<"Recommendation Film"<<endl;
 
     vector<Film*> temp_films = sort_rated_film();
 
-    cout<<"#. Film Id | Film Name | Film Length | Film Director";
+    cout<<"#. Film Id | Film Name | Film Length | Film Director"<<endl;
 
-    for(int i = 0 ; i<temp_films.size() ; i++)
-    {
-        if(check_be_in_buy_film(temp_films[i]->get_ID()))
-            temp_films.erase(temp_films.begin() + i);
-    }
     int index = 0;
     for(int i = 0 ; i<temp_films.size() ; i++)
     {
-        cout<<index++;
+        if(index>=4)
+            break;
+        if(check_be_in_buy_film(temp_films[i]->get_ID()))
+            continue;
+        if(temp_films[i] == non_in_there)
+            continue;
+        index++;
+        cout<<index;
         cout<<".";
         cout<<" ";
         temp_films[i]->print_recom_film();
