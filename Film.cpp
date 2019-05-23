@@ -89,7 +89,7 @@ void Film::print_film()
     cout<<" "<<"|"<<" ";
     cout<<price;
     cout<<" "<<"|"<<" ";
-    cout<<rate;
+    cout<<setprecision(2)<<rate;
     cout<<" "<<"|"<<" ";
     cout<<year;
     cout<<" "<<"|"<<" ";
@@ -115,7 +115,7 @@ void Film::print_detailed_film()
     cout<<"Length = "<<length<<endl;
     cout<<"Year = "<<year<<endl;
     cout<<"Summary = "<<summary<<endl;
-    cout<<"Rate = "<<rate<<endl;
+    cout<<"Rate = "<<setprecision(2)<<rate<<endl;
     cout<<"Price = "<<price<<endl;
 }
 

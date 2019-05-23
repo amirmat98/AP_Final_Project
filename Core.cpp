@@ -40,7 +40,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
 
         }
@@ -53,7 +53,7 @@ void Core::handel()
 
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
 
         }
@@ -71,7 +71,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
         }
         if(right_now_order == "replies")
@@ -82,7 +82,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
         }
         if(right_now_order == "buy")
@@ -93,7 +93,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
 
         }
@@ -105,7 +105,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
 
         }
@@ -117,7 +117,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
 
         }
@@ -132,7 +132,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
 
         }
@@ -151,7 +151,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
         }
     }
@@ -165,7 +165,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
         }
         if(right_now_order == "published")
@@ -176,7 +176,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
         }
         if(right_now_order == "films")
@@ -187,7 +187,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
         }
         if(right_now_order == "purchased")
@@ -198,7 +198,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
 
         }
@@ -210,7 +210,7 @@ void Core::handel()
             }
             catch (exception& ex)
             {
-                cerr<<ex.what()<<endl;
+                cout<<ex.what()<<endl;
             }
 
         }
@@ -263,7 +263,7 @@ void Core::sign_up(std::map<std::string, std::string> _parameter)
     }
     catch (exception& ex)
     {
-        cerr<<ex.what()<<endl;
+        cout<<ex.what()<<endl;
     }
 
 }
@@ -282,7 +282,7 @@ void Core::login(std::map<std::string, std::string> _parameter)
     }
     catch (exception& ex)
     {
-        cerr<<ex.what()<<endl;
+        cout<<ex.what()<<endl;
     }
 
 }
@@ -336,7 +336,7 @@ void Core::delete_film(std::map<std::string, std::string> _parameter)
     }
     catch (exception& ex)
     {
-        cerr<<ex.what()<<endl;
+        cout<<ex.what()<<endl;
     }
 
 }
@@ -424,7 +424,7 @@ void Core::add_reply_to_comment(std::map<std::string, std::string> _parameter)
     }
     catch (exception& ex)
     {
-        cerr<<ex.what()<<endl;
+        cout<<ex.what()<<endl;
     }
 
 
@@ -444,7 +444,7 @@ void Core::deleting_comment(std::map<std::string, std::string> _parameter)
     }
     catch (exception& ex)
     {
-        cerr<<ex.what()<<endl;
+        cout<<ex.what()<<endl;
     }
 }
 

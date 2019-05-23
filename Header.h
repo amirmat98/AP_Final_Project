@@ -6,6 +6,7 @@
 #include <string>
 #include <map>
 #include "Error_Handler.h"
+#include <iomanip>
 
 enum order_type {PUT, POST, GET, DELETE};
 /*static std::map<std::string, order_type> map_order_type;
