@@ -58,6 +58,9 @@ public:
     ///buying film///
     void handler_buying_film(Core* ccore , std::map<std::string,std::string> _parameter , int& _film_id);
 
+    ///rating film///
+    void handler_rating_film(Core* ccore , std::map<std::string,std::string> _parameter , int& _film_id , float& _score);
+
 };
 
 

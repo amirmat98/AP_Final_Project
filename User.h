@@ -43,6 +43,7 @@ public:
     virtual void delete_in_my_films(int x);
     virtual Film* pointer_of_my_film(int _ID);
     virtual std::vector<Film*> get_film();
+    std::vector<Film*> get_buy_film();
 
 
     void print();

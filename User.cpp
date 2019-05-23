@@ -95,6 +95,11 @@ vector<Film*> User::get_film()
     return my_films;
 }
 
+vector<Film*> User::get_buy_film()
+{
+    return my_films;
+}
+
 void User::add_buy_film(Film *temp)
 {
     my_films.push_back(temp);

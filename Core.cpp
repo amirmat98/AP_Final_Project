@@ -99,7 +99,15 @@ void Core::handel()
         }
         if(right_now_order == "rate")
         {
-            add_score(right_now_parameter);
+            try
+            {
+                add_score(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
+
         }
     }
     else if(right_now_order_type == PUT)
@@ -552,19 +560,17 @@ void Core::buying_film(std::map<std::string, std::string> _parameter)
 
 void Core::add_score(std::map<std::string, std::string> _parameter)
 {
-    map<string,string>::iterator it;
-
+    if(right_now_user->get_my_type() == GUEST)
+        throw Permission();
     int _film_id;
-    it = _parameter.find("film_id");
-    _film_id = stoi(it->second);
-
     float _score;
-    it = _parameter.find("score");
-    _score = stof(it->second);
 
+    param->handler_rating_film(this , _parameter , _film_id , _score);
+
+    string temp_content = "rate your film " + my_films[_film_id]->get_name() + " with id " + to_string(my_films[_film_id]->get_ID());
+    Message temp_message(right_now_user,my_films[_film_id]->get_publisher(),temp_content);
+    my_films[_film_id]->get_publisher()->add_message(temp_message);
     right_now_user->add_score_to_a_film(_film_id,_score);
-
-
     print_successfuly_message();
 
 
