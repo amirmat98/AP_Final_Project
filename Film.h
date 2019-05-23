@@ -52,6 +52,7 @@ public:
     float get_score();
     User* get_publisher();
     int number_of_comments;
+    Comment* pointer_to_comment(int _comment_id);
 };
 
 

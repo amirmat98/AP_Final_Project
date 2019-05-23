@@ -270,7 +270,7 @@ void User::print_unread_message()
     {
         if(!inbox[inbox.size() -1 -i].get_state())
             continue;
-        cout<<i;
+        cout<<i+1;
         cout<<".";
         cout<<" ";
         inbox[inbox.size() -1 -i].print();
@@ -288,7 +288,7 @@ void User::print_read_message(int _limit)
             break;
         if(inbox[inbox.size() -1 -i].get_state())
             continue;
-        cout<<i;
+        cout<<indexer+1;
         cout<<".";
         cout<<" ";
         inbox[inbox.size() -1 -i].print();

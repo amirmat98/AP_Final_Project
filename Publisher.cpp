@@ -142,7 +142,7 @@ void Publisher::reply_to_comment(int _film_id, int _comment_id, std::string _con
     for(int i = 0 ; i<temper->get_my_comments().size() ; i++)
     {
         if(temper->get_my_comments()[i].get_ID() == _comment_id)
-            temp = &temper->get_my_comments()[i];
+            temp = temper->pointer_to_comment(_comment_id);
     }
 
     temp->add_reply(_content);

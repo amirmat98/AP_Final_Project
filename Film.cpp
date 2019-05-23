@@ -153,6 +153,16 @@ std::vector<Comment> Film::get_my_comments()
     return my_comments;
 }
 
+Comment* Film::pointer_to_comment(int _comment_id)
+{
+    for(int i = 0 ; i<my_comments.size() ; i++)
+    {
+        if(my_comments[i].get_ID() == _comment_id)
+            return &my_comments[i];
+    }
+    throw Find();
+}
+
 void Film::delete_a_comment(int _comment_id)
 {
     vector<Comment>::iterator it;

@@ -81,21 +81,33 @@ void Parameter_Handler::handler_add_film(std::map<std::string, std::string> &_pa
     map<string,string>::iterator it;
 
     it = _parameter.find("name");
+    if(it == _parameter.end())
+        throw Request();
     _name = it->second;
 
     it = _parameter.find("year");
+    if(it == _parameter.end())
+        throw Request();
     _year = stoi(it->second);
 
     it = _parameter.find("length");
+    if(it == _parameter.end())
+        throw Request();
     _length = stoi(it->second);
 
     it = _parameter.find("price");
+    if(it == _parameter.end())
+        throw Request();
     _price = stoi(it->second);
 
     it = _parameter.find("summary");
+    if(it == _parameter.end())
+        throw Request();
     _summary = it->second;
 
     it = _parameter.find("director");
+    if(it == _parameter.end())
+        throw Request();
     _director = it->second;
 }
 
@@ -221,7 +233,7 @@ void Parameter_Handler::handler_print_published_film(std::map<std::string, std::
 }
 
 void Parameter_Handler::handler_add_reply(Core* ccore , std::map<std::string, std::string> _parameter, int &_film_id,
-                                          int &_comment_id, std::string _content)
+                                          int &_comment_id, std::string& _content)
 {
 
     map<string,string>::iterator it;

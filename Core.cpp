@@ -109,7 +109,7 @@ void Core::handel()
             }
 
         }
-        if(right_now_order == "comment")
+        if(right_now_order == "comments")
         {
             try
             {
@@ -415,9 +415,11 @@ void Core::add_reply_to_comment(std::map<std::string, std::string> _parameter)
         temp_user->reply_to_comment(_film_id,_comment_id,_content);
         string message_content;
         param->handler_content_of_message_for_reply(message_content);
-        User * temp_receiver =  my_films[_film_id]->get_my_comments()[_comment_id].get_sender();
+        Film* temp_film = pointer_of_my_film(_film_id);
+        Comment* temper_comment = temp_film->pointer_to_comment(_comment_id);
+        User * temp_receiver =  temper_comment->get_sender();
         Message temp_message(right_now_user , temp_receiver , message_content);
-        my_films[_film_id]->get_my_comments()[_comment_id].get_sender()->add_message(temp_message);
+        temp_receiver->add_message(temp_message);
         print_successfuly_message();
     }
     catch (exception& ex)
@@ -492,12 +494,18 @@ void Core::get_search_films(std::map<std::string, std::string> _parameter)
         if(!is_in_film)
             throw Find();
 
-        my_films[stoi(it->second)]->print_detailed_film();
+        Film* temp_film;
+        for(int i = 0 ; i<my_films.size() ; i++)
+        {
+            if(my_films[i]->get_ID() == stoi(it->second))
+                temp_film = my_films[i];
+        }
+
+        temp_film->print_detailed_film();
         cout<<endl;
-        my_films[stoi(it->second)]->print_all_comment();
+        temp_film->print_all_comment();
         cout<<endl;
         print_recommendation_films();
-        cout<<endl;
     }
 }
 
@@ -522,8 +530,12 @@ void Core::print_recommendation_films()
     for(int i = 0 ; i<temp_films.size() ; i++)
     {
         if(check_be_in_buy_film(temp_films[i]->get_ID()))
-            continue;
-        cout<<i+1;
+            temp_films.erase(temp_films.begin() + i);
+    }
+    int index = 0;
+    for(int i = 0 ; i<temp_films.size() ; i++)
+    {
+        cout<<index++;
         cout<<".";
         cout<<" ";
         temp_films[i]->print_recom_film();
@@ -613,10 +625,10 @@ void Core::add_score(std::map<std::string, std::string> _parameter)
     float _score;
 
     param->handler_rating_film(this , _parameter , _film_id , _score);
-
-    string temp_content = "rate your film " + my_films[_film_id]->get_name() + " with id " + to_string(my_films[_film_id]->get_ID());
-    Message temp_message(right_now_user,my_films[_film_id]->get_publisher(),temp_content);
-    my_films[_film_id]->get_publisher()->add_message(temp_message);
+    Film* temp_film = pointer_of_my_film(_film_id);
+    string temp_content = "rate your film " + temp_film->get_name() + " with id " + to_string(temp_film->get_ID());
+    Message temp_message(right_now_user,temp_film->get_publisher(),temp_content);
+    temp_film->get_publisher()->add_message(temp_message);
     right_now_user->add_score_to_a_film(_film_id,_score);
     print_successfuly_message();
 

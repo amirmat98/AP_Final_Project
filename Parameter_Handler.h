@@ -45,7 +45,7 @@ public:
 
     ///add reply to comment///
     void handler_add_reply(Core* ccore , std::map<std::string, std::string> _parameter , int& _film_id , int& _comment_id ,
-            std::string _content);
+            std::string& _content);
 
     ///delete comment///
     void handler_delete_comment(Core* ccore , std::map<std::string, std::string> _parameter , int& _film_id , int& _comment_id);

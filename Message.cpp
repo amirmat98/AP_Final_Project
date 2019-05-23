@@ -21,7 +21,10 @@ void Message::print()
 {
     unread = false;
 
-    cout<<sender->get_my_type();
+    if(sender->get_my_type() == CUSTOMER)
+        cout<<"User";
+    else
+        cout<<sender->get_my_type();
     cout<<" ";
     cout<<sender->get_username();
     cout<<" ";
