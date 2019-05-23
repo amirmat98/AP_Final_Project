@@ -20,6 +20,7 @@ public:
     Core* my_core;
     Film* my_film;
     Money_Handler(Core* ccore , Film* ffilm);
+    void run();
 };
 
 

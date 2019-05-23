@@ -59,6 +59,8 @@ public:
 
     void add_score_to_a_film(int _film_id , float _score);
 
+    void add_buy_film(Film* temp);
+
     void search_film(std::string _name = "" , int _min_rate = -1  , int _min_year = 0
             , int _price = -1 ,  int _max_year = 100000 , std::string _director = "" );
 

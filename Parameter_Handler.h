@@ -55,6 +55,9 @@ public:
             float& _min_rate , int& _min_year , int& _price , int& _max_year,
             std::string& _director );
 
+    ///buying film///
+    void handler_buying_film(Core* ccore , std::map<std::string,std::string> _parameter , int& _film_id);
+
 };
 
 

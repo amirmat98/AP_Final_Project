@@ -85,6 +85,22 @@ void Core::handel()
                 cerr<<ex.what()<<endl;
             }
         }
+        if(right_now_order == "buy")
+        {
+            try
+            {
+                buying_film(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cerr<<ex.what()<<endl;
+            }
+
+        }
+        if(right_now_order == "rate")
+        {
+            add_score(right_now_parameter);
+        }
     }
     else if(right_now_order_type == PUT)
     {
@@ -420,7 +436,7 @@ void Core::get_search_films(std::map<std::string, std::string> _parameter)
         }
         if(!is_in_film)
             throw Find();
-        
+
         my_films[stoi(it->second)]->print_detailed_film();
         cout<<endl;
         my_films[stoi(it->second)]->print_all_comment();
@@ -428,6 +444,16 @@ void Core::get_search_films(std::map<std::string, std::string> _parameter)
         print_recommendation_films();
         cout<<endl;
     }
+}
+
+bool Core::check_be_in_buy_film(int _film_id)
+{
+    for(int i = 0 ; i<right_now_user->get_film().size() ; i++)
+    {
+        if(right_now_user->get_film()[i]->get_ID() == _film_id)
+            return true;
+    }
+    return false;
 }
 
 void Core::print_recommendation_films()
@@ -440,6 +466,8 @@ void Core::print_recommendation_films()
 
     for(int i = 0 ; i<temp_films.size() ; i++)
     {
+        if(check_be_in_buy_film(temp_films[i]->get_ID()))
+            continue;
         cout<<i+1;
         cout<<".";
         cout<<" ";
@@ -501,6 +529,27 @@ void Core::search_in_film(std::string _name, int _min_rate, int _min_year, int _
     }
 }
 
+void Core::buying_film(std::map<std::string, std::string> _parameter)
+{
+    if(right_now_user->get_my_type() == GUEST)
+        throw Permission();
+    int _film_id;
+    param->handler_buying_film(this , _parameter , _film_id);
+    Film* temp_buying_film;
+    for(int i = 0 ; i<my_films.size() ; i++)
+    {
+        if(my_films[i]->get_ID() == _film_id)
+            temp_buying_film = my_films[i];
+    }
+    Money_Handler* my_money_handler = new Money_Handler(this, temp_buying_film);
+    my_money_handler->run();
+    right_now_user->add_buy_film(temp_buying_film);
+    string temp_content = "buy your film "+temp_buying_film->get_name()+ " with id " + to_string(temp_buying_film->get_ID());
+    Message temp_message(right_now_user,temp_buying_film->get_publisher(), temp_content);
+    temp_buying_film->get_publisher()->add_message(temp_message);
+    print_successfuly_message();
+}
+
 void Core::add_score(std::map<std::string, std::string> _parameter)
 {
     map<string,string>::iterator it;
@@ -515,6 +564,8 @@ void Core::add_score(std::map<std::string, std::string> _parameter)
 
     right_now_user->add_score_to_a_film(_film_id,_score);
 
+
+    print_successfuly_message();
 
 
 }

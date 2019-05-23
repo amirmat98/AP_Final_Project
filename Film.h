@@ -22,7 +22,6 @@ private:
     int number_of_comments = 0;
     std::vector<Comment> my_comments;
     float my_score;
-    void calculate_score();
     User* my_publisher;
 
 public:
@@ -49,6 +48,7 @@ public:
     std::vector<Comment> get_my_comments();
     void delete_a_comment(int _comment_id);
     std::vector<float> scores;
+    void calculate_score();
     float get_score();
     User* get_publisher();
 };

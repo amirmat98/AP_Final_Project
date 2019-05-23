@@ -175,6 +175,7 @@ void Film::calculate_score()
     temp = temp/scores.size();
 
     my_score = temp;
+    rate = my_score;
 }
 
 void Film::set_publisher(User* _publisher)

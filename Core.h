@@ -49,6 +49,8 @@ public:
             , int _price = -1 ,  int _max_year = 100000 , std::string _director = "" );
 
     void get_search_films(std::map<std::string, std::string> _parameter);
+    void buying_film(std::map<std::string,std::string> _parameter);
+
     void add_score(std::map<std::string,std::string> _parameter);
     void add_money_to_account(float _amount);
     std::vector<User*> get_my_users();
@@ -70,6 +72,7 @@ private:
     //User* right_now_user;
     float account_money;
     void print_recommendation_films();
+    bool check_be_in_buy_film(int _film_id);
     std::vector<Film*> sort_rated_film();
 
 

@@ -40,7 +40,18 @@ POST   films  ?  name Taban    year   1980   length   70   price  500  summary  
 POST   films  ?  name Bye    year   1998   length   105   price  350  summary  dastan director parham
 GET films ? min_year 1998
 GET films
-
+POST   login  ?  username Joodi       password   M22536951
+POST  money  ? amount  55000
+POST  buy ? film_id  2
+POST rate ? film_id 2 score 8.1
+POST   login  ?  username sosoia       password   123456789
+POST  money  ? amount  10000
+POST  buy ? film_id  2
+POST rate ? film_id 2 score 7.8
+POST   login  ?  username Hesam       password   M22536951
+POST  money  ? amount  40000
+POST  buy ? film_id  2
+POST rate ? film_id 2 score 8.7
 
 
 

@@ -296,3 +296,22 @@ void Parameter_Handler::handler_search_film(Core *ccore, std::map<std::string, s
     if(it != _parameter.end())
         _director = it->second;
 }
+
+
+void Parameter_Handler::handler_buying_film(Core *ccore, std::map<std::string, std::string> _parameter, int &_film_id)
+{
+    map<string,string>::iterator it;
+    it = _parameter.find("film_id");
+    if(it == _parameter.end())
+        throw Request();
+    _film_id = stoi(it->second);
+    bool be_in_my_film = false;
+    for(int i = 0 ; i<ccore->get_my_films().size() ; i++)
+    {
+        if(ccore->get_my_films()[i]->get_ID() == _film_id)
+            be_in_my_film = true;
+    }
+    if(!be_in_my_film)
+        throw Find();
+
+}

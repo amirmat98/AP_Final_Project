@@ -95,6 +95,11 @@ vector<Film*> User::get_film()
     return my_films;
 }
 
+void User::add_buy_film(Film *temp)
+{
+    my_films.push_back(temp);
+}
+
 void User::print_my_film(std::string _name, int _min_rate, int _min_year, int _price, int _max_year,
                          std::string _director)
 {
@@ -210,6 +215,7 @@ void User::add_score_to_a_film(int _film_id, float _score)
             temp = my_films[i];
     }
     temp->scores.push_back(_score);
+    temp->calculate_score();
 }
 
 void User::add_message(Message _temp)
