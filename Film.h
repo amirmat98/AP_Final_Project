@@ -23,6 +23,7 @@ private:
     std::vector<Comment> my_comments;
     float my_score;
     User* my_publisher;
+    std::vector<User*> my_buyer;
 
 public:
     Film(std::string _name , int _year , int _length , int _price , std::string _summary , std::string _director);
@@ -42,6 +43,8 @@ public:
     void set_director(std::string);
     void print_film();
     void print_detailed_film();
+    void add_buyer(User* temp_buyer);
+    std::vector<User*> get_buyer();
     void print_all_comment();
     void print_recom_film();
     void add_to_my_comment(Comment _temp_comment);

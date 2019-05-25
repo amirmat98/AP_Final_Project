@@ -6,6 +6,7 @@ Core::Core()
 {
     //my_input_file = my_file;
     current_user = GUEST;
+    my_graph = new Film_Graph();
 }
 
 void Core::main()
@@ -16,7 +17,8 @@ void Core::main()
         my_input_handler->run();
         param = new Parameter_Handler();
         handel();
-        //cout<<"-----"<<endl;
+        my_graph->update(this);
+        cout<<"-----"<<endl;
     }
     cout<<endl;
 }
@@ -613,6 +615,7 @@ void Core::buying_film(std::map<std::string, std::string> _parameter)
     }
     Money_Handler* my_money_handler = new Money_Handler(this, temp_buying_film);
     my_money_handler->run();
+    temp_buying_film->add_buyer(right_now_user);
     right_now_user->add_buy_film(temp_buying_film);
     string temp_content = "buy your film "+temp_buying_film->get_name()+ " with id " + to_string(temp_buying_film->get_ID());
     Message temp_message(right_now_user,temp_buying_film->get_publisher(), temp_content);

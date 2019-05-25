@@ -33,7 +33,7 @@ string Input_Handler::get_input()
 void Input_Handler::process(std::string& right_now_input)
 {
     remove_space(right_now_input);
-    //cout<<right_now_input<<endl;
+    cout<<right_now_input<<endl;
     set_order_type(right_now_input);
     set_order(right_now_input);
     if(my_core->right_now_order == "notifications")

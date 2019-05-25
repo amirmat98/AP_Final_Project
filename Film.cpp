@@ -203,3 +203,13 @@ User* Film::get_publisher()
 {
     return my_publisher;
 }
+
+void Film::add_buyer(User *temp_buyer)
+{
+    my_buyer.push_back(temp_buyer);
+}
+
+vector<User*> Film::get_buyer()
+{
+    return my_buyer;
+}

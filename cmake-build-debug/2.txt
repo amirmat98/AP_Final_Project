@@ -44,10 +44,13 @@ POST   login  ?  username Joodi       password   M22536951
 POST  money  ? amount  55000
 POST  buy ? film_id  2
 POST rate ? film_id 2 score 8.1
+POST  buy ? film_id  4
+POST  buy ? film_id  3
 POST   login  ?  username sosoia       password   123456789
 POST  money  ? amount  10000
 POST  buy ? film_id  2
 POST rate ? film_id 2 score 7.8
+POST  buy ? film_id  4
 POST   login  ?  username Hesam       password   M22536951
 POST  money  ? amount  40000
 POST  buy ? film_id  2

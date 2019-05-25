@@ -258,6 +258,33 @@ Film.cpp.s:
 	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Film.cpp.s
 .PHONY : Film.cpp.s
 
+Film_Graph.o: Film_Graph.cpp.o
+
+.PHONY : Film_Graph.o
+
+# target to build an object file
+Film_Graph.cpp.o:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Film_Graph.cpp.o
+.PHONY : Film_Graph.cpp.o
+
+Film_Graph.i: Film_Graph.cpp.i
+
+.PHONY : Film_Graph.i
+
+# target to preprocess a source file
+Film_Graph.cpp.i:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Film_Graph.cpp.i
+.PHONY : Film_Graph.cpp.i
+
+Film_Graph.s: Film_Graph.cpp.s
+
+.PHONY : Film_Graph.s
+
+# target to generate assembly for a file
+Film_Graph.cpp.s:
+	$(MAKE) -f CMakeFiles/phase_1.dir/build.make CMakeFiles/phase_1.dir/Film_Graph.cpp.s
+.PHONY : Film_Graph.cpp.s
+
 Input_Handler.o: Input_Handler.cpp.o
 
 .PHONY : Input_Handler.o
@@ -471,6 +498,9 @@ help:
 	@echo "... Film.o"
 	@echo "... Film.i"
 	@echo "... Film.s"
+	@echo "... Film_Graph.o"
+	@echo "... Film_Graph.i"
+	@echo "... Film_Graph.s"
 	@echo "... Input_Handler.o"
 	@echo "... Input_Handler.i"
 	@echo "... Input_Handler.s"

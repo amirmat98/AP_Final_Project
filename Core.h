@@ -9,6 +9,7 @@
 #include "Money_Handler.h"
 #include "Parameter_Handler.h"
 #include "Message.h"
+#include "Film_Graph.h"
 
 static void print_successfuly_message()
 {
@@ -18,6 +19,7 @@ static void print_successfuly_message()
 class Input_Handler;
 class Parameter_Handler;
 class Money_Handler;
+class Film_Graph;
 
 class Core
 {
@@ -76,6 +78,7 @@ private:
     void print_recommendation_films(Film* non_in_there);
     bool check_be_in_buy_film(int _film_id);
     std::vector<Film*> sort_rated_film();
+    Film_Graph* my_graph;
 
 
 

@@ -14,6 +14,7 @@ CMakeFiles/phase_1.dir/Core.cpp.o: ../Core.cpp
 CMakeFiles/phase_1.dir/Core.cpp.o: ../Core.h
 CMakeFiles/phase_1.dir/Core.cpp.o: ../Error_Handler.h
 CMakeFiles/phase_1.dir/Core.cpp.o: ../Film.h
+CMakeFiles/phase_1.dir/Core.cpp.o: ../Film_Graph.h
 CMakeFiles/phase_1.dir/Core.cpp.o: ../Header.h
 CMakeFiles/phase_1.dir/Core.cpp.o: ../Input_Handler.h
 CMakeFiles/phase_1.dir/Core.cpp.o: ../Message.h
@@ -36,10 +37,25 @@ CMakeFiles/phase_1.dir/Film.cpp.o: ../Header.h
 CMakeFiles/phase_1.dir/Film.cpp.o: ../Message.h
 CMakeFiles/phase_1.dir/Film.cpp.o: ../User.h
 
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Comment.h
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Core.h
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Error_Handler.h
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Film.h
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Film_Graph.cpp
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Film_Graph.h
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Header.h
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Input_Handler.h
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Message.h
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Money_Handler.h
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Parameter_Handler.h
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../Publisher.h
+CMakeFiles/phase_1.dir/Film_Graph.cpp.o: ../User.h
+
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Comment.h
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Core.h
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Error_Handler.h
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Film.h
+CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Film_Graph.h
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Header.h
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Input_Handler.cpp
 CMakeFiles/phase_1.dir/Input_Handler.cpp.o: ../Input_Handler.h
@@ -61,6 +77,7 @@ CMakeFiles/phase_1.dir/Money_Handler.cpp.o: ../Comment.h
 CMakeFiles/phase_1.dir/Money_Handler.cpp.o: ../Core.h
 CMakeFiles/phase_1.dir/Money_Handler.cpp.o: ../Error_Handler.h
 CMakeFiles/phase_1.dir/Money_Handler.cpp.o: ../Film.h
+CMakeFiles/phase_1.dir/Money_Handler.cpp.o: ../Film_Graph.h
 CMakeFiles/phase_1.dir/Money_Handler.cpp.o: ../Header.h
 CMakeFiles/phase_1.dir/Money_Handler.cpp.o: ../Input_Handler.h
 CMakeFiles/phase_1.dir/Money_Handler.cpp.o: ../Message.h
@@ -74,6 +91,7 @@ CMakeFiles/phase_1.dir/Parameter_Handler.cpp.o: ../Comment.h
 CMakeFiles/phase_1.dir/Parameter_Handler.cpp.o: ../Core.h
 CMakeFiles/phase_1.dir/Parameter_Handler.cpp.o: ../Error_Handler.h
 CMakeFiles/phase_1.dir/Parameter_Handler.cpp.o: ../Film.h
+CMakeFiles/phase_1.dir/Parameter_Handler.cpp.o: ../Film_Graph.h
 CMakeFiles/phase_1.dir/Parameter_Handler.cpp.o: ../Header.h
 CMakeFiles/phase_1.dir/Parameter_Handler.cpp.o: ../Input_Handler.h
 CMakeFiles/phase_1.dir/Parameter_Handler.cpp.o: ../Message.h
@@ -104,6 +122,7 @@ CMakeFiles/phase_1.dir/main.cpp.o: ../Comment.h
 CMakeFiles/phase_1.dir/main.cpp.o: ../Core.h
 CMakeFiles/phase_1.dir/main.cpp.o: ../Error_Handler.h
 CMakeFiles/phase_1.dir/main.cpp.o: ../Film.h
+CMakeFiles/phase_1.dir/main.cpp.o: ../Film_Graph.h
 CMakeFiles/phase_1.dir/main.cpp.o: ../Header.h
 CMakeFiles/phase_1.dir/main.cpp.o: ../Input_Handler.h
 CMakeFiles/phase_1.dir/main.cpp.o: ../Message.h
