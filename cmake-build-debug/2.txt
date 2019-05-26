@@ -17,46 +17,60 @@ POST films ? name film1 year 1999 length 120 price 10000 summary summary|of|film
 POST   films  ?  name nohe    year   2014   length   92   price  250  summary  isaboutnohe director amin
 POST   films  ?  name iran    year   2012   length   128   price  500  summary  iranian director amir
 POST   films  ?  name salam    year   1998   length   105   price  350  summary  dastan director parham
-PUT   films ? film_id 3  name Japan length 220
+POST   put_films ? film_id 3  name Japan length 220
+POST logout
 POST   login  ?  username sosoia       password   123456789
-PUT films ? film_id 4 name hello
+POST put_films ? film_id 4 name hello
+POST logout
 POST   login  ?  username amirmat98       password   M22536951
-PUT films ? film_id 1 director ME
-DELETE films ? film_id 1
-DELETE films ? film_id 5
-DELETE films ? film_id 1
+POST put_films ? film_id 1 director ME
+POST delete_films ? film_id 1
+POST delete_films ? film_id 5
+POST delete_films ? film_id 1
+POST logout
 POST   login  ?  username sosoia       password   123456789
-DELETE films ? film_id 2
+POST delete_films ? film_id 2
+POST logout
 POST   login  ?  username amirmat98       password   M22536951
+POST logout
 POST   login  ?  username sosoia       password   123456789
 GET   published ? max_year 2011
+POST logout
 POST   login  ?  username amirmat98       password   M22536951
 GET   published ? min_year 2011
 GET published ? name salam
+POST logout
 POST   signup  ?  email hesam@@    username   Hesam   password   M22536951   age  16 publisher   true
+POST logout
 POST   signup  ?  email matin.amirmahdi@gmail.com    username   Joodi   password   M22536951   age  20
+POST logout
 POST   login  ?  username Hesam       password   M22536951
 POST followers ? user_id 1
+POST logout
 POST   login  ?  username Joodi       password   M22536951
 POST followers ? user_id 1
 POST followers ? user_id 4
+POST logout
 POST   login  ?  username amirmat98       password   M22536951
 POST   films  ?  name GOT    year   2019   length   13000   price  700  summary  isaboutnohe director amin
 POST   films  ?  name Taban    year   1980   length   70   price  500  summary  iranian director amir
 POST   films  ?  name Bye    year   1998   length   105   price  350  summary  dastan director parham
 GET films ? min_year 1998
 GET films
+POST logout
 POST   login  ?  username Joodi       password   M22536951
 POST  money  ? amount  55000
 POST  buy ? film_id  2
 POST rate ? film_id 2 score 8.1
 POST  buy ? film_id  4
 POST  buy ? film_id  3
+POST logout
 POST   login  ?  username sosoia       password   123456789
 POST  money  ? amount  10000
 POST  buy ? film_id  2
 POST rate ? film_id 2 score 7.8
 POST  buy ? film_id  4
+POST logout
 POST   login  ?  username Hesam       password   M22536951
 POST  money  ? amount  40000
 POST  buy ? film_id  2
@@ -67,6 +81,16 @@ POST  buy ? film_id  3
 POST  buy ? film_id  4
 POST  buy ? film_id  5
 POST logout
+POST   login  ?  username Hesam       password   M22536951
+GET money
+POST logout
+POST   login  ?  username Joodi       password   M22536951
+GET money
+POST logout
+POST   login  ?  username amirmat98       password   M22536951
+GET money
+POST money
+GET money
 GET purchased
 GET purchased ? min_year 2013
 GET notifications read ? limit 5

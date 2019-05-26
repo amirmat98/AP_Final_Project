@@ -151,7 +151,7 @@ void Input_Handler::make_parameter(std::string &x)
 
 bool Input_Handler::check_validate_order(std::string _right_now_order)
 {
-    for (int i = 0 ; i<validate_order->size() ; i++)
+    for (int i = 0 ; i<SIZE_OF_VALIDATE_ORDER ; i++)
     {
         if(_right_now_order == validate_order[i])
             return true;

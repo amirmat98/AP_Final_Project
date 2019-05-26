@@ -315,3 +315,8 @@ void User::send_following_message(User* _receiver)
     Message temp_message(this , _receiver , temp_content);
     _receiver->add_message(temp_message);
 }
+
+void User::get_amount_of_money()
+{
+    cout<<int(money)<<endl;
+}

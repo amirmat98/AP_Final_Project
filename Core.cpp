@@ -254,6 +254,17 @@ void Core::handel()
             }
 
         }
+        if(right_now_order == "money")
+        {
+            try
+            {
+                get_money_of_user();
+            }
+            catch (exception& ex)
+            {
+                cout<<ex.what()<<endl;
+            }
+        }
     }
 }
 
@@ -766,4 +777,12 @@ void Core::logout()
     print_successfuly_message();
 
 
+}
+
+void Core::get_money_of_user()
+{
+    if(right_now_user->get_my_type() == GUEST)
+        throw Permission();
+
+    right_now_user->get_amount_of_money();
 }

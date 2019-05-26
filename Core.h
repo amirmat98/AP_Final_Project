@@ -64,6 +64,7 @@ public:
     void deleting_comment(std::map<std::string,std::string> _parameter);
     void adding_money(std::map<std::string,std::string> _parameter);
     void logout();
+    void get_money_of_user();
 
 private:
     int number_of_users = 0;
