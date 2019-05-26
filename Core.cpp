@@ -133,7 +133,6 @@ void Core::handel()
             try
             {
 
-                // اگر پخش کننده باشم ولی نخواهم پولم را از شبکه بگیرم چی ؟
                 if(right_now_user->get_my_type() == PUBLISHER)
                     receive_money_from_core();
                 adding_money(right_now_parameter);

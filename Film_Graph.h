@@ -22,7 +22,7 @@ private:
     void init_matrix(int size);
     int weight_of_edge(Film* a , Film* b);
     void make_matrix();
-    vector<Film*> make_sorted_recom_film(std::map<Film*,int> x);
+    std::vector<Film*> make_sorted_recom_film(std::map<Film*,int> x);
 
 };
 

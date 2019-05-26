@@ -71,15 +71,20 @@ void Film_Graph::recommendation_film_from_graph(Film *x , std::vector<Film*>& re
 vector<Film*> Film_Graph::make_sorted_recom_film(std::map<Film *, int> x)
 {
     vector<Film*> temp_vector;
-    for(auto it = x.begin() ; it != x.end() ; it++)
+    while (x.size()>0)
     {
-        Film* temp_film = it->first;
-        for(auto it2 = it ; it2 != x.end() ; it2++)
+        map<Film*,int>::iterator it = x.begin();
+        pair <Film*,int> temp = *it;
+        for(auto it2  = x.begin() ; it2 != x.end() ; it2++)
         {
-            if(it2->second > it->second)
-                temp_film = it2->first;
+            if(it2->second > temp.second)
+            {
+                temp = *it2;
+                it = it2;
+            }
         }
-        temp_vector.push_back(temp_film);
+        temp_vector.push_back(temp.first);
+        x.erase(it);
     }
     return temp_vector;
 }
