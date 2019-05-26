@@ -1,11 +1,17 @@
 POST   signup  ?  email matin.amirmahdi@gmail.com    username   amirmat98   password   M22536951   age  24 publisher   true
+POST logout
   POST   signup  ?  email matin.amirmahdi@yahoo.com    username   sosoia   password   123456789   age  21
+POST logout
   POST   signup  ?  email abc@yahoo.com    username   abcd   password   10   age  18
+POST logout
 POST signup ? email matin.amirmahdi@yahoo.com    username   sosoia   password   123456789   age  21
+POST logout
 POST   login  ?  username sosoia       password   12345678
 POST   login  ?  username sosoia       password   123456789
 POST films ? name film1 year 1999 length 120 price 10000 summary summary|of|film1 director director_of_film1
 POST   films  ?  name nohe    year   2014   length   92   price  250  summery  isaboutnohe director amin
+POST   login  ?  username amirmat98       password   M22536951
+POST logout
 POST   login  ?  username amirmat98       password   M22536951
 POST films ? name film1 year 1999 length 120 price 10000 summary summary|of|film1 director director_of_film1
 POST   films  ?  name nohe    year   2014   length   92   price  250  summary  isaboutnohe director amin
@@ -60,6 +66,7 @@ POST comment ? film_id 2 content khkhube
 POST  buy ? film_id  3
 POST  buy ? film_id  4
 POST  buy ? film_id  5
+POST logout
 GET purchased
 GET purchased ? min_year 2013
 GET notifications read ? limit 5

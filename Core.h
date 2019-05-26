@@ -63,6 +63,7 @@ public:
     void add_reply_to_comment(std::map<std::string,std::string> _parameter);
     void deleting_comment(std::map<std::string,std::string> _parameter);
     void adding_money(std::map<std::string,std::string> _parameter);
+    void logout();
 
 private:
     int number_of_users = 0;
@@ -79,6 +80,7 @@ private:
     bool check_be_in_buy_film(int _film_id);
     std::vector<Film*> sort_rated_film();
     Film_Graph* my_graph;
+    User* admin_user;
 
 
 

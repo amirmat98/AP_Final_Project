@@ -162,14 +162,14 @@ bool Input_Handler::check_validate_order(std::string _right_now_order)
 bool Input_Handler::check_validate_order_type(string x)
 {
     if(x != "POST")
-        return false;
+        return true;
     if(x != "PUT")
-        return false;
+        return true;
     if(x != "DELETE")
-        return false;
+        return true;
     if(x != "GET")
-        return false;
+        return true;
 
-    return true;
+    return false;
 
 }

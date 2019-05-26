@@ -39,11 +39,37 @@ void Core::handel()
     {
         if(right_now_order == "signup")
         {
-            sign_up(right_now_parameter);
+            try
+            {
+                sign_up(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cout<<ex.what()<<endl;
+            }
         }
         if(right_now_order == "login")
         {
-            login(right_now_parameter);
+            try
+            {
+                login(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cout<<ex.what()<<endl;
+            }
+        }
+        if(right_now_order == "logout")
+        {
+            try
+            {
+                logout();
+            }
+            catch (exception& ex)
+            {
+                cout<<ex.what()<<endl;
+            }
+
         }
         if(right_now_order == "films")
         {
@@ -57,6 +83,22 @@ void Core::handel()
             }
 
         }
+        if(right_now_order == "put_films")
+        {
+            try
+            {
+                modify_film(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cout<<ex.what()<<endl;
+            }
+
+        }
+        if(right_now_order == "delete_films")
+        {
+            delete_film(right_now_parameter);
+        }
         if(right_now_order == "followers")
         {
             try
@@ -69,6 +111,18 @@ void Core::handel()
                 cout<<ex.what()<<endl;
             }
 
+        }
+
+        if(right_now_order == "delete_comments")
+        {
+            try
+            {
+                deleting_comment(right_now_parameter);
+            }
+            catch (exception& ex)
+            {
+                cout<<ex.what()<<endl;
+            }
         }
 
         if(right_now_order == "money")
@@ -137,36 +191,9 @@ void Core::handel()
     }
     else if(right_now_order_type == PUT)
     {
-        if(right_now_order == "films")
-        {
-            try
-            {
-                modify_film(right_now_parameter);
-            }
-            catch (exception& ex)
-            {
-                cout<<ex.what()<<endl;
-            }
-
-        }
     }
     else if (right_now_order_type == DELETE)
     {
-        if(right_now_order == "films")
-        {
-            delete_film(right_now_parameter);
-        }
-        if(right_now_order == "comments")
-        {
-            try
-            {
-                deleting_comment(right_now_parameter);
-            }
-            catch (exception& ex)
-            {
-                cout<<ex.what()<<endl;
-            }
-        }
     }
     else if (right_now_order_type == GET)
     {
@@ -260,6 +287,8 @@ void Core::sign_up(std::map<std::string, std::string> _parameter)
 {
     try
     {
+        if(right_now_user->get_my_type() != GUEST)
+            throw Request();
         string _email, _username, _password;
         int _age;
         bool _is_publisher = false;
@@ -285,6 +314,8 @@ void Core::login(std::map<std::string, std::string> _parameter)
 {
     try
     {
+        if(right_now_user->get_my_type() != GUEST)
+            throw Request();
         string _username, _password;
         param->handler_loging(_parameter, _username, _password);
         User *temp;
@@ -723,4 +754,16 @@ void Core::notifications(std::map<std::string, std::string> _parameter)
     {
         right_now_user->print_read_message(stoi(it->second));
     }
+}
+
+void Core::logout()
+{
+    if(right_now_user->get_my_type() == GUEST)
+        throw Request();
+
+    right_now_user = new User();
+    right_now_user->set_type(GUEST);
+    print_successfuly_message();
+
+
 }
