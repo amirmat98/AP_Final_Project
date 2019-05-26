@@ -581,7 +581,8 @@ void Core::print_recommendation_films(Film* non_in_there)
 {
     cout<<"Recommendation Film"<<endl;
 
-    vector<Film*> temp_films = sort_rated_film();
+    vector<Film*> temp_films;
+    my_graph->recommendation_film_from_graph(non_in_there,temp_films);
 
     cout<<"#. Film Id | Film Name | Film Length | Film Director"<<endl;
 

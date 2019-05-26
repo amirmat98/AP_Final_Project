@@ -60,3 +60,26 @@ void Film_Graph::make_matrix()
         }
     }
 }
+
+void Film_Graph::recommendation_film_from_graph(Film *x , std::vector<Film*>& recom_film)
+{
+    map<Film*,int> temp_map;
+    temp_map = adjacency_matrix[x];
+    recom_film = make_sorted_recom_film(temp_map);
+}
+
+vector<Film*> Film_Graph::make_sorted_recom_film(std::map<Film *, int> x)
+{
+    vector<Film*> temp_vector;
+    for(auto it = x.begin() ; it != x.end() ; it++)
+    {
+        Film* temp_film = it->first;
+        for(auto it2 = it ; it2 != x.end() ; it2++)
+        {
+            if(it2->second > it->second)
+                temp_film = it2->first;
+        }
+        temp_vector.push_back(temp_film);
+    }
+    return temp_vector;
+}
