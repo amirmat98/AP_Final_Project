@@ -29,6 +29,8 @@ public:
 private:
     std::string make_word(std::string& x);
     void make_parameter(std::string& x);
+    bool check_validate_order(std::string _right_now_order);
+    bool check_validate_order_type(std::string _right_now_order_type);
 
 };
 

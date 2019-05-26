@@ -18,6 +18,8 @@ void initialize()
     map_order_type["DELETE"] = DELETE;
 }*/
 
+const std::string validate_order[12] = {"signup" , "login" , "films" , "followers" , "money" , "published" , " replies" , "comments" , "buy" , "rate" , "purchased" , "notifications"};
+
 enum user_type {PUBLISHER , CUSTOMER , GUEST};
 
 

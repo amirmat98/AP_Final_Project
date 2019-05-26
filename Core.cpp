@@ -6,6 +6,8 @@ Core::Core()
 {
     //my_input_file = my_file;
     current_user = GUEST;
+    right_now_user = new User();
+    right_now_user->set_type(GUEST);
     my_graph = new Film_Graph();
 }
 
@@ -14,7 +16,15 @@ void Core::main()
     while (cin)
     {
         my_input_handler = new Input_Handler(this);
-        my_input_handler->run();
+        //my_input_handler->run();
+        try
+        {
+            my_input_handler->run();
+        }
+        catch (exception& ex)
+        {
+            cout<<ex.what()<<endl;
+        }
         param = new Parameter_Handler();
         handel();
         my_graph->update(this);

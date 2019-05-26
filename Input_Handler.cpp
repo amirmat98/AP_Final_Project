@@ -21,6 +21,8 @@ void Input_Handler::run()
 {
     string right_now_input = get_input();
     process(right_now_input);
+    if(!check_validate_order(my_core->right_now_order))
+        throw Find();
 }
 
 string Input_Handler::get_input()
@@ -80,6 +82,8 @@ void Input_Handler::remove_space(std::string& right_now_input)
 void Input_Handler::set_order_type(string& right_now_input)
 {
     string temp = make_word(right_now_input);
+    if(!check_validate_order_type(temp))
+        throw Request();
     my_core->set_right_now_order_type(temp);
 }
 
@@ -143,4 +147,29 @@ void Input_Handler::make_parameter(std::string &x)
     temp.erase(temp.begin());
     temp.erase(temp.end() - 1);
     x = temp;
+}
+
+bool Input_Handler::check_validate_order(std::string _right_now_order)
+{
+    for (int i = 0 ; i<validate_order->size() ; i++)
+    {
+        if(_right_now_order == validate_order[i])
+            return true;
+    }
+    return false;
+}
+
+bool Input_Handler::check_validate_order_type(string x)
+{
+    if(x != "POST")
+        return false;
+    if(x != "PUT")
+        return false;
+    if(x != "DELETE")
+        return false;
+    if(x != "GET")
+        return false;
+
+    return true;
+
 }

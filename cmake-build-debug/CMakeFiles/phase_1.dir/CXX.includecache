@@ -14,6 +14,10 @@ Film.h
 User.h
 /home/amir/Ap/Assignment 7/phase 1/User.h
 
+/home/amir/Ap/Assignment 7/phase 1/Core.cpp
+Core.h
+/home/amir/Ap/Assignment 7/phase 1/Core.h
+
 /home/amir/Ap/Assignment 7/phase 1/Core.h
 Header.h
 /home/amir/Ap/Assignment 7/phase 1/Header.h
@@ -47,10 +51,6 @@ Comment.h
 /home/amir/Ap/Assignment 7/phase 1/Comment.h
 User.h
 /home/amir/Ap/Assignment 7/phase 1/User.h
-
-/home/amir/Ap/Assignment 7/phase 1/Film_Graph.cpp
-Film_Graph.h
-/home/amir/Ap/Assignment 7/phase 1/Film_Graph.h
 
 /home/amir/Ap/Assignment 7/phase 1/Film_Graph.h
 Header.h

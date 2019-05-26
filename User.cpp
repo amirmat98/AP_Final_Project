@@ -11,6 +11,11 @@ User::User(std::string _email, std::string _username, std::string _password , in
     money = 0;
 }
 
+User::User()
+{
+
+}
+
 /*User* User::add_user(std::string _email, std::string _username, std::string _password, int _age , bool is_publisher)
 {
     if (is_publisher)
@@ -41,6 +46,8 @@ void User::set_type(user_type x)
         my_type = PUBLISHER;
     if(x == CUSTOMER)
         my_type = CUSTOMER;
+    if(x == GUEST)
+        my_type = GUEST;
 }
 
 string User::get_username()

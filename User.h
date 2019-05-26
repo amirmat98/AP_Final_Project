@@ -27,6 +27,7 @@ protected:
 
 public:
     User(std::string, std::string, std::string , int);
+    User();
     //User* add_user(std::string, std::string, std::string , int , bool is_publisher = false);
 
     user_type get_my_type();

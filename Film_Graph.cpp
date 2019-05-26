@@ -12,7 +12,6 @@ void Film_Graph::update(Core* ccore)
     number_of_core_film = my_core->get_my_films().size();
     init_matrix(number_of_core_film);
     make_matrix();
-
 }
 
 void Film_Graph::init_matrix(int size)
