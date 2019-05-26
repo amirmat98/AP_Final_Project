@@ -91,6 +91,12 @@ POST   login  ?  username amirmat98       password   M22536951
 GET money
 POST money
 GET money
+POST logout
+POST   login  ?  username admin       password   ad
+POST   login  ?  username admin       password   admin
+GET money
+POST logout
+POST   login  ?  username amirmat98       password   M22536951
 GET purchased
 GET purchased ? min_year 2013
 GET notifications read ? limit 5

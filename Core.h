@@ -65,6 +65,8 @@ public:
     void adding_money(std::map<std::string,std::string> _parameter);
     void logout();
     void get_money_of_user();
+    User* get_admin_user();
+    void get_money_of_core();
 
 private:
     int number_of_users = 0;
@@ -82,6 +84,7 @@ private:
     std::vector<Film*> sort_rated_film();
     Film_Graph* my_graph;
     User* admin_user;
+    void make_admin();
 
 
 

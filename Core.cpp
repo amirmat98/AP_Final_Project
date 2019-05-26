@@ -9,6 +9,9 @@ Core::Core()
     right_now_user = new User();
     right_now_user->set_type(GUEST);
     my_graph = new Film_Graph();
+    make_admin();
+
+
 }
 
 void Core::main()
@@ -783,6 +786,25 @@ void Core::get_money_of_user()
 {
     if(right_now_user->get_my_type() == GUEST)
         throw Permission();
+    if(right_now_user == get_admin_user())
+        get_money_of_core();
+    else
+        right_now_user->get_amount_of_money();
+}
 
-    right_now_user->get_amount_of_money();
+void Core::make_admin()
+{
+    admin_user = new User("admin@admin.com" , "admin" , "admin" , 0 );
+    admin_user->set_ID(0);
+    my_users.push_back(admin_user);
+}
+
+User* Core::get_admin_user()
+{
+    return admin_user;
+}
+
+void Core::get_money_of_core()
+{
+    cout<<int(account_money)<<endl;
 }

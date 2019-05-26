@@ -23,6 +23,9 @@ void Input_Handler::run()
     process(right_now_input);
     if(!check_validate_order(my_core->right_now_order))
         throw Find();
+    if(check_is_admin_user() && !check_validate_order_for_admin())
+        throw Request();
+
 }
 
 string Input_Handler::get_input()
@@ -171,5 +174,24 @@ bool Input_Handler::check_validate_order_type(string x)
         return true;
 
     return false;
+
+}
+
+bool Input_Handler::check_is_admin_user()
+{
+    if(my_core->right_now_user == my_core->get_admin_user())
+        return true;
+    else
+        return false;
+}
+
+bool Input_Handler::check_validate_order_for_admin()
+{
+    if(my_core->right_now_order_type == GET && my_core->right_now_order == "money")
+        return true;
+    if(my_core->right_now_order_type == POST && my_core->right_now_order == "logout")
+        return true;
+    else
+        return false;
 
 }

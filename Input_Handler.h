@@ -31,6 +31,8 @@ private:
     void make_parameter(std::string& x);
     bool check_validate_order(std::string _right_now_order);
     bool check_validate_order_type(std::string _right_now_order_type);
+    bool check_is_admin_user();
+    bool check_validate_order_for_admin();
 
 };
 
