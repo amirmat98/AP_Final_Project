@@ -8,11 +8,16 @@
 #include <exception>
 #include <string>
 #include <vector>
+#include "Core.h"
+
+class Core;
 
 class TemplateParser;
 
-class RequestHandler {
+class RequestHandler 
+{
 public:
+  Core* my_core;
   virtual ~RequestHandler();
   virtual Response *callback(Request *req) = 0;
 };
@@ -52,6 +57,7 @@ class Server {
 public:
   Server(int port = 5000);
   ~Server();
+  Core* my_core;
   void run();
   void get(std::string path, RequestHandler *handler);
   void post(std::string path, RequestHandler *handler);

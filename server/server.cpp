@@ -225,12 +225,14 @@ Server::Server(int _port) : port(_port) {
 
 void Server::get(string path, RequestHandler *handler) {
   Route *route = new Route(GET, path);
+  handler->my_core = my_core;
   route->setHandler(handler);
   routes.push_back(route);
 }
 
 void Server::post(string path, RequestHandler *handler) {
   Route *route = new Route(POST, path);
+  handler->my_core = my_core;
   route->setHandler(handler);
   routes.push_back(route);
 }
