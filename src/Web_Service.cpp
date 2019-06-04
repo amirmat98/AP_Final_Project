@@ -1,12 +1,11 @@
-#include "web_service.h"
+#include "Web_Service.h"
 
 using namespace std;
 
-web_service::web_service()
+Web_Service::Web_Service()
 {
   try
   {
-    MyServer server;
     server.setNotFoundErrPage("static/404.html");
     server.get("/login", new ShowPage("static/logincss.html"));
     server.post("/login", new LoginHandler());
@@ -16,6 +15,17 @@ web_service::web_service()
     server.get("/home.png", new ShowImage("static/home.png"));
     server.get("/", new ShowPage("static/home.html"));
     server.get("/colors", new ColorHandler("template/colors.html"));
+  }
+  catch (Server::Exception e)
+  {
+    cerr << e.getMessage() << endl;
+  }
+}
+
+void Web_Service::run()
+{
+  try
+  {
     server.run();
   }
   catch (Server::Exception e)

@@ -1,17 +1,20 @@
 #ifndef WEB_SERVICE_H
 #define WEB_SERVICE_H
 
-#include "handlers.h"
+#include "Web_Handlers.h"
 #include "my_server.h"
 #include <cstdlib> // for rand and srand
 #include <ctime>   // for time
 #include <iostream>
+#include "Header.h"
 
 
-class web_service
+class Web_Service
 {
  public:
-  web_service();
+  Web_Service();
+  MyServer server;
+  void run();
 };
 
 #endif
