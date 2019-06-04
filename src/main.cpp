@@ -28,6 +28,7 @@ int main(int argc , char *argv[])
 
     Core netflix;
     Web_Service web_netflix;
+    web_netflix.run();
     netflix.main();
 
     getchar();
