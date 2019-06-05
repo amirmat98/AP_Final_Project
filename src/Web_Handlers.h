@@ -2,15 +2,17 @@
 #define _MY_HANDLERS_
 
 #include "../server/server.hpp"
-#include "Core.h"
 #include <cstdlib> // for rand and srand
 #include <ctime>   // for time
 #include <iostream>
 
-class Core;
+/*class RandomNumberHandler : public RequestHandler {
+public:
+  Response *callback(Request *);
+};*/
 
-
-class RandomNumberHandler : public RequestHandler {
+class SignupHandler : public RequestHandler
+{
 public:
   Response *callback(Request *);
 };

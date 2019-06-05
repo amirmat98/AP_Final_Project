@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Response *RandomNumberHandler::callback(Request *req) {
+/*Response *RandomNumberHandler::callback(Request *req) {
   Response *res = new Response;
   res->setHeader("Content-Type", "text/html");
   string body;
@@ -22,6 +22,11 @@ Response *RandomNumberHandler::callback(Request *req) {
   body += "</html>";
   res->setBody(body);
   return res;
+}*/
+
+Response* SignupHandler::callback(Request* req)
+{
+  
 }
 
 Response *LoginHandler::callback(Request *req) {

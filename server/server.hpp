@@ -4,18 +4,17 @@
 #include "../utils/request.hpp"
 #include "../utils/response.hpp"
 #include "../utils/template_parser.hpp"
+#include "../src/Core.h"
 #include "route.hpp"
 #include <exception>
 #include <string>
 #include <vector>
-#include "Core.h"
 
 class Core;
 
 class TemplateParser;
 
-class RequestHandler 
-{
+class RequestHandler {
 public:
   Core* my_core;
   virtual ~RequestHandler();

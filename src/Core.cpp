@@ -35,15 +35,6 @@ void Core::main()
     cout<<endl;
 }
 
-Core* Core::get_init_pointer()
-{
-    if(core == nullptr)
-    {
-        core = new Core();
-    }
-    return core;
-}
-
 void Core::handel()
 {
     if(right_now_order_type == POST)

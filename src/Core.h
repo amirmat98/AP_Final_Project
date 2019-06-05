@@ -10,7 +10,7 @@
 #include "Parameter_Handler.h"
 #include "Message.h"
 #include "Film_Graph.h"
-#include "Web_Service.h"
+#include "../utils/include.hpp"
 
 
 static void print_successfuly_message()
@@ -27,7 +27,6 @@ class Core
 {
 
 public:
-    static Core* get_init_pointer();
     Core();
     Input_Handler* my_input_handler;
     Parameter_Handler* param;
@@ -72,7 +71,6 @@ public:
     void get_money_of_core();
 
 private:
-    static Core* core;
     int number_of_users = 0;
     int number_of_films = 0;
     std::vector<User*> my_users;

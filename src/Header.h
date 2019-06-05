@@ -8,7 +8,7 @@
 #include "Error_Handler.h"
 #include <iomanip>
 
-//enum order_type {PUT, POST, GET, DELETE};
+//enum Method {GET,POST};
 /*static std::map<std::string, order_type> map_order_type;
 void initialize()
 {

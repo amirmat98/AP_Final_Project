@@ -27,7 +27,7 @@ int main(int argc , char *argv[])
     //my_input_file = get_input_from_file(argv[1]);
 
     Core netflix;
-    Web_Service web_netflix;
+    Web_Service web_netflix(&netflix);
     web_netflix.run();
     netflix.main();
 

@@ -177,7 +177,7 @@ $(BUILD_DIR)/request.o: utils/request.cpp utils/request.hpp utils/include.hpp ut
 $(BUILD_DIR)/utilities.o: utils/utilities.cpp utils/utilities.hpp
 	$(CC) $(CF) -c utils/utilities.cpp -o $(BUILD_DIR)/utilities.o
 
-$(BUILD_DIR)/server.o: server/server.cpp server/server.hpp server/route.hpp utils/utilities.hpp utils/response.hpp utils/request.hpp utils/include.hpp utils/template_parser.hpp utils/template_parser.cpp
+$(BUILD_DIR)/server.o: server/server.cpp server/server.hpp server/route.hpp utils/utilities.hpp utils/response.hpp utils/request.hpp utils/include.hpp utils/template_parser.hpp utils/template_parser.cpp src/Core.h
 	$(CC) $(CF) -c server/server.cpp -o $(BUILD_DIR)/server.o
 
 $(BUILD_DIR)/route.o: server/route.cpp server/route.hpp utils/utilities.hpp utils/response.hpp utils/request.hpp utils/include.hpp
