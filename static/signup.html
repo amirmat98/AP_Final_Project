@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <title>Sign Up</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+        <div class="container">
+            <form action="/signup" method="POST">
+                <div>
+                    <h1>Sign UP</h1>
+                    <div class="form-group">
+                        <label for="user">Username:</label>
+                        <input type="text" class="form-control" placeholder="Enter username" id="user" name="username" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Password:</label>
+                        <input type="password" class="form-control" placeholder="Enter password" id="pass" name="password" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="con-pass">Confirm Password</label>
+                        <input type="password" class="form-control" placeholder="Enter password again" id="con-pass" name="confirmpassword" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" class="form-control" placeholder="Enter your Email" id="email" name="email" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="text" class="form-control" placeholder="Enter your Age" id="age" name="age" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label" for="radio1">
+                            <input type="radio" class="form-check-input" id="radio1" name="type-user" value="customer" checked>Customer
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label" for="radio2">
+                            <input type="radio" class="form-check-input" id="radio2" name="type-user" value="publisher">Publisher
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-success">Sign Up</button>
+                </div> 
+            </form>
+        </div>
+    </body>
+</html>
