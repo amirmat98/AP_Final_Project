@@ -10,6 +10,7 @@ Core::Core()
     right_now_user->set_type(GUEST);
     my_graph = new Film_Graph();
     make_admin();
+    param = new Parameter_Handler();
 }
 
 void Core::main()
@@ -27,7 +28,6 @@ void Core::main()
         {
             cout<<ex.what()<<endl;
         }
-        param = new Parameter_Handler();
         handel();
         my_graph->update(this);
         cout<<"-----"<<endl;
@@ -800,4 +800,15 @@ User* Core::get_admin_user()
 void Core::get_money_of_core()
 {
     cout<<int(account_money)<<endl;
+}
+
+void Core::cout_users()
+{
+    cout<<"-------"<<endl;
+    for(int i = 0 ; i<my_users.size() ; i++)
+    {
+        my_users[i]->print();
+        cout<<endl;
+    }
+    cout << "-------" << endl;
 }

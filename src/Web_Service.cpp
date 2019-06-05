@@ -7,12 +7,18 @@ Web_Service::Web_Service(Core* ccore)
   try
   {
     server.my_core = ccore;
-    server.setNotFoundErrPage("static/404.html");
-    server.get("/login", new ShowPage("static/logincss.html"));
+    server.post("/signup" , new SignupHandler());
+    server.get("/signup" , new ShowPage("static/signup.html"));
     server.post("/login", new LoginHandler());
+    server.get("/login", new ShowPage("static/login.html"));
+    
+
+
+
+    server.setNotFoundErrPage("static/404.html");
     server.get("/up", new ShowPage("static/upload_form.html"));
     server.post("/up", new UploadHandler());
-    server.get("/rand", new RandomNumberHandler());
+    //server.get("/rand", new RandomNumberHandler());
     server.get("/home.png", new ShowImage("static/home.png"));
     server.get("/", new ShowPage("static/home.html"));
     server.get("/colors", new ColorHandler("template/colors.html"));

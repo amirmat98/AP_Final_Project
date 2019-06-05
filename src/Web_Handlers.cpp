@@ -26,17 +26,36 @@ using namespace std;
 
 Response* SignupHandler::callback(Request* req)
 {
-  
+  map< string, string > user_info;
+  if (req->getBodyParam("password") != req->getBodyParam("confirmpassword"))
+  {
+    throw Server::Exception("Password doesn't match");
+  }
+  //user_info["sessionid"] = md5(req->getBodyParam("Username"));
+  user_info["username"] = req->getBodyParam("username");
+  user_info["password"] = req->getBodyParam("password");
+  user_info["email"] = req->getBodyParam("email");
+  user_info["age"] = req->getBodyParam("age");
+  if (req->getBodyParam("type-publisher") == "on")
+  {
+    user_info["publisher"] = "true";
+  }
+  my_core->sign_up(user_info);
+  Response *res = Response::redirect("/homepage");
+  res->setSessionId(req->getBodyParam("username"));
+  my_core->cout_users();
+  return res;
 }
 
-Response *LoginHandler::callback(Request *req) {
-  string username = req->getBodyParam("username");
-  string password = req->getBodyParam("password");
-  if (username == "root")
-    throw Server::Exception("Remote root access has been disabled.");
-  cout << "username: " << username << ",\tpassword: " << password << endl;
-  Response *res = Response::redirect("/rand");
-  res->setSessionId("SID");
+Response *LoginHandler::callback(Request *req) 
+{
+  map<string, string> user_info;
+  //user_info["sessionid"] = md5(req->getBodyParam("Username"));
+  user_info["username"] = req->getBodyParam("username");
+  user_info["password"] = req->getBodyParam("password");
+  my_core->login(user_info);
+  Response *res = Response::redirect("/homepage");
+  res->setSessionId(req->getBodyParam("username"));
   return res;
 }
 

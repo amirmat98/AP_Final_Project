@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <title>Post Film</title>
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav>
+            
+        </nav>
+        <section>
+            <div class="container">
+                <form action="/postfilm" method="POST" class="need-validation">
+                    <h1>Post Film</h1>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" placeholder="Enter Name" id="name" name="name" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="text" class="form-control" placeholder="Enter Prcie" id="price" name="prcie" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="director">Director:</label>
+                        <input type="text" class="form-control" placeholder="Enter Director" id="director" name="director" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year:</label>
+                        <input type="text" class="form-control" placeholder="Enter Year" id="year" name="year" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="length">Length:</label>
+                        <input type="text" class="form-control" placeholder="Enter length" id="length" name="length" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="summary">Summary:</label>
+                        <input type="text" class="form-control" placeholder="Enter Summary" id="summary" name="summary" required>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Login</button>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>

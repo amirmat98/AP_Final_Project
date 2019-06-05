@@ -70,6 +70,8 @@ public:
     User* get_admin_user();
     void get_money_of_core();
 
+    void cout_users();
+
 private:
     int number_of_users = 0;
     int number_of_films = 0;
