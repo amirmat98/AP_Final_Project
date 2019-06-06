@@ -22,6 +22,12 @@ public:
   Response *callback(Request *);
 };
 
+class LogoutHandler : public RequestHandler
+{
+public:
+  Response* callback(Request*);
+};
+
 class PostfilmHandler : public RequestHandler
 {
 public:

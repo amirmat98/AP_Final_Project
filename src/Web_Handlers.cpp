@@ -59,6 +59,14 @@ Response *LoginHandler::callback(Request *req)
   return res;
 }
 
+Response* LogoutHandler::callback(Request* req)
+{
+  my_core->logout();
+  Response *res = Response::redirect("/");
+  res->setSessionId("");
+  return res;
+}
+
 
 Response* PostfilmHandler::callback(Request* req)
 {

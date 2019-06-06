@@ -7,6 +7,7 @@ Web_Service::Web_Service(Core* ccore)
   try
   {
     server.my_core = ccore;
+    server.setNotFoundErrPage("static/404.html");
     server.post("/signup" , new SignupHandler());
     server.get("/signup" , new ShowPage("static/signup.html"));
     server.post("/login", new LoginHandler());
@@ -14,13 +15,8 @@ Web_Service::Web_Service(Core* ccore)
     server.get("/homepage", new HomepageHandler("static/homepage.html"));
     server.get("/postfilm", new ShowPage("static/postfilm.html"));
     server.post("/postfilm", new PostfilmHandler());
+    server.post("/logout", new LogoutHandler());
 
-
-
-
-
-
-    server.setNotFoundErrPage("static/404.html");
     //server.get("/up", new ShowPage("static/upload_form.html"));
     //server.post("/up", new UploadHandler());
     //server.get("/rand", new RandomNumberHandler());

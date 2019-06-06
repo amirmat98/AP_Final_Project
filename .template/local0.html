@@ -14,10 +14,31 @@
 </head>
 
 <body>
-    <nav>
-
+    <nav class="navbav">
+        <div style="display: flex; flex-wrap: wrap">
+            <form action="/charge" method="GET">
+                <button class="btn btn-success" type="submit">
+                    <%
+        				cout << stoi(context["money"]);
+        				context.erase("money");
+        		    %>
+                </button>
+            </form>
+            <%
+        	    if(context["ispublisher"] == "true")
+        	    {
+            %>
+                <a href="/postfilm"><button class="btn btn-success" type="submit" style="color: blue; background-color: yellow;">Post
+                    Film</button></a>
+            <%
+        	    }
+            %>
+            <a href="/profile"><button class="btn btn-success" type="submit">Profile</button></a>
+            <form action="/logout" method="POST">
+                <button class="btn btn-success" type="submit">Log Out</button>
+            </form>
+        </div>
     </nav>
-
     <section>
         <form action="/homepage" method="GET" style="display: flex;">
             <div>
