@@ -12,9 +12,8 @@ Web_Service::Web_Service(Core* ccore)
     server.post("/login", new LoginHandler());
     server.get("/login", new ShowPage("static/login.html"));
     server.get("/homepage", new HomepageHandler("static/homepage.html"));
-
-    //server.get("/postfilm", new ShowPage("static/postfilm.html"));
-    //server.post("/postfilm", new PostfilmHandler());
+    server.get("/postfilm", new ShowPage("static/postfilm.html"));
+    server.post("/postfilm", new PostfilmHandler());
 
 
 

@@ -22,11 +22,11 @@ public:
   Response *callback(Request *);
 };
 
-/*class PostfilmHandler : public RequestHandler
+class PostfilmHandler : public RequestHandler
 {
 public:
   Response* callback(Request*);
-};*/
+};
 
 class HomepageHandler : public TemplateHandler
 {

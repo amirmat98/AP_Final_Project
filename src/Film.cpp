@@ -11,6 +11,7 @@ Film::Film(std::string _name, int _year, int _length, int _price, std::string _s
     summary = _summary;
     director = _director;
     number_of_comments = 0;
+    rate = 0;
 
 }
 

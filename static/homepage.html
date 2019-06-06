@@ -62,6 +62,7 @@
                         <%
                             }
                             context.erase("ispublisher");
+                            context.erase("money");
                         %>
                     </tr>
                 </thead>
@@ -85,11 +86,15 @@
                                 {
                                     if(temp == "candelete")
                                     {
-                        %>
+                        %>          
+                                    <td>
                                         <form action="/deletefilm" method="POST">
                                             <button type="submit" class="btn btn-primary active-pink-4 mb-4" value="<% cout << it->first; %>" name="film_id">Delete</button>
                                         </form>
-                        <%
+                                    </td>
+                        <%          
+                                    temp = "";
+                                    continue;
                                     }
                         %>
                         <td>

@@ -60,7 +60,7 @@ Response *LoginHandler::callback(Request *req)
 }
 
 
-/*Response* PostfilmHandler::callback(Request* req)
+Response* PostfilmHandler::callback(Request* req)
 {
   map<string,string> film_parameter;
   film_parameter["name"] = req->getBodyParam("name");
@@ -69,11 +69,10 @@ Response *LoginHandler::callback(Request *req)
   film_parameter["length"] = req->getBodyParam("length");
   film_parameter["summary"] = req->getBodyParam("summary");
   film_parameter["director"] = req->getBodyParam("director");
-
   my_core->add_film(film_parameter);
   Response *res = Response::redirect("/homepage");
   return res;
-}*/
+}
 
 HomepageHandler::HomepageHandler(string filePath) : TemplateHandler(filePath) 
 {
