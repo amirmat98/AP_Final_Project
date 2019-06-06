@@ -41,4 +41,10 @@ public:
   std::map<std::string, std::string> handle(Request *req);
 };
 
+class DeleteHandler : public RequestHandler
+{
+public:
+  Response* callback(Request*);
+};
+
 #endif

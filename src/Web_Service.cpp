@@ -16,6 +16,7 @@ Web_Service::Web_Service(Core* ccore)
     server.get("/postfilm", new ShowPage("static/postfilm.html"));
     server.post("/postfilm", new PostfilmHandler());
     server.post("/logout", new LogoutHandler());
+    server.post("/deletefilm", new DeleteHandler());
 
     //server.get("/up", new ShowPage("static/upload_form.html"));
     //server.post("/up", new UploadHandler());

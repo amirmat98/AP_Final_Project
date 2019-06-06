@@ -533,7 +533,6 @@ void Core::get_search_films(std::map<std::string, std::string> _parameter)
         float _min_rate;
         int _min_year, _price, _max_year;
         param->handler_search_film(this, _parameter, _name, _min_rate, _min_year, _price, _max_year, _director);
-        cout<<"max year filterd is:"<<_max_year<<endl;
         search_in_film(_name, _min_rate, _min_year, _price, _max_year, _director);
     }
     if(it != _parameter.end())
@@ -637,7 +636,6 @@ void Core::search_in_film(std::string _name, int _min_rate, int _min_year, int _
             continue;
         if(_director!="" && my_films[i]->get_director() != _director)
             continue;
-        cout<<"it's over"<<endl;
         make_home_page_films(my_films[i]);
         temp.push_back(my_films[i]);
     }

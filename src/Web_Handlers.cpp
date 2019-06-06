@@ -133,3 +133,12 @@ map<string,string> HomepageHandler::handle(Request* req)
 
   return context;
 }
+
+Response* DeleteHandler::callback(Request* req)
+{
+  map<string,string> _parameter;
+  _parameter["film_id"] = req->getBodyParam("film_id");
+  my_core->delete_film(_parameter);
+  Response *res = Response::redirect("/homepage");
+  return res;
+}
