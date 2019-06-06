@@ -74,6 +74,7 @@ public:
     void print_read_message(int _limit);
     void send_following_message(User* _receiver);
     void get_amount_of_money();
+    int get_money();
 
 };
 

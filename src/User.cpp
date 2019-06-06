@@ -320,3 +320,8 @@ void User::get_amount_of_money()
 {
     cout<<int(money)<<endl;
 }
+
+int User::get_money()
+{
+    return int(money);
+}

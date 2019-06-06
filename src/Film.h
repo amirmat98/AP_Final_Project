@@ -35,6 +35,7 @@ public:
     void set_year(int);
     int get_year();
     int get_price();
+    int get_length();
     std::string get_director();
     void set_length(int);
     void set_price(int);

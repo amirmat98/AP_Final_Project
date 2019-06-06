@@ -354,6 +354,7 @@ void Core::add_film(std::map<std::string, std::string> _parameter)
     my_films.push_back(right_now_user->pointer_of_my_film(temp->get_ID()));
     Publisher* temp_publisher = dynamic_cast<Publisher*>(right_now_user);
     temp_publisher->send_published_film_message_for_followers();
+    my_graph->update(this);
     print_successfuly_message();
 
 }
@@ -520,6 +521,7 @@ void Core::add_following(std::map<std::string, std::string> _parameter)
 
 void Core::get_search_films(std::map<std::string, std::string> _parameter)
 {
+    my_graph->update(this);
     if(right_now_user->get_my_type() == GUEST)
         throw Permission();
 
@@ -633,7 +635,7 @@ void Core::search_in_film(std::string _name, int _min_rate, int _min_year, int _
             continue;
         if(_director!="" && my_films[i]->get_director() != _director)
             continue;
-
+        make_home_page_films(my_films[i]);
         temp.push_back(my_films[i]);
     }
 
@@ -811,4 +813,47 @@ void Core::cout_users()
         cout<<endl;
     }
     cout << "-------" << endl;
+}
+
+std::map<std::string, std::string> Core::get_home_page_films()
+{
+    return home_page_films;
+}
+
+void Core::make_str_for_home_page_films(Film* x , bool candelete)
+{
+    string temp = x->get_name() + "|" + to_string(x->get_length()) + "|" +
+                  to_string(x->get_price()) + "|" + to_string(x->get_rate()) +
+                  "|" + to_string(x->get_year()) + "|" + x->get_director() + "|";
+    
+    if(candelete)
+        home_page_films[to_string(x->get_ID())] = temp + "candelete|";
+    else
+        home_page_films[to_string(x->get_ID())] = temp;
+}
+
+void Core::make_home_page_films(Film* x)
+{
+    if(right_now_user->get_my_type() == CUSTOMER)
+    {
+        if(right_now_user->get_money() > x->get_price())
+        {
+            make_str_for_home_page_films(x,false);
+        }
+    }
+    if(right_now_user->get_my_type() == PUBLISHER)
+    {
+        if(x->get_publisher() == right_now_user)
+        {
+            make_str_for_home_page_films(x, true);
+        }
+        else
+        {
+            if (right_now_user->get_money() > x->get_price())
+            {
+                make_str_for_home_page_films(x, false);
+            }
+        }
+        
+    }
 }

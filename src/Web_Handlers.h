@@ -22,14 +22,16 @@ public:
   Response *callback(Request *);
 };
 
-class UploadHandler : public RequestHandler {
+/*class PostfilmHandler : public RequestHandler
+{
 public:
-  Response *callback(Request *);
-};
+  Response* callback(Request*);
+};*/
 
-class ColorHandler : public TemplateHandler {
+class HomepageHandler : public TemplateHandler
+{
 public:
-  ColorHandler(std::string filePath);
+  HomepageHandler(std::string filePath);
   std::map<std::string, std::string> handle(Request *req);
 };
 

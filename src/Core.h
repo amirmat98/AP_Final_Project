@@ -69,10 +69,14 @@ public:
     void get_money_of_user();
     User* get_admin_user();
     void get_money_of_core();
-
     void cout_users();
+    std::map<std::string,std::string> get_home_page_films();
+    void make_str_for_home_page_films(Film* x , bool candelete);
+    void make_home_page_films(Film* x);
+
 
 private:
+    std::map<std::string,std::string> home_page_films;
     int number_of_users = 0;
     int number_of_films = 0;
     std::vector<User*> my_users;

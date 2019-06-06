@@ -59,20 +59,70 @@ Response *LoginHandler::callback(Request *req)
   return res;
 }
 
-Response *UploadHandler::callback(Request *req) {
-  string name = req->getBodyParam("file_name");
-  string file = req->getBodyParam("file");
-  cout << name << " (" << file.size() << "B):\n" << file << endl;
-  Response *res = Response::redirect("/");
+
+/*Response* PostfilmHandler::callback(Request* req)
+{
+  map<string,string> film_parameter;
+  film_parameter["name"] = req->getBodyParam("name");
+  film_parameter["price"] = req->getBodyParam("price");
+  film_parameter["year"] = req->getBodyParam("year");
+  film_parameter["length"] = req->getBodyParam("length");
+  film_parameter["summary"] = req->getBodyParam("summary");
+  film_parameter["director"] = req->getBodyParam("director");
+
+  my_core->add_film(film_parameter);
+  Response *res = Response::redirect("/homepage");
   return res;
+}*/
+
+HomepageHandler::HomepageHandler(string filePath) : TemplateHandler(filePath) 
+{
 }
 
-ColorHandler::ColorHandler(string filePath) : TemplateHandler(filePath) {}
 
-map<string, string> ColorHandler::handle(Request *req) {
-  map<string, string> context;
-  string newName = "I am " + req->getQueryParam("name");
-  context["name"] = newName;
-  context["color"] = req->getQueryParam("color");
+map<string,string> HomepageHandler::handle(Request* req)
+{
+  map<string,string> context;
+  map<string, string> filter;
+  filter["name"] = req->getQueryParam("Name");
+  if (req->getQueryParam("Min_rate") != "")
+  {
+    filter["min_rate"] = req->getQueryParam("Min_rate");
+  }
+  if (req->getQueryParam("Min_year") != "")
+  {
+    filter["min_year"] = req->getQueryParam("Min_year");
+  }
+  if (req->getQueryParam("Max_year") != "")
+  {
+    filter["max_year"] = req->getQueryParam("Max_year");
+  }
+  if (req->getQueryParam("Price") != "")
+  {
+    filter["price"] = req->getQueryParam("Price");
+  }
+  filter["summary"] = req->getQueryParam("Summary");
+  filter["director"] = req->getQueryParam("Director");
+  my_core->get_search_films(filter);
+  context = my_core->get_home_page_films();
+  context["money"] = to_string(my_core->right_now_user->get_money());
+  if(my_core->right_now_user->get_my_type() == PUBLISHER)
+  {
+    context["ispublisher"] = "true";
+  }
+  if (my_core->right_now_user->get_my_type() == CUSTOMER )
+  {
+    context["ispublisher"] = "false";
+  }
+
+  cout << "-------" << endl;
+  cout << "context is:" << endl;
+  for (auto it = context.begin(); it != context.end(); it++)
+  {
+    cout << "first: " << it->first << "  second is: " << it->second << endl;
+  }
+  cout << "-------" << endl;
+
+
   return context;
 }

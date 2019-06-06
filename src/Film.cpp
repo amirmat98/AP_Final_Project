@@ -39,6 +39,11 @@ int Film::get_price()
     return price;
 }
 
+int Film::get_length()
+{
+    return length;
+}
+
 string Film::get_director()
 {
     return director;
