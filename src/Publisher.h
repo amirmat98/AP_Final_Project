@@ -27,7 +27,7 @@ public:
     void delete_comment(int _film_id , int _comment_id);
     virtual void set_money(int _amount);
     void display_money();
-    float reserved_money;
+    float reserved_money = 0;
     void send_published_film_message_for_followers();
 
 

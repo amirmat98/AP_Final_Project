@@ -444,12 +444,14 @@ void Core::get_published_film(std::map<std::string, std::string> _parameter)
 
 void Core::purchased_film(std::map<std::string, std::string> _parameter)
 {
+    home_page_films.clear();
     if(right_now_user->get_my_type() == GUEST)
         throw Permission();
     string _name , _director;
     int _min_year , _max_year ;
     param->handler_purchased_film(_parameter,_name,_min_year,_max_year,_director);
     right_now_user->print_purchased_film(_name,_min_year,_max_year,_director);
+    make_profile_page_film(right_now_user->profile_page_films);
 
 }
 
@@ -856,5 +858,13 @@ void Core::make_home_page_films(Film* x)
             }
         }
         
+    }
+}
+
+void Core::make_profile_page_film(vector<Film*> y)
+{
+    for(int i = 0 ; i<y.size() ; i++)
+    {
+        make_home_page_films(y[i]);
     }
 }

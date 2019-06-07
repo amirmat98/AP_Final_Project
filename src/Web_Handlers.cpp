@@ -142,3 +142,64 @@ Response* DeleteHandler::callback(Request* req)
   Response *res = Response::redirect("/homepage");
   return res;
 }
+
+ProfileHandler::ProfileHandler(string filePath) : TemplateHandler(filePath) {}
+
+map<string, string> ProfileHandler::handle(Request *req)
+{
+  map<string, string> context;
+  map<string, string> filter;
+  filter["name"] = req->getQueryParam("Name");
+  if (req->getQueryParam("Min_rate") != "")
+  {
+    filter["min_rate"] = req->getQueryParam("Min_rate");
+  }
+  if (req->getQueryParam("Min_year") != "")
+  {
+    filter["min_year"] = req->getQueryParam("Min_year");
+  }
+  if (req->getQueryParam("Max_year") != "")
+  {
+    filter["max_year"] = req->getQueryParam("Max_year");
+  }
+  if (req->getQueryParam("Price") != "")
+  {
+    filter["price"] = req->getQueryParam("Price");
+  }
+  filter["summary"] = req->getQueryParam("Summary");
+  filter["director"] = req->getQueryParam("Director");
+  my_core->purchased_film(filter);
+  context = my_core->get_home_page_films();
+  context["money"] = to_string(my_core->right_now_user->get_money());
+  if (my_core->right_now_user->get_my_type() == PUBLISHER)
+  {
+    context["ispublisher"] = "true";
+  }
+  if (my_core->right_now_user->get_my_type() == CUSTOMER)
+  {
+    context["ispublisher"] = "false";
+  }
+
+  cout << "-------" << endl;
+  cout << "context is:" << endl;
+  for (auto it = context.begin(); it != context.end(); it++)
+  {
+    cout << "first: " << it->first << "  second is: " << it->second << endl;
+  }
+  cout << "-------" << endl;
+
+  return context;
+}
+
+Response *ChargeHandler::callback(Request *req)
+{
+  if(my_core->right_now_user->get_my_type() == PUBLISHER)
+  {
+    my_core->receive_money_from_core();
+  }
+  map<string,string> _parameter;
+  _parameter["amount"] = req->getBodyParam("amount");
+  my_core->adding_money(_parameter);
+  Response *res = Response::redirect("/profile");
+  return res;
+}

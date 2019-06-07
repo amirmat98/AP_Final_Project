@@ -73,6 +73,7 @@ public:
     std::map<std::string,std::string> get_home_page_films();
     void make_str_for_home_page_films(Film* x , bool candelete);
     void make_home_page_films(Film* x);
+    void make_profile_page_film(std::vector<Film*> y);
 
 
 private:

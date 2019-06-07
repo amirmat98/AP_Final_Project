@@ -17,6 +17,8 @@ Web_Service::Web_Service(Core* ccore)
     server.post("/postfilm", new PostfilmHandler());
     server.post("/logout", new LogoutHandler());
     server.post("/deletefilm", new DeleteHandler());
+    server.get("/profile", new ProfileHandler("static/profile.html"));
+    server.post("/charge", new ChargeHandler());
 
     //server.get("/up", new ShowPage("static/upload_form.html"));
     //server.post("/up", new UploadHandler());

@@ -1,2 +1,2 @@
 ispublisher=true
-money=0
+money=50000

@@ -5,9 +5,11 @@
 #include "Film.h"
 #include "Comment.h"
 #include "Message.h"
+//#include "Core.h"
 
 class Film;
 class Message;
+//class Core;
 
 class User
 {
@@ -21,15 +23,17 @@ protected:
     user_type my_type;
     std::vector<Film*> my_films;
     std::vector<User*> my_following;
-    float money;
+    float money = 0;
     std::vector<Message> inbox;
 
 
 public:
     User(std::string, std::string, std::string , int);
     User();
+    //Core* my_core;
     //User* add_user(std::string, std::string, std::string , int , bool is_publisher = false);
 
+    std::vector<Film*> profile_page_films;    
     user_type get_my_type();
     std::string get_username();
     std::string get_password();

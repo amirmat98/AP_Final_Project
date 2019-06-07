@@ -125,8 +125,9 @@ void User::print_purchased_film(std::string _name, int _min_year, int _max_year,
             continue;
         if(_director!="" && my_films[i]->get_director() != _director)
             continue;
-
+        //my_core->make_home_page_films(my_films[i]);
         temp.push_back(my_films[i]);
+        profile_page_films.push_back(my_films[i]);
     }
 
 

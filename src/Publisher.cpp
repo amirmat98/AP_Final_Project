@@ -167,6 +167,8 @@ void Publisher::set_money(int _amount)
 
 void Publisher::display_money()
 {
+    cout << "money is:" << money << endl;
+    cout << "reserved is:" << reserved_money << endl;
     money += reserved_money;
 }
 

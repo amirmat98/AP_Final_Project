@@ -47,4 +47,17 @@ public:
   Response* callback(Request*);
 };
 
+class ProfileHandler : public TemplateHandler
+{
+public:
+  ProfileHandler(std::string filePath);
+  std::map<std::string, std::string> handle(Request *req);
+};
+
+class ChargeHandler : public RequestHandler
+{
+public:
+  Response *callback(Request *);
+};
+
 #endif
