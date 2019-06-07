@@ -136,6 +136,7 @@ map<string,string> HomepageHandler::handle(Request* req)
 
 Response* DeleteHandler::callback(Request* req)
 {
+  cout << "it's del" << endl;
   map<string,string> _parameter;
   _parameter["film_id"] = req->getBodyParam("film_id");
   my_core->delete_film(_parameter);
@@ -201,5 +202,47 @@ Response *ChargeHandler::callback(Request *req)
   _parameter["amount"] = req->getBodyParam("amount");
   my_core->adding_money(_parameter);
   Response *res = Response::redirect("/profile");
+  return res;
+}
+
+GetfilmHandler::GetfilmHandler(string filePath) : TemplateHandler(filePath)
+{
+}
+
+map<string, string> GetfilmHandler::handle(Request *req)
+{
+  map<string, string> context;
+  map<string, string> _parameter;
+  _parameter["film_id"] = req->getQueryParam("film_id");
+  cout << "film id is:" << req->getQueryParam("film_id") <<endl;
+  my_core->get_search_films(_parameter);
+  context = my_core -> get_home_page_films();
+  context["money"] = to_string(my_core->right_now_user->get_money());
+  if (my_core->right_now_user->get_my_type() == PUBLISHER)
+  {
+    context["ispublisher"] = "true";
+  }
+  if (my_core->right_now_user->get_my_type() == CUSTOMER)
+  {
+    context["ispublisher"] = "false";
+  }
+  cout << "-------" << endl;
+  cout << "context is:" << endl;
+  for (auto it = context.begin(); it != context.end(); it++)
+  {
+    cout << "first: " << it->first << "  second is: " << it->second << endl;
+  }
+  cout << "-------" << endl;
+  return context;
+}
+
+Response *BuyHandler::callback(Request *req)
+{
+  cout<<"it's buy"<<endl;
+  map<string,string> _parameter;
+  _parameter["film_id"] = req->getBodyParam("film_id");
+  my_core->buying_film(_parameter);
+  cout << my_core -> right_now_user ->get_money () << endl;
+  Response *res = Response::redirect("/homepage");
   return res;
 }

@@ -28,13 +28,11 @@
         	    if(context["ispublisher"] == "true")
         	    {
             %>
-            <a href="/postfilm"><button class="btn btn-success" type="submit"
-                    style="color: blue; background-color: yellow;">Post
-                    Film</button></a>
+            <a href="/postfilm"><button class="btn btn-success" type="submit">PostFilm</button></a>
             <%
         	    }
             %>
-            <a href="/profile"><button class="btn btn-success" type="submit">Profile</button></a>
+            <a href="/homepage"><button class="btn btn-success" type="submit">HomePage</button></a>
             <form action="/logout" method="POST">
                 <button class="btn btn-success" type="submit">Log Out</button>
             </form>
@@ -84,7 +82,6 @@
                         <%
                             }
                             context.erase("ispublisher");
-                            context.erase("money");
                         %>
                     </tr>
                 </thead>
@@ -96,7 +93,7 @@
                     <tr>
                         <td>
                             <form action="/getfilm" method="GET">
-                                <button type="submit" class="btn btn-primary" value="5" name="film_id">Show
+                                <button type="submit" class="btn btn-primary" value="<% cout << it->first; %>" name="film_id">Show
                                     details</button>
                             </form>
                         </td>

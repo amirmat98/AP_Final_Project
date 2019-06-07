@@ -11,10 +11,12 @@ Money_Handler::Money_Handler(Core *ccore, Film *ffilm)
 
 void Money_Handler::run()
 {
+    cout<<"price is: "<<my_film->get_price()<<endl;
     my_core->right_now_user->set_money(my_film->get_price());
 
     if(my_film->get_score() < 5)
     {
+        cout<<"it's lower"<<endl;
         Lower_Film(this);
     }
     else if ( my_film->get_score() >= 5 && my_film->get_score() < 8)

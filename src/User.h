@@ -79,6 +79,7 @@ public:
     void send_following_message(User* _receiver);
     void get_amount_of_money();
     int get_money();
+    bool is_in_my_purchased(Film* x);
 
 };
 

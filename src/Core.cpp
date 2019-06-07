@@ -523,6 +523,7 @@ void Core::add_following(std::map<std::string, std::string> _parameter)
 
 void Core::get_search_films(std::map<std::string, std::string> _parameter)
 {
+    home_page_films.clear();
     my_graph->update(this);
     if(right_now_user->get_my_type() == GUEST)
         throw Permission();
@@ -539,6 +540,7 @@ void Core::get_search_films(std::map<std::string, std::string> _parameter)
     }
     if(it != _parameter.end())
     {
+        home_page_films.clear();
         bool is_in_film = false;
         for(int i = 0 ; i<my_films.size() ; i++)
         {
@@ -554,7 +556,16 @@ void Core::get_search_films(std::map<std::string, std::string> _parameter)
             if(my_films[i]->get_ID() == stoi(it->second))
                 temp_film = my_films[i];
         }
-
+        make_home_page_films(temp_film);
+        home_page_films["detail"] = to_string(temp_film->get_ID());
+        if(right_now_user->is_in_my_purchased(temp_film))
+        {
+            home_page_films["canbuy"] = "false";
+        }
+        else if (!right_now_user->is_in_my_purchased(temp_film))
+        {
+            home_page_films["canbuy"] = "true";
+        }
         temp_film->print_detailed_film();
         cout<<endl;
         temp_film->print_all_comment();
@@ -595,6 +606,7 @@ void Core::print_recommendation_films(Film* non_in_there)
         cout<<index;
         cout<<".";
         cout<<" ";
+        make_home_page_films(temp_films[i]);
         temp_films[i]->print_recom_film();
         cout<<endl;
     }
@@ -656,6 +668,7 @@ void Core::search_in_film(std::string _name, int _min_rate, int _min_year, int _
 
 void Core::buying_film(std::map<std::string, std::string> _parameter)
 {
+    home_page_films.clear();
     if(right_now_user->get_my_type() == GUEST)
         throw Permission();
     int _film_id;
@@ -666,8 +679,10 @@ void Core::buying_film(std::map<std::string, std::string> _parameter)
         if(my_films[i]->get_ID() == _film_id)
             temp_buying_film = my_films[i];
     }
+    cout << right_now_user->get_money() << endl;
     Money_Handler* my_money_handler = new Money_Handler(this, temp_buying_film);
     my_money_handler->run();
+    cout << "after : " << right_now_user->get_money() << endl;
     temp_buying_film->add_buyer(right_now_user);
     right_now_user->add_buy_film(temp_buying_film);
     string temp_content = "buy your film "+temp_buying_film->get_name()+ " with id " + to_string(temp_buying_film->get_ID());
@@ -837,6 +852,18 @@ void Core::make_str_for_home_page_films(Film* x , bool candelete)
 
 void Core::make_home_page_films(Film* x)
 {
+    if(right_now_user->is_in_my_purchased(x))
+    {
+        if (x->get_publisher() == right_now_user)
+        {
+            make_str_for_home_page_films(x, true);
+        }
+        else
+        {
+            make_str_for_home_page_films(x, false);
+        }
+        return ;
+    }
     if(right_now_user->get_my_type() == CUSTOMER)
     {
         if(right_now_user->get_money() > x->get_price())
@@ -865,6 +892,7 @@ void Core::make_profile_page_film(vector<Film*> y)
 {
     for(int i = 0 ; i<y.size() ; i++)
     {
+        cout<<"film in make profile is"<<y[i]->get_name()<<endl;
         make_home_page_films(y[i]);
     }
 }

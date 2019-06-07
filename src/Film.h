@@ -15,7 +15,7 @@ private:
     int year;
     int length;
     int price;
-    float rate;
+    float rate = 0;
     std::string summary;
     std::string director;
     int ID;

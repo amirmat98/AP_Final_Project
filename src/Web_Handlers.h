@@ -60,4 +60,17 @@ public:
   Response *callback(Request *);
 };
 
+class GetfilmHandler : public TemplateHandler
+{
+public:
+  GetfilmHandler(std::string filePath);
+  std::map<std::string, std::string> handle(Request *req);
+};
+
+class BuyHandler : public RequestHandler
+{
+public:
+  Response *callback(Request *);
+};
+
 #endif

@@ -307,6 +307,8 @@ void User::print_read_message(int _limit)
 
 void User::set_money(int _amount)
 {
+    cout<<"mon is:"<<money<<endl;
+    cout << "amon is:" << _amount << endl;
     money -= _amount;
 }
 
@@ -325,4 +327,14 @@ void User::get_amount_of_money()
 int User::get_money()
 {
     return int(money);
+}
+
+bool User::is_in_my_purchased(Film* x)
+{
+    for(int i = 0 ; i<my_films.size() ; i++)
+    {
+        if(x == my_films[i])
+            return true;
+    }
+    return false;
 }
