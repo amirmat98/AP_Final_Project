@@ -117,14 +117,14 @@
             %>
             <aside>
             <div class="container">
-                <form action="/boughtoptions" method="POST">
+                <form action="/ratefilm" method="POST">
                     <div style="text-align: center; display: flex;">
                         <h1 style="text-align: center;">Rate</h1>
                         <div class="form-group" style="text-align: center">
                             <p >Rate it:</p>
                             <input type="text" class="form-control" placeholder="Enter Rate" name="Rate" required>
                         </div>
-                        <button type="submit" name="film_id" value='<% cout << context["forsearch"]; %>' class="btn btn-primary">Submit</button>
+                        <button type="submit" name="film_id" value="<% cout<<x;%>" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>

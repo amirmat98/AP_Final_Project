@@ -21,6 +21,7 @@ Web_Service::Web_Service(Core* ccore)
     server.post("/charge", new ChargeHandler());
     server.get("/getfilm", new GetfilmHandler("static/getfilm.html"));
     server.post("/buyfilm", new BuyHandler());
+    server.post("/ratefilm", new RateHandler());
 
     //server.get("/up", new ShowPage("static/upload_form.html"));
     //server.post("/up", new UploadHandler());

@@ -1,3 +1,5 @@
-1=got|158|2500|0.000000|1998|me|
+1=got|154|2500|5.000000|1998|me|
+canbuy=false
+detail=1
 ispublisher=false
 money=2500

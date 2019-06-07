@@ -246,3 +246,18 @@ Response *BuyHandler::callback(Request *req)
   Response *res = Response::redirect("/homepage");
   return res;
 }
+
+Response *RateHandler::callback(Request *req)
+{
+  string rate = "";
+  if (req->getBodyParam("Rate") != "")
+  {
+    rate = req->getBodyParam("Rate");
+  }
+  map<string , string > _parameter;
+  _parameter["film_id"] = req->getBodyParam("film_id");
+  _parameter["score"] = rate;
+  my_core->add_score(_parameter);
+  Response *res = Response::redirect("/homepage");
+  return res;
+}
