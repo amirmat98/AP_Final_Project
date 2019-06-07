@@ -1,5 +1,2 @@
-1=got|154|2500|5.000000|1998|me|
-canbuy=false
-detail=1
-ispublisher=false
-money=2500
+ispublisher=true
+money=0

@@ -201,7 +201,7 @@ Response *ChargeHandler::callback(Request *req)
   map<string,string> _parameter;
   _parameter["amount"] = req->getBodyParam("amount");
   my_core->adding_money(_parameter);
-  Response *res = Response::redirect("/profile");
+  Response *res = Response::redirect("/homepage");
   return res;
 }
 

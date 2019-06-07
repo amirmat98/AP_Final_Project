@@ -22,17 +22,16 @@ Web_Service::Web_Service(Core* ccore)
     server.get("/getfilm", new GetfilmHandler("static/getfilm.html"));
     server.post("/buyfilm", new BuyHandler());
     server.post("/ratefilm", new RateHandler());
+    server.get("/", new ShowPage("static/home.html"));
 
-    //server.get("/up", new ShowPage("static/upload_form.html"));
-    //server.post("/up", new UploadHandler());
-    //server.get("/rand", new RandomNumberHandler());
-    //server.get("/home.png", new ShowImage("static/home.png"));
-    //server.get("/", new ShowPage("static/home.html"));
-    //server.get("/colors", new ColorHandler("template/colors.html"));
   }
   catch (Server::Exception e)
   {
     cerr << e.getMessage() << endl;
+  }
+  catch(exception& ex)
+  {
+    cerr<<ex.what()<<endl;
   }
 }
 
